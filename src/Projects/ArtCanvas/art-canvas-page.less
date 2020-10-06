@@ -1,0 +1,153 @@
+.canvas-header {
+    display: block;
+    float: right;
+    border-bottom: 1px solid #3e3e42;
+}
+
+@media only screen and (min-width: 990px) {
+.line-darkbrown {
+    background: #1E1E1E;
+}
+}
+
+@media only screen and (max-width: 989px) {
+.line-darkbrown {
+    background: #1E1E1E;
+}
+}
+
+.page-wrap {
+    max-width: 1150px;
+    padding: 20px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+@media only screen and (min-width: 880px) {
+#draw-area {
+    display: block;
+}
+}
+
+@media only screen and (max-width: 879px) {
+#draw-area {
+    display: none;
+}
+}
+
+@media only screen and (min-width: 880px) {
+#warn-draw {
+    display: none;
+}
+}
+
+#draw-area {
+    text-align: center;
+}
+
+.canvas-container {
+    border: 1px dotted #ccc;
+    display: inline-block;
+    vertical-align: top;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    margin-bottom: 20px;
+    width: 500px; 
+    height: 500px; 
+    position: relative; 
+    user-select: none;
+}
+
+.lower-canvas {
+    border: 1px solid rgb(170, 170, 170); 
+    position: absolute; 
+    width: 500px; 
+    height: 500px; 
+    left: 0px; 
+    top: 0px; 
+    touch-action: none; 
+    user-select: none;
+}
+
+.menu-edit {
+    width: 300px;
+    height: 500px;
+    position: relative;
+    border: 1px solid #3e3e42;
+    background: #2d2d30;
+    display: inline-block; 
+    margin-left: 10px
+}
+
+.header-buttons {
+    padding: 10px;
+    width: 100%;
+    border-bottom: 1px solid #3e3e42;
+}
+
+#saveImg {
+    color: #fff;
+    background-color: #398439;
+    border-color: #255625;
+}
+
+#clear-canvas, #undoCanvas {
+    color: #fff;
+    background-color: #4e8fb8;
+    border-color: #367fa9;
+}
+
+#saveImg {
+    width: 100%;
+}
+
+#drawing-mode-options {
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    width: 100%;
+}
+
+#art-draw-menu {
+    border: none !important;
+    background: none;
+    width: 100%;
+    vertical-align: central;
+    text-align: left;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+
+.comment-art {
+    width: 100%;
+    text-align: justify;
+    padding: 10px;
+}
+
+.comment-art p {
+    padding-right: 0px;
+}
+
+.footer-buttons {
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid #3e3e42;
+    height: 59px;
+}
+
+#clear-canvas {
+    position: absolute;
+    right: 10px;
+}
+
+#undoCanvas {
+    position: absolute;
+    left: 10px;
+    //width: 100px;
+}
+

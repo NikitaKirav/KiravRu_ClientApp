@@ -1,0 +1,66 @@
+@import "../../style/palette.less";
+
+
+.search_form {
+    background: @background-color;
+    margin: 0 auto;
+    padding: 13px;
+}
+
+.search_form > form > div {
+    display: flex;
+}
+
+.search_input {
+    width: 100%;
+    margin-top: 3px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    background: @background-menu;
+    border: 1px solid @border-color;
+    color: @text-color;
+    /*position: relative; 
+    vertical-align: top;*/
+}
+
+.search_autocomplete {
+    display: block;
+    width: 100%;
+    position: relative; 
+    display:  inline-block; 
+    direction: ltr;
+
+    .search_dropdown_menu {
+        display: none;
+       /* top: -6px;
+        border-radius: 4px;
+        margin: 6px 0 0;
+        padding: 0;
+        text-align: left;
+        height: auto;
+        position: relative;
+        background: transparent;
+        border: none;
+        z-index: 999;
+        max-width: 600px;
+        min-width: 100px;
+        box-shadow: 0 1px 0 0 rgba(0,0,0,.2), 0 2px 3px 0 rgba(0,0,0,.1); */
+    }
+
+    pre {
+        position: absolute; 
+        visibility: hidden;                         
+      /*  white-space: pre; 
+        font-family: 'Lato, Lucida Grande, Lucida Sans Unicode, Tahoma, sans-serif'; 
+        font-size: 16px; 
+        font-style: normal; 
+        font-variant: normal; 
+        font-weight: 400; 
+        word-spacing: 0px; 
+        letter-spacing: normal; 
+        text-indent: 0px;                         
+        text-rendering: auto; 
+        text-transform: none;*/
+    }
+}

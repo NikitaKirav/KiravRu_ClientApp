@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    //cursor: none;
+}
+
+.navigation {
+    top: 0;
+    left: 0;
+
+    &__link {
+        position: absolute;
+
+        &:nth-of-type(1) {
+            top: 9rem;
+            left: 25%;
+        }
+
+        &:nth-of-type(2) {
+            top: 9rem;
+            right: 25%;
+        } 
+
+        &:nth-of-type(3) {
+            right: 25%;
+            bottom: 9rem;
+        }
+
+        &:nth-of-type(4) {
+            left: 25%;
+            bottom: 9rem;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            height: 5rem;
+            width: 5rem;
+            display: block;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            transition: transform .3s cubic-bezier(.36, .02, .25, 1.31);
+        }
+
+        &:hover {
+            &::after {
+                transform: translateX(-50%) translateY(-50%) scale(2);
+            }
+        }
+    }
+
+    &__text {
+        color: #ffffff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-100%);
+        opacity: 0;
+
+        &__active {
+            opacity: 1;
+        }
+
+    }
+
+    &__text_layer {
+        display: block;
+        position: absolute;
+        top: 30px;
+        left: 0;
+        transform: translateX(-50%) translateY(-100%);
+        font-size: 3rem;
+
+        @keyframes move-layer-left {
+            from {
+                transform: translateX(-50%) translateY(-100%);
+            }
+            50% {
+                transform: translateX(calc(-50% - 5px)) translateY(-100%);
+            }
+            to {
+                transform: translateX(-50%) translateY(-100%);
+            }
+        }
+
+
+        @keyframes move-layer-right {
+            from {
+                transform: translateX(-50%) translateY(-100%);
+            }
+            50% {
+                transform: translateX(calc(-50% + 5px)) translateY(-100%);
+            }
+            to {
+                transform: translateX(-50%) translateY(-100%);
+            }
+        }
+
+        &:nth-of-type(1) {
+            z-index: 1;
+        }
+
+        &:nth-of-type(2) {
+            color: #25CED1;
+        }
+
+        &:nth-of-type(3) {
+            color: #EA526F;
+        }
+
+        &__glitch {
+            &:nth-of-type(2) {
+                animation: move-layer-left .5s cubic-bezier(.36, .02, .25, 1.31);
+            }
+
+            &:nth-of-type(3) {
+                animation: move-layer-right .5s cubic-bezier(.36, .02, .25, 1.31);
+            }
+        }
+    }
+}
+

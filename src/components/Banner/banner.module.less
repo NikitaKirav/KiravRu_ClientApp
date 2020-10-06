@@ -1,0 +1,78 @@
+@import "../../style/palette.less";
+@ava_path: "../../../assets/images/ava.png";
+@background_clouds_path: "../../../assets/images/background-clouds.jpg";
+@background_homePage_path: "../../../assets/images/background-homePage.jpg";
+
+
+h1 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.component {
+    width: 100%;
+    overflow: hidden;
+}
+
+.baner {
+    border-bottom: 5px solid @border-color;
+    cursor: none;
+}
+
+#avatar {
+    background: url(@ava_path) no-repeat center bottom;
+    height: 143px;
+    width: 120px;
+    position: relative;
+    float: left;
+    left: 50%;
+    margin-left: -60px;
+    z-index: 99;
+}
+
+
+.baner {
+    background: url(@background_clouds_path) repeat center bottom;
+    position: relative;
+
+    .wallpaper {
+        width: 1100px;
+        margin: 0 auto;
+        overflow: auto;
+        display: grid;
+        align-items: flex-end;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 990px) {
+    .baner .wallpaper {
+        background: url(@background_homePage_path) no-repeat center bottom;
+        height: 415px;
+        padding: 150px 0 40px 0;
+    }
+    .title {
+        font-size: 400%;
+    }
+}
+
+@media only screen and (max-width: 989px) {
+    .baner .wallpaper {
+        width: 100%;
+        background: url(@background_homePage_path) no-repeat center 40%;
+        height: 215px;
+        padding: 20px 0 0 0;
+    }
+    .title {
+        font-size: 2rem;
+    }
+}
+
+
+
+
+
+
+

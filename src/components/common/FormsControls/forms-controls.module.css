@@ -1,0 +1,19 @@
+.formControl.error input,
+.formControl.error textarea {
+    border: 2px solid red;
+}
+
+.formControl.error span {
+    color: red;
+}
+
+.formSummaryError {
+    border: 1px solid red;
+    padding: 5px;
+    color: rebeccapurple;
+}
+
+.checkboxLabel {
+    margin-left: 10px;
+    padding-bottom: 3px;
+}

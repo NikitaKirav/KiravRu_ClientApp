@@ -1,0 +1,46 @@
+@import '../../style/palette.less';
+
+.adminPage {
+    overflow: hidden;
+    display: grid;
+    grid-template-areas: 
+    "l h"
+    "c p"
+    "c f";
+    grid-template-rows: 50px 1fr 50px;   
+    grid-template-columns: 50px 1fr; 
+    min-height: 100vh;
+
+    &:not(.closeMenu) {
+        grid-template-columns: 230px 1fr;
+    }
+}
+
+.topLogo {
+    grid-area: l;
+    background-color: @menu-link-color-hower-admin;
+}
+
+.topMenu {
+    grid-area: h;
+    background-color: @menu-link-color-admin;
+}
+
+.leftMenu {
+    grid-area: c;
+    background-color: @left-menu-color-admin;
+    border-right: 1px solid @border-color-admin;
+}
+
+.mainPart {
+    grid-area: p;
+}
+
+.footer {
+    grid-area: f;
+    padding: 10px;
+    height: 50px;
+    background-color: @footer-color-admin;
+    border-top: 1px solid @border-color-admin;
+    margin-top: auto;
+}

@@ -1,0 +1,122 @@
+@import '../../../style/palette.less';
+
+.containerOuter {
+    width: 100%;
+    overflow: hidden;
+
+    .containerInner {
+        width: 1100px;
+        margin: 0 auto;
+        overflow: auto;
+    }
+}
+
+#mainContent {
+    background-color: #1E1E1E;
+
+    h3 {
+        font-weight: bold;
+        padding: 2em 0 2em 1em;
+        display: block;
+        margin: 0 -30px 1em -30px;
+        color: #fff;
+        position: relative;
+    }
+}
+
+ul {
+    padding-inline-start: 0px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .containerInner, .colLeft, .colRight {
+        width: 100% !important;
+        margin: 0 auto;
+        overflow: auto;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+}
+
+.colLeft {
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 545px;
+    float: left;
+    padding-bottom: 2em;
+}
+
+.lineChocolate {
+    background: @menulink-color-hover; /*url(/images/bg-line-chocolate.png) repeat center top;*/
+
+    &:hover {
+        background: #325d77;
+    }
+}
+
+.colFixedHeight {
+    padding: 1px 0;
+}
+
+.blockTime {
+    font-family: Menlo, Monaco, monospace;
+    display: block;
+    color: #bbbbbb;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 200;
+
+    span {
+        text-transform: none;
+    }
+}
+
+@media only screen and (min-width: 990px) {
+    .blockTime {
+        margin: 0 0 15px 0;
+    }
+    .colRight {
+        margin-left: 6px;
+    }
+}
+
+@media only screen and (max-width: 989px) {
+    .blockTime {
+        margin: 0;
+    }
+    .colRight {
+        margin-left: 0px;
+    }
+}
+
+.colRight {
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 546px;
+    float: left;
+}
+
+.colFixedHeight {
+    /*min-height: 450px;*/
+    padding: 1px 0;
+}
+
+.itemFeed li {
+    list-style: none;
+    margin-bottom: 1em;
+}
+
+.hSpeaking {
+    background: @menulink-color-hover; /*url(/images/bg-h-speaking.jpg) no-repeat right top;*/
+    background-size: cover;
+
+    &:hover {
+        background: #325d77;
+    }
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+

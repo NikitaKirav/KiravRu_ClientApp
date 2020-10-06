@@ -1,0 +1,48 @@
+@import '../../../style/palette.less';
+
+.pages {
+    position: relative;
+    float: left;
+    left: 50%;
+}
+
+.pagination {
+    position: relative;
+    float: right;
+    right: 50%;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+}
+
+.pageItem {
+    position: relative;
+    display: block;
+    //padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: @pagination-color;
+    background-color: @background-menu;
+    border: 1px solid @border-color;
+    cursor: pointer;
+    padding: .5rem .75rem;
+
+    &.selectedPage {
+        background-color: @pagination-background-color-active;
+        border-color: @pagination-background-color-active;
+        color: @pagination-color-active;
+    }
+}
+
+.pageItem:first-child {
+    margin-left: 0;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+
+.pageItem:last-child {
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+}
+

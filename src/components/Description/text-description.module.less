@@ -1,0 +1,67 @@
+@import "../../style/palette.less";
+
+.line_dark_style {
+    background: @background-menu;
+    border-bottom: 1px solid @border-color;
+}
+
+.headline, .headline_text {
+    color: @text-color;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+@media only screen and (min-width: 990px) {
+    .headline {
+        font-size: 4rem;
+    }
+
+    .headline_text {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 989px) {
+    .headline {
+        font-size: 2rem;
+    }
+
+    .headline_text {
+        font-size: 1rem;
+    }
+}
+
+/*BlogDescription*/
+
+.blog_description {
+    text-align: center;
+    padding: 50px 25px;
+
+    .headline_text {
+        max-width: 700px;
+        margin: 0 auto 20px;
+    }
+}
+
+.blog_description p:last-child {
+    margin: 0 auto;
+}
+
+/*HomeDescription*/
+
+.aboutme_description {
+    padding: 30px;
+    width: 1100px;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+@media only screen and (max-width: 1200px) {
+    .aboutme_description {
+        width: 100% !important;
+    }
+}
+
