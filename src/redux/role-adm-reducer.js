@@ -1,4 +1,5 @@
 import { adminAPI } from "../api/kirav-api.js";
+import {checkLifetimeToken} from './auth-main-reducer.js';
 
 const SET_ROLE = 'SET_ROLE';
 const SET_ERRORS = 'SET_ERRORS';
@@ -50,13 +51,16 @@ export const removeRole = () => {
 }
 
 export const postCreateRole = (role) => (dispatch) => {
-    adminAPI.postCreateRole(role).then(data => {
-        if(data.errors) {
-            dispatch(setErrors(data.errors));
-        }  else {
-            dispatch(setRole(data.role));
-        }
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        adminAPI.postCreateRole(role).then(data => {
+            if(data.errors) {
+                dispatch(setErrors(data.errors));
+            }  else {
+                dispatch(setRole(data.role));
+            }
+        });
+    }
 }
 
 export default roleAdmReducer;

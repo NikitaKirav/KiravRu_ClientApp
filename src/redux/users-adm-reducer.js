@@ -1,4 +1,5 @@
 import { adminAPI } from "../api/kirav-api.js";
+import {checkLifetimeToken} from './auth-main-reducer.js';
 
 const SET_USERS = 'SET_USERS';
 const SET_ROLES = 'SET_ROLES';
@@ -66,27 +67,39 @@ export const setRoles = (roles) => {
 }
 
 export const getUsers = (search = '') => (dispatch) => {
-    adminAPI.getUsers(search).then(response => {
-        dispatch(setUsers(response.data.users));
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        adminAPI.getUsers(search).then(response => {
+            dispatch(setUsers(response.data.users));
+        });
+    }
 }
 
 export const getRoles = (search = '') => (dispatch) => {
-    adminAPI.getRoles(search).then(response => {
-        dispatch(setRoles(response.data.roles));
-    })
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        adminAPI.getRoles(search).then(response => {
+            dispatch(setRoles(response.data.roles));
+        });
+    }
 }
 
 export const deleteUser = (userId) => (dispatch) => {
-    adminAPI.getUserDelete(userId).then(() => {
-        dispatch(changeUsers());
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        adminAPI.getUserDelete(userId).then(() => {
+            dispatch(changeUsers());
+        });
+    }
 } 
 
 export const deleteRole = (roleId) => (dispatch) => {
-    adminAPI.getRoleDelete(roleId).then(() => {
-        dispatch(changeRoles());
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        adminAPI.getRoleDelete(roleId).then(() => {
+            dispatch(changeRoles());
+        });
+    }
 }
 
 export default usersAdmReducer;

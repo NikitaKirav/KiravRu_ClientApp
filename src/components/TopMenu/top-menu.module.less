@@ -94,9 +94,14 @@ a {
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 
-    .top_menu .content_menu {
+    .top_menu {
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        
+        .content_menu {
         padding-right: 0;
         padding-left: 0;
+        }
     }
 
     .menu_nav {

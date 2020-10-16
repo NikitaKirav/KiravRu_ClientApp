@@ -1,4 +1,5 @@
 import { imageAPI } from "../api/kirav-api.js";
+import {checkLifetimeToken} from './auth-main-reducer.js';
 
 const SET_DIR_INFOS = 'SET_DIR_INFOS';
 
@@ -26,15 +27,21 @@ export const setDirInfos = (dirInfos) => {
 }
 
 export const getDirInfos = () => (dispatch) => {
-    imageAPI.getDirInfos().then(data => {        
-        dispatch(setDirInfos(data.dirInfos));
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        imageAPI.getDirInfos().then(data => {        
+            dispatch(setDirInfos(data.dirInfos));
+        });
+    }
 }
 
 export const getDirectory = (url) => (dispatch) => {
-    imageAPI.getDirectory(url).then(data => {        
-        dispatch(setDirInfos(data.dirInfos));
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        imageAPI.getDirectory(url).then(data => {        
+            dispatch(setDirInfos(data.dirInfos));
+        });
+    }
 }
 
 export default fileBrowseReducer;

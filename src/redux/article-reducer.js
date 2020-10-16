@@ -1,4 +1,5 @@
 import { blogAPI } from "../api/kirav-api.js";
+import {checkLifetimeToken} from './auth-main-reducer.js';
 
 const SET_ARTICLE = 'SET_ARTICLE';
 const REMOVE_ARTICLE = 'REMOVE_ARTICLE';
@@ -57,39 +58,28 @@ export const removeArticle = () => {
 
 
 export const getArticle = (articleId) => (dispatch) => {
+    checkLifetimeToken()(dispatch);
     blogAPI.getArticle(articleId).then(data => {
          dispatch(setArticle(data));
     });       
 }
 
 export const getArticleEdit = (articleId) => (dispatch) => {
-    //dispatch(removeArticle());
-    blogAPI.getArticleEdit(articleId).then(data => {
-        dispatch(setArticleEdit(data.article, data.categories, data.roles));
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        blogAPI.getArticleEdit(articleId).then(data => {
+            dispatch(setArticleEdit(data.article, data.categories, data.roles));
+        });
+    }
 }
 
 export const postArticleEdit = (article, roles) => (dispatch) => {
-    //dispatch(removeArticle());
-    blogAPI.postArticleEdit(article, roles).then(data => {        
-        dispatch(setArticleEdit(data.article, data.categories, data.roles));
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        blogAPI.postArticleEdit(article, roles).then(data => {        
+            dispatch(setArticleEdit(data.article, data.categories, data.roles));
+        });
+    }
 }
-
-
-//export const getArticleCreate = () => (dispatch) => {
-//    dispatch(removeArticle()); 
-//    blogAPI.getArticleCreate().then(data => {
-//        dispatch(setArticleEdit(data.article, data.categories, data.roles));
-//    });
-//}
-
-//export const postArticleCreate = (article, roles) => (dispatch) => {
-//    dispatch(removeArticle());
-//   blogAPI.postArticleCreate(article, roles).then(data => {        
-//        dispatch(setArticleEdit(data.article, data.categories, data.roles));
-//    });
-//}
-
 
 export default articleReducer;

@@ -1,3 +1,5 @@
+import {baseUrl} from "../../../api/base-url.js";
+
 function LoadImagesInCanvas(msg) {
 
     var width = document.body.clientWidth; // width 
@@ -8,9 +10,9 @@ function LoadImagesInCanvas(msg) {
     let countCell = Math.ceil(((width + cellSize) / cellSize) * 3);
     var k = msg.length-1;
     for (var i = 0; i < countCell; i++) {
-        images[i] = 'http://localhost:58963/images/art/imageDrawing/' + msg[k];
+        images[i] = baseUrl() + '/images/art/imageDrawing/' + msg[k];
         if (i >= msg.length) {
-                images[i] = 'http://localhost:58963/images/art/imageDrawing/default/0.png';
+                images[i] = baseUrl() + '/images/art/imageDrawing/default/0.png';
         }
         k--;
     }
@@ -23,7 +25,7 @@ function LoadImagesInCanvas(msg) {
     function load() {
         let name = images.shift();
         let img = new Image();
-        img.crossOrigin = "anonymous";
+        //img.crossOrigin = "origin";
         // Call the next image to load, until they are all loaded
         // Then they are all loaded, drawing on the canvas
         img.onload = () => add() | images.length ? load() : requestAnimationFrame(draw);

@@ -1,4 +1,5 @@
 import { blogAPI } from "../api/kirav-api";
+import {checkLifetimeToken} from './auth-main-reducer.js';
 
 const SET_CATEGORIES = 'SET_CATEGORIES';
 const CHANGE_CATEGORIES = 'CHANGE_CATEGORIES';
@@ -42,15 +43,19 @@ export const setCategories = (categories, totalCategoriesCount) => {
 }
 
 export const getCategories = (search = '') => (dispatch) => {
+    checkLifetimeToken()(dispatch);
     blogAPI.getCategories(search).then(responce => {
         dispatch(setCategories(responce.data.categories, responce.data.totalCategoriesCount));
     });
 }
 
 export const deleteCategory = (categoryId) => (dispatch) => {
-    blogAPI.getCategoryDelete(categoryId).then(() => {
-        dispatch(changeArticles());
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        blogAPI.getCategoryDelete(categoryId).then(() => {
+            dispatch(changeArticles());
+        });
+    }
 } 
 
 export default categoriesReducer;

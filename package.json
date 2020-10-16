@@ -62,6 +62,7 @@
     "@fortawesome/react-fontawesome": "^0.1.11",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
+    "env-cmd": "^10.1.0",
     "highlight.js": "^10.1.1",
     "prop-types": "^15.7.2",
     "qs": "^6.9.4",

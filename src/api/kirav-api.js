@@ -1,10 +1,11 @@
 import * as axios from 'axios';
+import {baseUrl} from "./base-url.js";
 
 const instance = axios.create({
     //withCredentials: true,
-    baseURL: 'http://localhost:58963/api/',
+    baseURL: baseUrl()+'/api/',
     headers:  {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
+        'Authorization': `Bearer  ${localStorage.getItem('token')}`
     }
 });
 
@@ -214,6 +215,8 @@ export const authAPI = {
         .then((response) => {
             if(response) {
                 localStorage.setItem('token', response.data.token);
+                var time = expiresToken(response.data.lifetime);
+                localStorage.setItem('expires_token', time);
                 instance.defaults.headers['Authorization'] = `Bearer ${response.data.token}`;
             }
             return response;
@@ -240,7 +243,15 @@ export const authAPI = {
 
     logout() {
         localStorage.removeItem('token');
+        localStorage.removeItem('expires_token');
         instance.defaults.headers['Authorization'] = 'null';
     }
 }
+
+const expiresToken = (lifetime) => {
+    var CurrentTime = new Date();
+    CurrentTime.setMinutes(CurrentTime.getMinutes() + lifetime);
+    return CurrentTime;
+}
+
 

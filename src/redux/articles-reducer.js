@@ -1,4 +1,5 @@
 import { blogAPI } from "../api/kirav-api.js";
+import {checkLifetimeToken} from './auth-main-reducer.js';
 
 const SET_ARTICLES = 'SET_ARTICLES';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
@@ -88,6 +89,7 @@ export const addTextSearch = (searchText) => {
 
 
 export const getArticles = (pageIndex, pageSize, s, sort) => (dispatch) => {
+    checkLifetimeToken()(dispatch);
     blogAPI.getArticles(pageIndex, pageSize, s, sort).then(articles => {
          dispatch(setArticles(articles));
          dispatch(setCurrentPage(pageIndex));
@@ -95,9 +97,12 @@ export const getArticles = (pageIndex, pageSize, s, sort) => (dispatch) => {
 }
 
 export const getArticleDelete = (articleId) => (dispatch) => {
-    blogAPI.getArticleDelete(articleId).then(() => {
-        dispatch(changeArticles());
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        blogAPI.getArticleDelete(articleId).then(() => {
+            dispatch(changeArticles());
+        });
+    }
 }
 
 

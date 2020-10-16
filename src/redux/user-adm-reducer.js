@@ -1,4 +1,5 @@
 import { adminAPI } from "../api/kirav-api.js";
+import {checkLifetimeToken} from './auth-main-reducer.js';
 
 
 const SET_USER = 'SET_USER';
@@ -70,50 +71,68 @@ export const removeUser = () => {
 }
 
 export const getUserEdit = (userId) => (dispatch) => {
-    adminAPI.getUser(userId).then(data => {
-        dispatch(setUser(data.user));
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        adminAPI.getUser(userId).then(data => {
+            dispatch(setUser(data.user));
+        });
+    }
 }
 
 export const getUserForChangePassword = (userId) => (dispatch) => {
-    adminAPI.getChangePassword(userId).then(data => {
-        dispatch(setUser(data.user));
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        adminAPI.getChangePassword(userId).then(data => {
+            dispatch(setUser(data.user));
+        });
+    }
 }
 
 export const postUserChangePassword = (user) => (dispatch) => {
-    adminAPI.postChangePassword(user).then(data => {
-        if(data.errors) {
-            dispatch(setErrors(data.errors));
-        }  else {
-            dispatch(setUser(data.user));
-        }
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        adminAPI.postChangePassword(user).then(data => {
+            if(data.errors) {
+                dispatch(setErrors(data.errors));
+            }  else {
+                dispatch(setUser(data.user));
+            }
+        });
+    }
 }
 
 export const postUserEdit = (user) => (dispatch) => {
-    adminAPI.postUser(user).then(data => {  
-        if(data.errors) {
-            dispatch(setErrors(data.errors));
-        }  else {
-            dispatch(setUser(data.user));
-        }
-        
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        adminAPI.postUser(user).then(data => {  
+            if(data.errors) {
+                dispatch(setErrors(data.errors));
+            }  else {
+                dispatch(setUser(data.user));
+            }
+            
+        });
+    }
 }
 
 export const getUserAccess = (userId) => (dispatch) => {
-    adminAPI.getUserAccess(userId).then(data => {
-        dispatch(setUserAccessEdit(data.userAccess.user, data.userAccess.roles));
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        adminAPI.getUserAccess(userId).then(data => {
+            dispatch(setUserAccessEdit(data.userAccess.user, data.userAccess.roles));
+        });
+    }
 }
 
 export const putUpdateAccess = (access) => (dispatch) => {
-    adminAPI.putUpdateAccess(access).then(data => {
-        if(data.errors) {
-            dispatch(setErrors(data.errors));
-        }
-    });
+    let isToken = checkLifetimeToken()(dispatch);
+    if (isToken) {
+        adminAPI.putUpdateAccess(access).then(data => {
+            if(data.errors) {
+                dispatch(setErrors(data.errors));
+            }
+        });
+    }
 }
 
 export default userAdmReducer;

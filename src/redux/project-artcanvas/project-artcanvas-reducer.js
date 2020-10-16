@@ -1,4 +1,5 @@
 import { projectArtCanvasAPI } from "../../api/kirav-api.js";
+import {checkLifetimeToken} from '../auth-main-reducer.js';
 
 const SET_RESULT = 'SET_RESULT';
 const SET_IMAGES = 'SET_IMAGES';
@@ -42,6 +43,7 @@ export const setImages = (images) => {
 }
 
 export const uploadImage = (data) => (dispatch) => {
+    checkLifetimeToken()(dispatch);
     projectArtCanvasAPI.uploadImage(data).then(data => {
         if(data.result) {
             dispatch(setResult(data.result));
@@ -53,6 +55,7 @@ export const uploadImage = (data) => (dispatch) => {
 }
 
 export const loadImages = () => (dispatch) => {
+    checkLifetimeToken()(dispatch);
     projectArtCanvasAPI.loadImages().then(data => {
         dispatch(setImages(data));
     });

@@ -78,5 +78,19 @@ export const logout = () => (dispatch) => {
     authAPI.logout();
 }
 
+export const checkLifetimeToken = () => (dispatch) => {
+    if (localStorage.getItem('expires_token') !== null) {
+        var currentTime = new Date();
+        var expiresToken = new Date(localStorage.getItem('expires_token'));
+        if (expiresToken < currentTime) {
+            dispatch(setAuthUserData(null, false));
+            authAPI.logout();
+            return false;
+        }
+        return true;
+    }
+    return false;
+}
+
 
 export default authMainReducer;
