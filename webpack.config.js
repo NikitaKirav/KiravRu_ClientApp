@@ -4,7 +4,6 @@ const publicFolder = "./production/";
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
-const TerserWebpackPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
@@ -16,8 +15,7 @@ const optimization = () => {
 
     if (isProd) {
         config.minimizer = [
-            new OptimizeCssAssetsWebpackPlugin(),
-            new TerserWebpackPlugin()
+            new OptimizeCssAssetsWebpackPlugin()
         ]
     }
     return config;
