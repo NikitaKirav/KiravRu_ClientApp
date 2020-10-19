@@ -3,23 +3,23 @@ const bundleFolder = "./production/";
 const publicFolder = "./production/";
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-//const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
 
-//const optimization = () => {
-//    const config = {};
+const optimization = () => {
+   const config = {};
 
-//    if (isProd) {
-//        config.minimizer = [
-//            new OptimizeCssAssetsWebpackPlugin()
-//        ]
-//    }
-//    return config;
-//};
+    if (isProd) {
+        config.minimizer = [
+            new OptimizeCssAssetsWebpackPlugin()
+        ]
+    }
+    return config;
+};
 
 module.exports = {
     entry: {
@@ -31,7 +31,7 @@ module.exports = {
         publicPath: '/'
     },
     devtool: isDev ? 'inline-source-source-map' : '',
-//    optimization: optimization(),
+    optimization: optimization(),
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
