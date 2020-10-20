@@ -40,11 +40,14 @@ const TopMenu = (props) => {
                     [s.show]: showMenu
                 })} ref={$menu}>
                     <ul className={s.menu_nav}>
-                        <li className={s.menu_item}>
-                            <NavLink className={s.menu_link} to="/blog" activeClassName={s.active}>BLOG</NavLink>
+                    <li className={s.menu_item}>
+                            <NavLink className={s.menu_link} to="/aboutme" activeClassName={s.active}>AboutMe</NavLink>
                         </li>
                         <li className={s.menu_item}>
-                            <NavLink className={s.menu_link} to="/projects" activeClassName={s.active}>PROJECTS</NavLink>
+                            <NavLink className={s.menu_link} to="/blog" activeClassName={s.active}>Blog</NavLink>
+                        </li>
+                        <li className={s.menu_item}>
+                            <NavLink className={s.menu_link} to="/projects" activeClassName={s.active}>Projects</NavLink>
                         </li>
                         <li className={s.menu_item}>
                             <ul className={classNames(s.menu_nav, s.menu_icon)}>
