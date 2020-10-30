@@ -1,6 +1,8 @@
+import {baseUrl} from '../../../../../../api/base-url.js';
+
 export default function file(data) {
     const html = `
-        <img src='${data.fullName}' alt='thumb' title='${data.name}' />
+        <img src='${baseUrl() + data.fullName}' alt='thumb' title='${data.name}' />
         <div class='filename'>
             ${sliceOfFileName(data.name, data.extension)}
         </div>

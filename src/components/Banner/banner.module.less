@@ -11,14 +11,13 @@ h1 {
     line-height: 1.2;
 }
 
+.baner {
+    border-bottom: 5px solid @border-color;
+}
+
 .component {
     width: 100%;
     overflow: hidden;
-}
-
-.baner {
-    border-bottom: 5px solid @border-color;
-    cursor: none;
 }
 
 #avatar {
@@ -26,13 +25,13 @@ h1 {
     height: 143px;
     width: 120px;
     position: relative;
-    float: left;
     left: 50%;
     margin-left: -60px;
     z-index: 99;
+    padding: 250px 0 40px 0;
 }
 
-
+@media only screen and (min-width: 1100px) {
 .baner {
     background: url(@background_clouds_path) repeat center bottom;
     position: relative;
@@ -45,6 +44,7 @@ h1 {
         align-items: flex-end;
         text-align: center;
     }
+}
 }
 
 @media only screen and (min-width: 990px) {
@@ -70,7 +70,97 @@ h1 {
     }
 }
 
+@media only screen and (min-width: 1201px) {
+    
+    .baner {
+        cursor: none;
+    }
 
+  #parallax {
+    position: relative;
+    width: 100%;
+    height: 415px;
+    background-image: url(../../../assets/images/Background_v2_3.png),
+    url(../../../assets/images/Background_v2_6-2.png),
+    url(../../../assets/images/Background_v2_6.png),
+    url(../../../assets/images/Background_v2_5.png),
+    url(../../../assets/images/Background_v2_2.png),
+    url(../../../assets/images/Background_v2_4.png),
+    url(../../../assets/images/Background_v2_7back.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: 50% 50%;
+  }
+  .imageBackground {
+    background: url(../../../assets/images/background-homePage001.jpg) no-repeat center bottom;
+    width: 1100px;
+    margin: 0 auto;
+    overflow: auto;
+    display: grid;
+    align-items: flex-end;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1200px) {
+    .baner {
+        cursor: auto;
+    }
+
+    #parallax {
+        height: 415px;
+    }
+    .imageBackground {
+        background: url(../../../assets/images/background-homePage_v2_mobile.jpg) no-repeat center bottom;
+        margin: 0 auto;
+        overflow: auto;
+        display: grid;
+        align-items: flex-end;
+        text-align: center;
+      }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 989px) {
+    .baner {
+        cursor: auto;
+    }
+
+    #parallax {
+        height: 220px;
+    }
+    .imageBackground {
+        background: url(../../../assets/images/background-homePage_v2_mobile_mini.jpg) no-repeat center bottom;
+        margin: 0 auto;
+        overflow: auto;
+        display: grid;
+        align-items: flex-end;
+        text-align: center;
+    }
+    #avatar {
+        padding: 120px 0 40px 0;
+    }
+}
+
+@media only screen and (max-width: 499px) {
+    .baner {
+        cursor: auto;
+    }
+
+    #parallax {
+        height: 220px;
+    }
+    .imageBackground {
+        background: url(../../../assets/images/background-homePage_v2_mobile_micro.jpg) no-repeat center bottom;
+        margin: 0 auto;
+        overflow: auto;
+        display: grid;
+        align-items: flex-end;
+        text-align: center;
+    }
+    #avatar {
+        padding: 120px 0 40px 0;
+    }
+}
 
 
 

@@ -1,0 +1,187 @@
+.aboutMeBlock {
+    background: #1E1E1E;
+    border-top: 5px solid #3e3e42;
+}
+
+.contentAboutMe {
+    background-color: #1E1E1E;
+    color: white;
+    padding: 30px;    
+    margin: 0 auto;
+    overflow: auto;
+}
+
+@media only screen and (min-width: 990px) {
+    .skill {
+        margin: 5px 5px;
+    }
+    .skillsRow {
+        display: inline-flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 989px) and (min-width: 750px) {
+    .mySkills {
+        display: grid;
+        grid-template-columns: 5fr 5fr;
+        width: auto;
+        
+        .skillsRow {
+            margin: 5px;
+        }
+    }
+    .skill {
+        margin: 5px 0;
+    }
+    .skillsRow {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 749px)  {
+    .mySkills {
+        display: block;
+        
+        .skillsRow {
+            margin: 0;
+        }
+    }
+    .skill {
+        margin: 5px 0;
+    }
+    .skillsRow {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .contentAboutMe {
+        display: grid;
+        grid-template-columns: 2fr 7fr;
+        width: 1100px;
+    }
+    .labelH2 {
+        display: none;
+    }
+    .rightColumn {
+        padding: 0 10px;
+    }
+    .string {
+        width: 150px;
+    }
+    .labelH3, .labelH2 {
+        margin: auto 0;
+    }
+}
+
+@media only screen and (max-width: 1099px) {
+    .myPhoto {
+        display: none;
+    }
+    .labelH2 {
+        display: block;
+    }
+    .rightColumn {
+        padding: 0;
+    }
+    .string {
+        width: auto;
+    }
+    .labelH3, .labelH2 {
+        margin: 20px 0;
+    }
+}
+
+.contentSkills {
+    background-color: #1E1E1E;
+    color: white;
+    padding: 0px 30px 30px 30px;
+    width: 1100px;   
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.mySkills {
+    display: grid;
+}
+
+.leftColumn {
+    text-align: left;
+}
+
+.rightColumn {
+    text-align:justify;
+}
+
+.labelH2, .labelH3 {
+    font-size: 33px;
+}
+
+.labelH4 {
+    font-size: 18px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+p {
+    font-size: 16px;
+}
+
+.skill {
+    height: 25px;
+    padding: 0 10px;
+    background-color: #2d2d30;
+    border-radius: 12px;
+    color: white;
+}
+
+.skillsRow {
+    margin-bottom: 10px;
+}
+
+.titleSkill {
+    margin-right: 20px;
+    height: 35px;
+    height: auto;
+}
+
+.verticalAlign {
+    display: flex;
+    height: 100%;
+}
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #3e3e42; /* Gray border */
+    background-color: #2d2d30;
+    color: white;
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 5px; /* Add a top margin */
+    margin-bottom: 5px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+.submitButton {
+    background-color: #008d4c;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+.submitButton:hover {
+    background-color: #006134;
+}
+
+.message {
+    height:150px;
+}
+

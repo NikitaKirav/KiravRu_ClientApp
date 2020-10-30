@@ -5,9 +5,11 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LoggedComponent from './logged-component.jsx';
 import classNames from 'classnames';
+import { Link } from "react-scroll";
 
 const TopMenu = (props) => {
     let [showMenu, setShowMenu] = useState(false);
+
     const lineStyle = {
         marginBottom: '0px'
         };
@@ -40,8 +42,8 @@ const TopMenu = (props) => {
                     [s.show]: showMenu
                 })} ref={$menu}>
                     <ul className={s.menu_nav}>
-                    <li className={s.menu_item}>
-                            <NavLink className={s.menu_link} to="/aboutme" activeClassName={s.active}>AboutMe</NavLink>
+                        <li className={s.menu_item}>
+                            <NavLink className={s.menu_link} to="/?aboutme" exact={true} activeClassName={s.active}>AboutMe</NavLink>
                         </li>
                         <li className={s.menu_item}>
                             <NavLink className={s.menu_link} to="/blog" activeClassName={s.active}>Blog</NavLink>

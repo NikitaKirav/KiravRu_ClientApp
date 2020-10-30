@@ -22,10 +22,13 @@ const InformationBlocks = (props) => {
                 <div className={s.containerInner}>
                     <div className={s.colLeft}>
 
-                        <NavLink to="/blog">
-                            <h3 className={classNames(s.hBlog, s.lineChocolate)}>
-                                BLOG
-                            </h3></NavLink>
+                        <NavLink to="/blog">                            
+                                <h3 className={classNames(s.hBlog, s.lineChocolate)}>
+                                    <div className={s.titleName}>
+                                        BLOG
+                                    </div>
+                                </h3>                            
+                        </NavLink>                            
                         <div className={s.colFixedHeight}>
                             <ul className={s.itemFeed}>
                                <BlogLastArticles articles={props.articles} />
@@ -34,7 +37,7 @@ const InformationBlocks = (props) => {
                     </div>
 
                     <div className={s.colRight}>
-                        <NavLink to="/projects"><h3 className={s.hSpeaking}>PROJECTS</h3></NavLink>
+                        <NavLink to="/projects"><h3 className={s.hSpeaking}><div className={s.titleName}>PROJECTS</div></h3></NavLink>
                         <div className={s.colFixedHeight}>
                             <ul className={s.itemFeed}>
 

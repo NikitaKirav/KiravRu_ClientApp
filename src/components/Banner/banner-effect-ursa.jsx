@@ -26,7 +26,7 @@ const BannerEffectUrsa = (props) => {
             document.removeEventListener('mousemove', onMouseMove);
             window.removeEventListener('resize', updateLinksPositions);
         };
-    },[location])
+    },[location]);
     
     const initEventListeners = () => {
         document.addEventListener('mousemove', onMouseMove);
@@ -46,8 +46,8 @@ const BannerEffectUrsa = (props) => {
             link.style.transform = transform;
 
             return {
-                x: (100 * rect.left / window.innerWidth).toFixed(2),
-                y: (100 * rect.top / props.height).toFixed(2)
+                x: (100 * (rect.left + window.scrollX) / window.innerWidth).toFixed(2),
+                y: (100 * (rect.top + window.scrollY) / props.height).toFixed(2)
             };
         });
     }

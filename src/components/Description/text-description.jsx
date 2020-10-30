@@ -32,7 +32,7 @@ export class HomeDescription extends Component {
             <div className={s.line_dark_style} id="aboutMe">
                 <div className={s.aboutme_description} >
                     <p className={s.headline_text}>
-                        I'm a programmer and a little artist.
+                        I'm a programmer and a little bit artist.
                         This site is my field for experimentations in programming and digital art.
                         I keep a lot of useful articles here which help me.
                         If you find something interesting here I'll be glad.

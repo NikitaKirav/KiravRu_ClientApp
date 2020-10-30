@@ -5,7 +5,7 @@ import { Route, Redirect, useLocation } from 'react-router-dom';
 
 import './app.less';
 import TopMenu from './components/TopMenu/top-menu.jsx';
-import { Home } from './components/Home/home.jsx';
+import Home from './components/Home/home.jsx';
 import Messenger from './Projects/Messenger/messenger.jsx';  
 import { connect } from 'react-redux';
 //import ArticleContainer from './components/Blog/article-container.jsx';
@@ -44,7 +44,7 @@ const App = (props) => {
 	return (
 		<div className="page">
 			<TopMenu />			
-			<div className="body-page">					
+			<div className="body-page">	
 				<Route path='/blog' component={ Blog } />
 				<Route exact path='/projects' render={ () => <Projects  /> } />
 				<Route path='/projects/messenger' render={ () => <Messenger  /> } />
