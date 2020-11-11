@@ -41,11 +41,8 @@ const InformationBlocks = (props) => {
                         <div className={s.colFixedHeight}>
                             <ul className={s.itemFeed}>
 
-                                <li><a href="#">University of California San Diego</a><br /><span>San Diego, Oct 31, 2019</span></li>
-                                <li><a href="#">San Diego Mesa College</a><br /><span>San Diego, Nov 1, 2019</span></li>
-                                <li><a href="#">Ignite</a><br /><span>Orlando, Nov 4, 2019</span></li>
-                                <li><a href="#">Azure DevFest</a><br /><span>Portland, Nov 12, 2019</span></li>
-                                <li><a href="#">DevIntersection</a><br /><span>Las Vegas, Nov 19, 2019</span></li>
+                                <li><NavLink to="/projects/artcanvas">ArtCanvas</NavLink><br /><span><time className={s.blockTime}>OCTOBER 23, 2020</time></span></li>
+                                <li><NavLink to="/projects/artcanvas">FileBro</NavLink><br /><span><time className={s.blockTime}>OCTOBER 19, 2020</time></span></li>
 
                             </ul>
                         </div>

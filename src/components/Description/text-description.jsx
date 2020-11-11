@@ -6,9 +6,9 @@ export class ProjectsDescription extends Component {
     render() {
         return (
             <div className={`${s.blog_description} ${s.line_dark_style}`} id="aboutProjects">
-                <h1 className={s.headline}>My projects</h1>
-                <p className={s.headline_text}>This is where I post announcements, tips and tricks, new and updated features, 
-                fun roundups, new podcast episodes, and more.</p>
+                <h1 className={s.headline}>My projects and experiments</h1>
+                <p className={s.headline_text}>This is the place where you can see my projects and experiments in different IT areas. 
+                From time to time I upload the most interesting ones. So, stay tuned... </p>
             </div>
         );
     }
@@ -20,7 +20,7 @@ export class BlogDescription extends Component {
             <div className={`${s.blog_description} ${s.line_dark_style}`} id="aboutBlog">
                 <h1 className={s.headline}>NikitaKirav's Blog</h1>
                 <p className={s.headline_text}>This is where I post announcements, tips and tricks, new and updated features, 
-                fun roundups, new podcast episodes, and more. There's an <a href="/feed/">RSS feed</a>.</p>
+                fun roundups, new podcast episodes, and more. There's an <a href="#">RSS feed</a>.</p>
             </div>
         );
     }

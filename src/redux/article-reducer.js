@@ -1,5 +1,6 @@
 import { blogAPI } from "../api/kirav-api.js";
 import {checkLifetimeToken} from './auth-main-reducer.js';
+import { changeArticles } from './articles-reducer.js';
 
 const SET_ARTICLE = 'SET_ARTICLE';
 const REMOVE_ARTICLE = 'REMOVE_ARTICLE';
@@ -78,6 +79,7 @@ export const postArticleEdit = (article, roles) => (dispatch) => {
     if (isToken) {
         blogAPI.postArticleEdit(article, roles).then(data => {        
             dispatch(setArticleEdit(data.article, data.categories, data.roles));
+            dispatch(changeArticles());
         });
     }
 }

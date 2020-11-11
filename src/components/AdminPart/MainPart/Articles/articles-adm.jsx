@@ -14,13 +14,13 @@ const ArticlesAdm = (props) => {
 
     let locationState = useLocationState();
     let location = useLocation();
-
+    console.log(props.changeArticles);
     useEffect(() => {
         let pageIndex = parseInt(locationState[0].query['page']);
         let search = locationState[0].query['search'] ?? '';
         let currentPage = pageIndex || 1;
         props.getArticles(currentPage, props.pageSize, search);
-    },[location, props.changeArticles]);
+    },[props.changeArticles, location]);
 
     const deleteArticle = (articleId) => {
         props.getArticleDelete(articleId);

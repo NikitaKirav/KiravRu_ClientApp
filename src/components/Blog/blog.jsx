@@ -13,7 +13,7 @@ import {addTextSearch, getArticles} from '../../redux/articles-reducer.js';
 const Blog = (props) => {
     const [{ query }, pushState] = useLocationState();
     const onSearching = (values) => {
-        pushState(`?${qs.stringify({ ...query, s: values.searchText, page: 1 })}`);
+        pushState(`/blog?${qs.stringify({ ...query, s: values.searchText, page: 1 })}`);
         props.addTextSearch(values.searchText);
         props.getArticles(1, props.blog.pageSize, values.searchText);
     }

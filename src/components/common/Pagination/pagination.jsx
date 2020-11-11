@@ -9,7 +9,7 @@ let Pagination = (props) => {
     let pagesCount = Math.ceil( props.totalCount / props.pageSize );
     let pages = [];
 
-    let delta = 2;
+    let delta = 5;
     let left = props.currentPage - delta;
     let right = props.currentPage + delta + 1;
 

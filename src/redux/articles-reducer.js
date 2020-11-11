@@ -87,6 +87,9 @@ export const addTextSearch = (searchText) => {
     return { type: ADD_TEXT_SEARCH, searchText }
 }
 
+export const setChangeArticles = () => (dispatch) => {
+    dispatch(changeArticles());
+}
 
 export const getArticles = (pageIndex, pageSize, s, sort) => (dispatch) => {
     checkLifetimeToken()(dispatch);

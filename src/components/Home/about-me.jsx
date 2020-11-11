@@ -1,6 +1,7 @@
 import React from 'react';
 import './about-me.less';
 import myPhoto from '../../../assets/images/myPhoto.jpg';
+import { Element } from "react-scroll";
 
 const AboutMe = (props) => {
     return (
@@ -8,7 +9,7 @@ const AboutMe = (props) => {
             <div className="contentAboutMe">
                 <div className="leftColumn verticalAlign">
                     <h2 className="labelH2">About Me</h2>
-                    <img className="myPhoto" src={myPhoto} width="190px" />
+                    {/*<img className="myPhoto" src={myPhoto} width="190px" />*/}
                 </div>
                 <div className="rightColumn">
                     <p>Hey, there</p>
@@ -53,7 +54,7 @@ const AboutMe = (props) => {
                         </div>                        
                         <div className="skillsRow">
                             <div className="titleSkill"><h4 className="labelH4">Web Servers:</h4></div>
-                            <div className="skill">Microsoft IIS</div> <div className="skill">Linux (Ubuntu)</div>
+                            <div className="skill">Microsoft IIS</div> <div className="skill">Apache</div>
                         </div>
                         <div className="skillsRow">
                             <div className="titleSkill"><h4 className="labelH4">{`DevOps Automation & Version Control Tools:`}</h4></div>
@@ -66,6 +67,7 @@ const AboutMe = (props) => {
                     </div>
                 </div>
             </div>
+            <Element name="textme" className="element">
             <div className="contentAboutMe">
                 <div className="leftColumn verticalAlign">
                     <h3 className="labelH3 string">Contact with me</h3>
@@ -78,6 +80,7 @@ const AboutMe = (props) => {
                     </form>
                 </div>
             </div>
+            </Element>
         </div>
     );
 }

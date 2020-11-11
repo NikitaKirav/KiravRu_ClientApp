@@ -1,0 +1,65 @@
+@import '../style/palette.less';
+
+.project {
+    display: grid;
+    grid-template-columns: 2fr 7fr;
+}
+
+@media only screen and (min-width: 990px) {
+    .project {
+        margin: 20px 0 20px 0;
+
+        .blockTime {
+            margin: 0 0 15px 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 989px) {
+    .project {
+        margin: 10px 0 10px 0;
+
+        .blockTime {
+            margin: 0;
+        }
+    }   
+}
+
+.articleText {
+    color: @text-color;
+}
+
+.tableArticle {
+    border: none;
+    background: none;
+    width: 100%;
+
+    .titleArticle {
+        width: auto;
+    }
+
+    .difficulty {
+        width: 58px;
+    }
+}
+
+.blockTime {
+    font-family: Menlo, Monaco, monospace;
+    display: block;
+    color: @date-color;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 200;
+
+    span {
+        text-transform: none;
+    }
+}
+
+.columnleft {
+    margin: auto;
+}
+
+.columnright {
+    padding: 0 0 0 30px;
+}

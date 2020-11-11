@@ -47,6 +47,8 @@ export const uploadImage = (data) => (dispatch) => {
     projectArtCanvasAPI.uploadImage(data).then(data => {
         if(data.result) {
             dispatch(setResult(data.result));
+            let time = data.result != '0' ? data.result : '1';
+            alert('The time from last changes isn\'t up. Try again in ' + time + ' minute(s)');
         } else {
             dispatch(setImages(data));
         }       

@@ -36,7 +36,7 @@ let Article = (props) => {
                     </table>
 
                     <time className="block-time">
-                        {props.article.dateCreate}
+                        {props.article.dateCreate} {props.article.dateCreate===props.article.dateChange ? "" : <span> (Change: {props.article.dateChange})</span>}
                     </time>
                     <CreateText text={props.article.text } />
                 </article>

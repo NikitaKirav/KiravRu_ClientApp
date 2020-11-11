@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import BannerCursor from './banner-cursor.jsx';
 import s from './banner-effect-ursa.module.less';
 import { useLocation } from 'react-router';
+import classnames from 'classnames';
+import { NavLink } from 'react-router-dom';
 
 const BannerEffectUrsa = (props) => {
     const EVENT_PLACEHOLDER = {
@@ -97,10 +99,10 @@ const BannerEffectUrsa = (props) => {
         <>
         <div className={s.navigation}>            
             <div className={s.wrapper}>
-                <a className={s.navigation__link} ref={link => {links.push(link)}} href=""><div ref={(text) => {texts.push(text)}} className={s.navigation__text}><span className={s.navigation__text_layer}>about</span><span className={s.navigation__text_layer}>about</span><span className={s.navigation__text_layer}>about</span></div></a>
-                <a ref={link => {links.push(link)}} className={s.navigation__link} href=""><div ref={(text) => {texts.push(text)}} className={s.navigation__text}><span className={s.navigation__text_layer}>???</span><span className={s.navigation__text_layer}>???</span><span className={s.navigation__text_layer}>???</span></div></a>
-                <a ref={link => {links.push(link)}} className={s.navigation__link} href=""><div ref={(text) => {texts.push(text)}} className={s.navigation__text}><span className={s.navigation__text_layer}>work</span><span className={s.navigation__text_layer}>work</span><span className={s.navigation__text_layer}>work</span></div></a>
-                <a ref={link => {links.push(link)}} className={s.navigation__link} href=""><div ref={(text) => {texts.push(text)}} className={s.navigation__text}><span className={s.navigation__text_layer}>codex</span><span className={s.navigation__text_layer}>codex</span><span className={s.navigation__text_layer}>codex</span></div></a>
+                <NavLink className={s.navigation__link} ref={link => {links.push(link)}} to="/?aboutme"><div ref={(text) => {texts.push(text)}} className={s.navigation__text}><span className={classnames(s.navigation__text_layer, s.navigation__twoString)}>about me</span><span className={classnames(s.navigation__text_layer, s.navigation__twoString)}>about me</span><span className={classnames(s.navigation__text_layer, s.navigation__twoString)}>about me</span></div></NavLink>
+                <NavLink ref={link => {links.push(link)}} className={s.navigation__link} to="/?textme"><div ref={(text) => {texts.push(text)}} className={s.navigation__text}><span className={classnames(s.navigation__text_layer, s.navigation__twoString)}>text me</span><span className={classnames(s.navigation__text_layer, s.navigation__twoString)}>text me</span><span className={classnames(s.navigation__text_layer, s.navigation__twoString)}>text me</span></div></NavLink>
+                <NavLink ref={link => {links.push(link)}} className={s.navigation__link} to="/projects"><div ref={(text) => {texts.push(text)}} className={s.navigation__text}><span className={s.navigation__text_layer}>works</span><span className={s.navigation__text_layer}>works</span><span className={s.navigation__text_layer}>works</span></div></NavLink>
+                <NavLink ref={link => {links.push(link)}} className={s.navigation__link} to="/blog"><div ref={(text) => {texts.push(text)}} className={s.navigation__text}><span className={s.navigation__text_layer}>blog</span><span className={s.navigation__text_layer}>blog</span><span className={s.navigation__text_layer}>blog</span></div></NavLink>
             </div>
         </div>
         <BannerCursor height={props.height} paddingTop={props.paddingTop} />

@@ -4,9 +4,12 @@ import { NavLink } from 'react-router-dom';
 import s from './articles.module.less';
 import Pagination from '../common/Pagination/pagination.jsx';
 import Difficulty from './difficulty.jsx';
+import useLocationState from '../../packages/ui/hooks/location.js';
 
 let Articles = (props) => {
+    const [{ query }] = useLocationState();
     return <div className={s.pageWrap}>
+        {query.s != null ? `Results for "${query.s}", ${props.blog.totalArticlesCount} articles found` : ""}
         {
         props.blog.articles.map((item, index) => <div key={item.id}>
         <article className={s.homeArticle}>
@@ -34,7 +37,7 @@ let Articles = (props) => {
         <Border lastArticle={props.blog.articles.length > index + 1} />
         </div>
         )        
-    }
+        }
         <Pagination totalCount={props.blog.totalArticlesCount} 
                     pageSize={props.blog.pageSize} 
                     currentPage={props.blog.currentPage} 

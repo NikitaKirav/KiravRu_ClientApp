@@ -30,8 +30,6 @@ const ArtCanvasPage = (props) => {
         }        
     }, [props.images, widthWindow]);
 
-
-
     const updateDimensions = () => {
         setWidthWindow(window.innerWidth);
     }
@@ -155,7 +153,7 @@ const ArtCanvasPage = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    images: state.projectArtCanvas.images
+    images: state.projectArtCanvas.images,
 });
 
 export default connect(mapStateToProps, {uploadImage, loadImages})(ArtCanvasPage);

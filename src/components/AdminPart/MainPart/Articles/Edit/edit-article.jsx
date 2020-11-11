@@ -1,20 +1,20 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './edit-article.less';
 import {removeArticle} from '../../../../../redux/article-reducer.js';
+import { setChangeArticles } from '../../../../../redux/articles-reducer.js';
 import {connect} from 'react-redux';
 import Preloader from '../../../../common/Preloader/preloader';
-import { useLocation } from 'react-router';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, submit } from 'redux-form';
 import { Input, CheckboxGroup, CKEditorField } from '../../../../common/FormsControls/forms-controls.jsx';
-import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-import useLocationState from '../../../../../packages/ui/hooks/location';
 import classNames from 'classnames';
+import useLocationState from '../../../../../packages/ui/hooks/location';
+import { Redirect } from 'react-router-dom';
 
 
 const EditArticle = (props) => {
 
-    //let [{ query },, replaceState] = useLocationState();
+    let [{ query },, replaceState] = useLocationState();
 
     useEffect(() => {
         if(props.article) {
@@ -31,9 +31,8 @@ const EditArticle = (props) => {
                 Visible: props.article.visible,
                 CategoryId: props.article.categoryId === 0 ? 1 : props.article.categoryId,
                 Roles: props.listRoles.userRoles,
-                Text: props.article.text
+                Text: props.article.text,
             });   
-            //return replaceState(`/adminBoard/articles/${props.article.id}`);  
         }
     }, [props.article]);
 
@@ -41,7 +40,15 @@ const EditArticle = (props) => {
         return () => {
             props.removeArticle();
         };
-    },[])
+    },[]);
+
+    const saveAndExit = (props) => {
+        props.handleSubmit();
+        replaceState("/adminBoard/articles");
+
+        //props.setChangeArticles();
+        
+    }
 
     if(!props.article) {
         return <Preloader />;
@@ -53,6 +60,7 @@ const EditArticle = (props) => {
             <h1>{props.article.id == 0 ? 'Create Article' : 'Edit Article'}</h1> 
             <form onSubmit={props.handleSubmit}>
                 <Field type="hidden" name="Id" component={Input} />
+                <Field type="hidden" name="isExit" component={Input} />
 
                 <div className="sheetContent">
                     <div className="sheetSidebar">
@@ -148,10 +156,10 @@ const EditArticle = (props) => {
                             </div>
 
 
-                            <button id="saveButton" className="btn btn-primary" >
+                            <button id="saveButton" type="submit" className="btn btn-primary" >
                                 Save
                             </button>
-                            <button id="saveAndExitButton" className="btn btn-primary" >
+                            <button id="saveAndExitButton" type="button" onClick={() => {saveAndExit(props);}} className="btn btn-primary" >
                                 Save and Exit
                             </button>
                         </div>
@@ -229,4 +237,4 @@ const mapStateToProps = (state) => ({
     listRoles: state.articlePage.listRoles,
 });
 
-export default reduxForm({form: "SaveArticle"})(connect(mapStateToProps, {removeArticle})(EditArticle));
+export default reduxForm({form: "SaveArticle"})(connect(mapStateToProps, {removeArticle, setChangeArticles})(EditArticle));

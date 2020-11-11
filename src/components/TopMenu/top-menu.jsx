@@ -1,14 +1,18 @@
-import React, { useRef, useState, useCallback } from 'react';
+import React, { useRef, useState, useCallback, useEffect } from 'react';
 import useClickOutside from '../../packages/ui/hooks/clickoutside.js';
 import s from './top-menu.module.less';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LoggedComponent from './logged-component.jsx';
 import classNames from 'classnames';
-import { Link } from "react-scroll";
 
 const TopMenu = (props) => {
     let [showMenu, setShowMenu] = useState(false);
+    let location = useLocation();
+
+    useEffect(() => {
+        handleClickOutside($blockTopMenu);
+    },[location])
 
     const lineStyle = {
         marginBottom: '0px'
