@@ -15,8 +15,7 @@ let Article = (props) => {
                 <article>
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
-                            <li className="breadcrumb-item"><NavLink to="/blog">Blog</NavLink></li>
-                            <li className="breadcrumb-item active" aria-current="page">{props.article.name}</li>
+                            <li className="breadcrumb-item"><NavLink to="/blog">Blog</NavLink> / {props.article.name}</li>
                         </ol>
                     </nav>
 
