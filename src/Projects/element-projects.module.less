@@ -1,28 +1,66 @@
 @import '../style/palette.less';
 
-.project {
-    display: grid;
-    grid-template-columns: 2fr 7fr;
-}
-
 @media only screen and (min-width: 990px) {
     .project {
         margin: 20px 0 20px 0;
+        display: grid;
+        grid-template-columns: 2fr 7fr;
 
         .blockTime {
             margin: 0 0 15px 0;
         }
+
+        .columnright {
+            padding: 0 0 0 30px;
+        }
+    }
+    .projectImage {
+        display: block;
     }
 }
 
-@media only screen and (max-width: 989px) {
+@media only screen and (min-width: 750px) and (max-width: 989px) {
     .project {
         margin: 10px 0 10px 0;
+        display: grid;
+        grid-template-columns: 2fr 7fr;
 
         .blockTime {
-            margin: 0;
+            margin: 0 0 5px 0;
         }
-    }   
+
+        .columnright {
+            padding: 0 0 0 30px;
+        }
+    } 
+    .projectImage {
+        display: block;
+    }  
+    .title {
+        font-size: 24px;
+    }
+    .blockTime {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 749px) {
+    .project {
+        margin: 10px 0 10px 0;
+        display: block;
+        .columnright {
+            padding: 0;
+        }
+    } 
+    .projectImage {
+        display: none;
+    }  
+    .blockTime {
+        font-size: 14px;
+    }
+    .title {
+        font-size: 24px;
+    }
 }
 
 .articleText {
@@ -60,6 +98,3 @@
     margin: auto;
 }
 
-.columnright {
-    padding: 0 0 0 30px;
-}

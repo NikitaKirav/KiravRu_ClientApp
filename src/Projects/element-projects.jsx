@@ -6,7 +6,7 @@ const ElementProjects = (props) => {
     return (
         <article className={s.project}>
             <div className={s.columnleft}>
-                <NavLink to={props.to} ><img src={props.imagePath} title={props.name} width="300px"/></NavLink>
+                <NavLink to={props.to} ><img src={props.imagePath} className={s.projectImage} title={props.name} width="300px"/></NavLink>
             </div>
             <div className={s.columnright}>
                 <table className={s.tableArticle}>
@@ -15,7 +15,7 @@ const ElementProjects = (props) => {
                             <td className={s.titleArticle}>
                                 <h2>
                                     <NavLink to={props.to} >
-                                        {props.name}
+                                        <div className={s.title}>{props.name}</div>
                                     </NavLink>
                                 </h2>
                             </td>
