@@ -248,6 +248,14 @@ export const authAPI = {
     }
 }
 
+export const messageAPI = {
+    send(email, message) {
+        return instance.post(`message/send`, {email, message}).then(response => {
+            return response.data;
+        });
+    },
+}
+
 const expiresToken = (lifetime) => {
     var CurrentTime = new Date();
     CurrentTime.setMinutes(CurrentTime.getMinutes() + lifetime);

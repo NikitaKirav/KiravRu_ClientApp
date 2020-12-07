@@ -19,6 +19,7 @@ import categoryReducer from './category-reducer.js';
 import roleAdmReducer from './role-adm-reducer.js';
 import fileBrowseReducer from './file-browse-reducer.js';
 import projectArtCanvasReducer from './project-artcanvas/project-artcanvas-reducer.js';
+import messageReducer from './message-reducer.js';
 
 let reducers = combineReducers({
     profilePage: profileReducer,
@@ -39,7 +40,8 @@ let reducers = combineReducers({
     category: categoryReducer,
     roleAdm: roleAdmReducer,
     fileBrowse: fileBrowseReducer,
-    projectArtCanvas: projectArtCanvasReducer
+    projectArtCanvas: projectArtCanvasReducer,
+    message: messageReducer
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

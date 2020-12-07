@@ -18,8 +18,10 @@ import RegisterContainer from './components/Account/register-container.jsx';
 import Footer from './components/Footer/footer.jsx';
 import Projects from './Projects/projects.jsx';
 import ArtCanvasPage from './Projects/ArtCanvas/art-canvas-page.jsx';
+import FileBrowseComponent from './components/AdminPart/FileBrowse/file-browse-component.jsx';
 import FileBro from './Projects/FileBro/file-bro.jsx';
-
+import LetsDrink from './Projects/LetsDrink/letsdrink.jsx';
+import Izmailovo from './Projects/Izmailovo/izmailovo.jsx';
 
 const App = (props) => {
 
@@ -51,6 +53,8 @@ const App = (props) => {
 				<Route path='/projects/messenger' render={ () => <Messenger  /> } />
 				<Route path='/projects/artcanvas' render={ () => <ArtCanvasPage  /> } />
 				<Route path='/projects/filebro' render={ () => <FileBro  /> } />
+				<Route path='/projects/letsdrink' render={ () => <LetsDrink  /> } />
+				<Route path='/projects/izmailovo' render={ () => <Izmailovo  /> } />
 				<Route exact path='/' component={ Home } />
 				<Route path='/login' component={ LoginContainer } />
 				<Route path='/register' component={ RegisterContainer } />

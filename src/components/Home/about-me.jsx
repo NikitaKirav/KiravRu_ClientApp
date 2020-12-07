@@ -1,8 +1,7 @@
 import React from 'react';
 import s from './about-me.module.less';
-import myPhoto from '../../../assets/images/myPhoto.jpg';
-import { Element } from "react-scroll";
 import classnames from 'classnames';
+import TextMeContainer from './text-me-container.jsx';
 
 const AboutMe = (props) => {
     return (
@@ -68,20 +67,7 @@ const AboutMe = (props) => {
                     </div>
                 </div>
             </div>
-            <Element name="textme" className={s.element}>
-            <div className={s.contentAboutMe}>
-                <div className={classnames(s.leftColumn, s.verticalAlign)}>
-                    <h3 className={classnames(s.labelH3, s.string)}>Contact with me</h3>
-                </div>
-                <div className={s.rightColumn}>
-                    <form>
-                        <input type="text" className={s.email} id="lname" name="lastname" placeholder="Your email.." />
-                        <textarea className={s.message} id="subject" name="subject" placeholder="Write something.."></textarea>
-                        <input className={s.submitButton} type="submit" value="Submit" />
-                    </form>
-                </div>
-            </div>
-            </Element>
+            <TextMeContainer />
         </div>
     );
 }

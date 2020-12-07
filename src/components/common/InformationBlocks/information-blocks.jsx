@@ -42,7 +42,9 @@ const InformationBlocks = (props) => {
                             <ul className={s.itemFeed}>
 
                                 <li><NavLink to="/projects/artcanvas">ArtCanvas</NavLink><br /><span><time className={s.blockTime}>OCTOBER 23, 2020</time></span></li>
-                                <li><NavLink to="/projects/artcanvas">FileBro</NavLink><br /><span><time className={s.blockTime}>OCTOBER 19, 2020</time></span></li>
+                                <li><NavLink to="/projects/izmailovo">Izmailovo client-server application</NavLink><br /><span><time className={s.blockTime}>NOVEMBER 20, 2019</time></span></li>
+                                <li><NavLink to="/projects/filebro">FileBro</NavLink><br /><span><time className={s.blockTime}>OCTOBER 19, 2020</time></span></li>
+                                <li><NavLink to="/projects/letsdrink">Let's drink</NavLink><br /><span><time className={s.blockTime}>NOVEMBER 20, 2019</time></span></li>
 
                             </ul>
                         </div>
