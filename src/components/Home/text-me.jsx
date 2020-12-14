@@ -45,17 +45,18 @@ const TextMe = (props) => {
                 <h3 className={classnames(s.labelH3, s.string)}>Contact with me</h3>
             </div>
             <div className={s.rightColumn}>
-                {isSend ? <Preloader /> : ""}
+                <a className={s.submitButton} href="https://www.upwork.com/freelancers/~01e6b948610d67d6e7" target="_blank">My Upwork Account</a>
+                {/*{isSend ? <Preloader /> : ""}
                 <form className={isSend ? s.hide : s.visible} onSubmit={props.handleSubmit}>                    
                     <Field type="text" className={s.email} id="lname" name="email" placeholder="Your email.." component={Input} />
                     <Field className={s.message} id="subject" name="message" placeholder="Write something.." component={Textarea} />
                     <input className={s.submitButton} type="submit" value="Submit" onClick={onSend} />
-                </form>
+                </form>*/}
             </div>
         </div>
-        <Modal2 title="Send message" isOpen={isOpen} onCancel={handleCancel}>
+        {/*<Modal2 title="Send message" isOpen={isOpen} onCancel={handleCancel}>
             <p>{sendResult}</p>
-        </Modal2>
+            </Modal2>*/}
         </Element>
     );
 }

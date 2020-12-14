@@ -3,5 +3,6 @@ export const baseUrl = () => {
         return window.location.origin + ":1550";
     } else {
         return "http://localhost:58963";
+        //return "http://kirav.ru:1550";
     }    
 } 
