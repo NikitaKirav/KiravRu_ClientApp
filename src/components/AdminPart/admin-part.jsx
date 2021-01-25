@@ -8,8 +8,7 @@ import FooterAdm from './Footer/footer-adm.jsx';
 import classNames from'classnames';
 import qs from 'qs';
 import useLocationState from '../../packages/ui/hooks/location.js';
-import { connect } from 'react-redux';
-import { addTextSearch, getArticles } from '../../redux/articles-reducer.js';
+import './admin-part.css';
 
 const AdminPart = (props) => {
 
