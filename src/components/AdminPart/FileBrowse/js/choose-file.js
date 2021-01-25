@@ -2,7 +2,7 @@
 import s from '../file-browse.module.less';
 
 const onChooseFile = () => {
-    var funcNum = 1;
+    var funcNum = "1";
     var chooseFileButton = document.getElementById(s.chooseFile);
     if(chooseFileButton) {
         chooseFileButton.addEventListener('click', function () {
