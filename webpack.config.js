@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -15,7 +16,8 @@ const optimization = () => {
 
     if (isProd) {
         config.minimizer = [
-            new OptimizeCssAssetsWebpackPlugin()
+            new OptimizeCssAssetsWebpackPlugin(),
+            new UglifyJsPlugin()
         ]
     }
     return config;

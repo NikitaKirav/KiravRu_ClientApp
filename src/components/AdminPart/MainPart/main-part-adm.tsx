@@ -1,18 +1,18 @@
 import React from 'react';
 import { Route } from 'react-router';
-import ArticlesAdm from './Articles/articles-adm';
 import './main-part-adm.less';
-import CategoriesAdm from './Categories/categories-adm';
-import Users from './Users/users';
-import Roles from './Roles/roles';
+import ArticlesAdm from './Articles/articles-adm';
 import EditArticleContainer from './Articles/Edit/edit-article-container';
-import EditCategoryContainer from './Categories/Edit/edit-category-container';
-import EditUserContainer from './Users/Edit/edit-user-container';
-import ChangePasswordContainer from './Users/Edit/change-password-container';
-import CreateRoleContainer from './Roles/Edit/create-role-container';
-import UsersList from './Roles/UsersList/users-list';
-import EditAccessContainer from './Roles/UsersList/edit-access-container';
 
+const EditCategoryContainer = React.lazy(() => import('./Categories/Edit/edit-category-container'));
+const CategoriesAdm = React.lazy(() => import('./Categories/categories-adm'));
+const Users = React.lazy(() => import('./Users/users'));
+const EditUserContainer = React.lazy(() => import('./Users/Edit/edit-user-container'));
+const ChangePasswordContainer = React.lazy(() => import('./Users/Edit/change-password-container'));
+const Roles = React.lazy(() => import('./Roles/roles'));
+const CreateRoleContainer = React.lazy(() => import('./Roles/Edit/create-role-container'));
+const UsersList = React.lazy(() => import('./Roles/UsersList/users-list'));
+const EditAccessContainer = React.lazy(() => import('./Roles/UsersList/edit-access-container'));
 
 const MainPartAdm = (props) => {
     return (
