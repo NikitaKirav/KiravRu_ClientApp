@@ -23,14 +23,14 @@ const optimization = () => {
 
 module.exports = {
     entry: {
-        site: './src/index.js',
+        site: './src/index.tsx',
     },
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, bundleFolder),
         publicPath: '/'
     },
-    devtool: isDev ? 'inline-source-source-map' : '',
+    devtool: isProd ? false : 'inline-source-map',
     optimization: optimization(),
     plugins: [
         new CleanWebpackPlugin(),
@@ -49,8 +49,16 @@ module.exports = {
             ],
           })
     ],
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ],
+      },
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -115,7 +123,7 @@ module.exports = {
                         options: {
                             hmr: isDev,
                             reloadAll: true,
-                            modules: true,
+                            modules: {},
                             esModule: true
                         },
 
@@ -130,7 +138,7 @@ module.exports = {
                         options: {
                             hmr: isDev,
                             reloadAll: true,
-                            modules: true,
+                            modules: {},
                             esModule: true
                         },
 
@@ -138,7 +146,6 @@ module.exports = {
                     'less-loader'
                 ]
             },
-
         ]
     },
     devServer: {

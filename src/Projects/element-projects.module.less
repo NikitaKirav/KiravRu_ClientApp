@@ -9,9 +9,14 @@
         .blockTime {
             margin: 0 0 15px 0;
         }
-
         .columnright {
             padding: 0 0 0 30px;
+        }
+        .tableArticle {
+            display: block;
+        }
+        .tableArticle2 {
+            display: none;
         }
     }
     .projectImage {
@@ -28,9 +33,14 @@
         .blockTime {
             margin: 0 0 5px 0;
         }
-
         .columnright {
             padding: 0 0 0 30px;
+        }
+        .tableArticle {
+            display: block;
+        }
+        .tableArticle2 {
+            display: none;
         }
     } 
     .projectImage {
@@ -40,7 +50,7 @@
         font-size: 24px;
     }
     .blockTime {
-        font-size: 14px; 
+        font-size: 12px; 
     }
 } 
 
@@ -51,13 +61,16 @@
         .columnright {
             padding: 0;
         }
+        .tableArticle,.blockTime {
+            display: none;
+        }
+        .tableArticle2 {
+            display: block;
+        }
     } 
     .projectImage {
         display: none;
     }  
-    .blockTime {
-        font-size: 14px;
-    }
     .title {
         font-size: 24px;
     }
@@ -67,13 +80,16 @@
     color: @text-color;
 }
 
-.tableArticle {
+.tableArticle,.tableArticle2 {
     border: none;
     background: none;
     width: 100%;
 
-    .titleArticle {
+    .titleArticle,.titleArticle2 {
         width: auto;
+        h2 {
+            font-size: 22px;
+        }
     }
 
     .difficulty {
@@ -81,20 +97,98 @@
     }
 }
 
-.blockTime {
+.blockTime,.blockTime2 {
     font-family: Menlo, Monaco, monospace;
-    display: block;
     color: @date-color;
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 200;
-
+    font-size: 12px; 
     span {
         text-transform: none;
     }
 }
 
 .columnleft {
-    margin: auto;
+    margin-top: 10px;
+}
+
+.links {
+    display: flex;
+    width: 100%;
+    font-size: 14px;
+
+    .source {
+        margin-left: 30px;
+    }
+
+    .linkText {
+        margin-left: 10px;
+    }
+}
+
+.shortInfo {
+    margin: 20px 0;
+    font-size: 13px;
+    p {
+        font-size: 13px; 
+    }
+}
+
+.technologiesColons {
+    ul {
+        padding-inline-start: 20px;
+        font-size: 13px;  
+        color: #bbbbbb;
+        column-count: 2;
+        
+        li {
+          list-style-type: circle;
+          &::marker {
+            color: #4e8fb8;
+          }
+          
+        }
+
+    }
+
+}
+
+.technologies {
+    .title {
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: #bbbbbb;
+    }
+}
+
+.myRole,.projectDifficulties,.mySolution,.notableFeatures {
+    margin-bottom: 20px;
+    .title {
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: #bbbbbb;
+    }
+    .text {
+        font-size: 13px;  
+        p {
+            font-size: 13px; 
+        }
+    }
+    .content {
+        ul {
+            padding-inline-start: 20px;
+            font-size: 13px;  
+            color: #bbbbbb;
+            
+            li {
+              list-style-type: circle;
+              &::marker {
+                color: #4e8fb8;
+              }
+              
+            }    
+        }
+    }
 }
 

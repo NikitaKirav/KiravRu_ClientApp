@@ -28,6 +28,23 @@ html, body {
     padding: 0;
 }
 
+.filename {
+    position: relative;
+}
+
+.filename:hover::after {
+    content: attr(data-title); 
+    position: absolute; 
+    left: 20%; top: 100%; 
+    z-index: 1; 
+    background: #eee; 
+    font-family: Arial, sans-serif;
+    font-size: 11px; 
+    padding: 5px 10px; 
+    border: 1px solid #333; 
+}
+
+
 .container:before,
 .container:after {
     content: "";
@@ -48,7 +65,7 @@ html, body {
 }
 
 .modalTitle {
-    color: white;
+    color: black;
 }
 
 .container {
@@ -126,6 +143,12 @@ html, body {
     margin: 10px;
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+.flexContainer > * {
+    flex-shrink: 0;
 }
 
 .flexItem {
@@ -139,6 +162,7 @@ html, body {
     img {
         width: 150px;
         height: 100px;
+        object-fit: contain;
     }
 }
 
@@ -247,6 +271,7 @@ button {
     background-color: rgba(0,0,0,0.6);
     z-index: 1000;
     font-family: @font;
+    color: black;
 
     .modalContent {
         background-color: #fefefe;
@@ -259,6 +284,7 @@ button {
             color: #aaa;
             float: right;
             font-size: 23px;
+            margin-top: -4px;
             font-weight: bold;
             cursor: pointer;
         }

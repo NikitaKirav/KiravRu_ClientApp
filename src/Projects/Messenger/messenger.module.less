@@ -1,0 +1,123 @@
+@media only screen and (min-width: 1100px) {
+    .app_wrapper {
+        display: grid;
+        width: 1100px;
+        margin: 0 auto;
+
+        grid-template-areas: 
+        "h h"
+        "n c";
+        grid-template-rows: 60px 1fr;
+        grid-template-columns: 2fr 10fr;
+        
+        .content {
+            grid-area: c;
+            background-color: darkslategray;
+            padding: 10px;
+        }
+    }
+    .footerLong,.leftMenu {
+        display: block;
+    }
+    .footerShort {
+        display: none;
+    }
+    .contentBlock {
+        width: 990px; 
+        padding: 0 15px; 
+        margin: auto;
+        color: black;
+        .layoutInfo {
+            padding: 24px 0;
+
+            .mainPart {
+                padding: 0 24px;
+                min-height: 280;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1099px) {
+    .app_wrapper {
+        display: grid;
+        width: 100%;
+        margin: 0 auto;
+
+        grid-template-areas: 
+        "h h"
+        "n c";
+        grid-template-rows: 60px 1fr;
+        grid-template-columns: 2fr 10fr;
+        
+        .content {
+            grid-area: c;
+            background-color: darkslategray;
+            padding: 10px;
+        }
+    }
+    .footerLong,.leftMenu {
+        display: none;
+    }
+    .footerShort {
+        display: block;
+    }
+    .contentBlock {
+        width: 100%; 
+        padding: 0; 
+        margin: auto;
+        color: black;
+        margin-top: 64px;
+        height: 100%;
+        margin-bottom: 40px;
+        position: relative;
+
+        .layoutInfo {
+            padding: 24px 0;
+            .mainPart {
+                padding: 0 24px;
+                min-height: 280;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .contentBlock {
+        .layoutInfo {
+            padding: 3px 0;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            .mainPart {
+                padding: 0 3px;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.content {
+    display: flex;            
+    flex-direction: column;  
+    min-height: 100vh;  
+}
+
+.menuIcon {
+    font-size: 25px !important;
+    margin-right: 0 !important;
+}
+
+.bottomMenu {
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;  
+    background-color: rgb(255, 255, 255);    
+    box-shadow: 0 1px 0 0 #e4e3e3, 0 0 0 1px #e6e1e1;
+    z-index: 999;
+    height: 40px;  
+}
+

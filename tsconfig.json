@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "outDir": "./production/",
+      "moduleResolution": "node",
+      "noImplicitAny": false,
+      "sourceMap": true,
+      "module": "esnext",
+      "target": "ES5",
+      "jsx": "react",
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+    },
+    "includes":[
+      "./custom.d.ts"
+    ]
+  }
