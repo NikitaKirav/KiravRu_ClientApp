@@ -4,7 +4,7 @@ import {
     getFolder, getLeftPart, changeUrlOfFolder, changeNameOfFolder,
     getParentOfFolder, getFolderProperty, getUrlOfFolder,
 } from './dom';
-import { imageAPI } from '../../../../api/kirav-api.js';
+import { imageAPI } from '../../../../api/image-api';
 
 function getDirectories(text) {
     if (!text) {

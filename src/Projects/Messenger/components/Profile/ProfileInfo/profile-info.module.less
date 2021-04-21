@@ -1,0 +1,186 @@
+.descriptionBlock {
+    padding: 10px;
+}
+
+.mainPhoto {
+    width: 200px;
+}
+
+.contact {
+    padding-left: 10px;
+}
+
+.userInfo {
+    background: white;
+    box-shadow: 0 1px 0 0 rgb(228, 227, 227),0 0 0 1px rgb(230, 225, 225);
+    padding: 20px 15px;
+}
+
+.nameAndStatus {
+    width: 100%;
+}
+
+.title, .infoAboutUser, .aboutMe  {
+    font-size: 13px;
+    font-family: -apple-system,BlinkMacSystemFont,'Roboto','Helvetica Neue',Geneva,"Noto Sans Armenian","Noto Sans Bengali","Noto Sans Cherokee","Noto Sans Devanagari","Noto Sans Ethiopic","Noto Sans Georgian","Noto Sans Hebrew","Noto Sans Kannada","Noto Sans Khmer","Noto Sans Lao","Noto Sans Osmanya","Noto Sans Tamil","Noto Sans Telugu","Noto Sans Thai",sans-serif,arial,Tahoma,verdana;
+    line-height: 1.154;
+    font-weight: 400;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.title  {
+    color: gray;
+}
+.infoAboutUser {
+    color: black;
+}
+
+.status {
+    padding: 0 0 15px 0;
+}
+
+.userName {
+    font-size: 19px;
+    line-height: 25px;
+    font-weight: 400;
+}
+
+.tableUserInfo {
+    width: 100%;
+    font-size: 13px;
+    font-family: -apple-system,BlinkMacSystemFont,'Roboto','Helvetica Neue',Geneva,"Noto Sans Armenian","Noto Sans Bengali","Noto Sans Cherokee","Noto Sans Devanagari","Noto Sans Ethiopic","Noto Sans Georgian","Noto Sans Hebrew","Noto Sans Kannada","Noto Sans Khmer","Noto Sans Lao","Noto Sans Osmanya","Noto Sans Tamil","Noto Sans Telugu","Noto Sans Thai",sans-serif,arial,Tahoma,verdana;
+    line-height: 1.154;
+    font-weight: 400;
+    -webkit-font-smoothing: subpixel-antialiased;
+    td {
+        padding: 10px 10px 10px 0;
+    }
+}
+
+.textRight {
+    td {
+        text-align: right;
+    }
+}
+
+.button, .updateButton {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.checkbox {
+    position: relative;
+    left: 8px;
+    margin-left: -50%;
+    margin-right: 50%;
+}
+
+@media only screen and (min-width: 1100px) {
+    .photoBig,.updateButtonBig,.nameAndStatusBig  {
+        display: block;
+    }
+    .photoSmall,.updateButtonSmall,.nameAndStatusSmall,.buttonBlockHorizontal {
+        display: none;
+    }
+    .userInfo {
+        display: flex;
+        border-radius: 4px;
+    }
+    .nameAndStatus {
+        padding: 0 0 0 20px;
+    }
+    .aboutMe {
+        padding: 15px 0;
+    }
+    .columnName {
+        width: 180px;
+    }
+    .buttonBlockVertical {
+        display: contents;
+    }
+}
+
+@media only screen and (max-width: 1099px) {
+    .photoSmall,.buttonBlockHorizontal,.updateButtonSmall {
+        display: none;
+    }
+    .photoBig,.nameAndStatusBig,.updateButtonBig {
+        display: block;
+    }
+    .nameAndStatusSmall {
+        display: none;
+    }
+    .nameAndStatus {
+        padding: 0 0 0 20px;
+    }
+    .aboutMe {
+        padding: 15px 0;
+    }
+    .userInfo {
+        display: flex;
+        border-radius: 4px;
+    }
+    .columnName {
+        width: 180px;
+    }
+    .buttonBlockVertical {
+        display: contents;
+    }
+    .messegeFollowButtons {
+        margin-bottom: 15px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .photoBig,.updateButtonBig,.nameAndStatusBig {
+        display: none;
+    }
+    .updateButtonSmall {
+        display: block;
+        font-size: 13px;
+        color: #4e8fb8;
+    }
+    .photoSmall {
+        display: block;
+        .mainPhotoSmall {
+            border-radius: 32px;
+        }
+    }
+    .userInfo {
+        border-radius: 4px;
+        display: block;
+    }
+    .columnName {
+        width: 120px;
+    }
+    .messegeFollowButtons {
+        display: flex;
+        width: 100%;
+    }
+    .buttonBlockVertical {
+        display: none;
+    }
+    .messegeFollowButtons {
+        margin-bottom: 15px;
+    }
+    .buttonBlockHorizontal {
+        display: contents;    
+    }
+    .marginLeft {
+        margin-left: 15px;
+    }
+    .nameAndStatus {
+        padding: 0;
+    }
+    .aboutMe {
+        padding: 0;
+    }
+    .nameAndStatusSmall {
+        display: block;
+    }
+    .nameAndStatusSmall {
+        margin-left: 15px;
+    }
+}
+
+

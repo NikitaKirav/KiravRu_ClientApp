@@ -1,9 +1,10 @@
-import {baseUrl} from '../../../../../../api/base-url.js';
+import {baseUrl} from '../../../../../../api/base-url';
+import s from '../../../file-browse.module.less';
 
 export default function file(data) {
     const html = `
         <img src='${baseUrl() + data.fullName}' alt='thumb' title='${data.name}' />
-        <div class='filename'>
+        <div class='${s.filename}' data-title='${data.name}'>
             ${sliceOfFileName(data.name, data.extension)}
         </div>
         <div class='datechange'>

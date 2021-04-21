@@ -1,7 +1,9 @@
 @import "../../style/palette.less";
-@ava_path: "../../../assets/images/ava.png";
+//@ava_path: "../../../assets/images/ava.png";
 @background_clouds_path: "../../../assets/images/background-clouds.jpg";
 @background_homePage_path: "../../../assets/images/background-homePage.jpg";
+
+@ava_path: "../../../assets/images/ava.png";
 
 
 h1 {
@@ -23,12 +25,21 @@ h1 {
 #avatar {
     background: url(@ava_path) no-repeat center bottom;
     height: 143px;
-    width: 120px;
+    width: 160px;
     position: relative;
     left: 50%;
-    margin-left: -60px;
+    margin-left: -83px;
+    margin-top: 5px;
     z-index: 99;
     padding: 250px 0 40px 0;
+
+    //height: 143px;
+    //width: 120px;
+    //position: relative;
+    //left: 50%;
+    //margin-left: -60px;
+    //z-index: 99;
+    //padding: 250px 0 40px 0;
 }
 
 @media only screen and (min-width: 1100px) {
