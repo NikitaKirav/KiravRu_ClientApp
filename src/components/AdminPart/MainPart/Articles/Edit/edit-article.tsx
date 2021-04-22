@@ -259,4 +259,5 @@ const mapStateToProps = (state: AppStateType) => ({
 });
 
 export default reduxForm<ArticleFormType<string>>({form: "SaveArticle"})
+// @ts-ignore
 (connect<MapStatePropsType, MapDispatchPropsType, null, AppStateType>(mapStateToProps, {removeArticle: actions.removeArticle, setChangeArticles})(EditArticle));

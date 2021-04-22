@@ -38,6 +38,7 @@ const useLocationState: UseLocationStateType = ({ path } = {}) => {
     const location = useLocation(),
         query = useMemo(() => qs.parse(location.search.replace(/^\?/, '')), [location.search]),
         history = useHistory(),
+        // @ts-ignore
         match = useRouteMatch(path);
 
     return [

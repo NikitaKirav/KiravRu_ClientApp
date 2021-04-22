@@ -76,5 +76,5 @@ const EditArticleContainer: React.FC<PropsType> = (props) => {
         <EditArticle onSubmit={onSaveArticle} />
     );
 }
-
+// @ts-ignore
 export default connect<null, MapDispatchPropsType, OwnPropsType, AppStateType>(null, {postArticleEdit, getArticleEdit})(EditArticleContainer);
