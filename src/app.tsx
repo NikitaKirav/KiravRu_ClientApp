@@ -1,6 +1,7 @@
 ﻿import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Switch, useLocation, withRouter } from 'react-router-dom';
 
+import './app.less';
 import s from './app.module.less';
 import TopMenu from './components/TopMenu/top-menu';
 import Home from './components/Home/home';
@@ -8,6 +9,8 @@ import { connect } from 'react-redux';
 import { initializeApp } from './redux/app-main-reducer';
 import Preloader from './components/common/Preloader/preloader';
 
+import LoginContainer from './components/Account/login-container';
+import RegisterContainer from './components/Account/register-container';
 import Footer from './components/Footer/footer';
 import { AppStateType } from './redux/redux-store';
 import { compose } from 'redux';
@@ -20,8 +23,6 @@ const Messenger = React.lazy(() => import('./Projects/Messenger/messenger'));
 const ArtCanvasPage = React.lazy(() => import('./Projects/ArtCanvas/art-canvas-page'));
 const Blog = React.lazy(() => import('./components/Blog/blog'));
 const Projects = React.lazy(() => import('./Projects/projects'));
-const LoginContainer = React.lazy(() => import('./components/Account/login-container'));
-const RegisterContainer = React.lazy(() => import('./components/Account/register-container'));
 const FileBro = React.lazy(() => import('./Projects/FileBro/file-bro'));
 const LetsDrink = React.lazy(() => import('./Projects/LetsDrink/letsdrink'));
 const Izmailovo = React.lazy(() => import('./Projects/Izmailovo/izmailovo'));
@@ -49,21 +50,15 @@ const App: React.FC<MapPropsType & DispatchPropsType> = (props) => {
 	// If User enters to Admin part
 	if(pathnameAdmin.test(location.pathname)){
 		return (
-			<React.Suspense fallback={<Preloader />}>
-				<AdminPart />
-			</React.Suspense>
+			<LazyLoadComponent component={<AdminPart />}/>
 		);
 	} else if(pathnameImage.test(location.pathname)) {
 		return (
-			<React.Suspense fallback={<Preloader />}>
-				<FileBrowseComponent />
-			</React.Suspense>
+			<LazyLoadComponent component={<FileBrowseComponent />}/>
 		);
 	} else if(pathnameMessenger.test(location.pathname)) {
 		return (
-			<React.Suspense fallback={<Preloader />}>
-				<Messenger  /> 
-			</React.Suspense>
+			<LazyLoadComponent component={<Messenger />}/>
 		);
 	}
 
@@ -73,12 +68,12 @@ const App: React.FC<MapPropsType & DispatchPropsType> = (props) => {
 			<div className={s.bodyPage}>
 				<Switch>
 					<Route exact path='/' component={ Home } />
-					<Route path='/blog' component={ Blog } />
-					<Route path='/projects/artcanvas' render={ () => <ArtCanvasPage  /> } />
-					<Route path='/projects/filebro' render={ () => <FileBro  /> } />
-					<Route path='/projects/letsdrink' render={ () => <LetsDrink  /> } />
-					<Route path='/projects/izmailovo' render={ () => <Izmailovo  /> } />
-					<Route path='/projects' render={ () => <Projects  /> } />				
+					<Route path='/blog' render={ () => <LazyLoadComponent component={<Blog  />}/> } />
+					<Route path='/projects/artcanvas' render={ () => <LazyLoadComponent component={<ArtCanvasPage  />}/> } />
+					<Route path='/projects/filebro' render={ () => <LazyLoadComponent component={<FileBro  />}/> } />
+					<Route path='/projects/letsdrink' render={ () => <LazyLoadComponent component={<LetsDrink  />}/> } />
+					<Route path='/projects/izmailovo' render={ () => <LazyLoadComponent component={<Izmailovo  />}/> } />
+					<Route path='/projects' render={ () => <LazyLoadComponent component={<Projects  />}/> } />				
 					<Route path='/login' component={ LoginContainer } />
 					<Route path='/register' component={ RegisterContainer } />
 					<Route path='*' render={ () => <div>404 NOT FOUND</div> } />
@@ -104,5 +99,17 @@ const KiravRuApp: React.FC = () => {
 	</BrowserRouter>
 	);
 }
+
+type LazyLoadComponentType = {
+	component: JSX.Element
+}
+
+export const LazyLoadComponent: React.FC<LazyLoadComponentType> = ({component}) => {
+    return (
+        <React.Suspense fallback={<Preloader />}>
+            {component}
+        </React.Suspense>
+    );
+} 
 
 export default KiravRuApp;

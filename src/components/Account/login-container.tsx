@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { login, actions } from '../../redux/auth-main-reducer';
 import { Redirect } from 'react-router-dom';
 import { AppStateType } from '../../redux/redux-store';
+import Preloader from '../common/Preloader/preloader';
 
 type MapStatePropsType = {
     isAuth: boolean
@@ -36,7 +37,7 @@ const LoginContainer: React.FC<PropsType> = (props) => {
     }
 
     return (
-        <LoginFormRedux onSubmit={loginUser} />
+            <LoginFormRedux onSubmit={loginUser} />
     );
 }
 
