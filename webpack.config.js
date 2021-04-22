@@ -3,10 +3,11 @@ const bundleFolder = "./production/";
 const publicFolder = "./production/";
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -16,8 +17,8 @@ const optimization = () => {
 
     if (isProd) {
         config.minimizer = [
-            new OptimizeCssAssetsWebpackPlugin(),
-            new UglifyJsPlugin()
+            new CssMinimizerPlugin(),
+            new TerserPlugin()
         ]
     }
     return config;
@@ -49,7 +50,8 @@ module.exports = {
             patterns: [
               { from: './assets/ckeditor/', to: './ckeditor/' }
             ],
-          })
+          }),
+        new ESLintPlugin()
     ],
     resolve: {
         extensions: [ '.tsx', '.ts', '.js' ],
@@ -60,12 +62,6 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                enforce: 'pre',
-                use: 'eslint-loader'
             },
             {
                 test: /\.(js|jsx)$/,

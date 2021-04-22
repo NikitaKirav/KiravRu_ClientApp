@@ -3,7 +3,7 @@ import { ResultCode } from '../../api/project-messanger/api';
 import { FormAction, stopSubmit } from 'redux-form';
 import { BaseThunkType, InferActionsTypes } from '../redux-store';
 import { securityAPI } from '../../api/project-messanger/security-api';
-import { Dispatch } from 'react-redux';
+import { Dispatch } from 'redux';
 import messenger from '../../Projects/Messenger/messenger';
 import { v1 } from 'uuid';
 
