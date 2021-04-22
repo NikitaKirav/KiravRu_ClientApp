@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { register } from '../../redux/auth-main-reducer';
 import { Redirect } from 'react-router-dom';
 import { AppStateType } from '../../redux/redux-store';
+import Preloader from '../common/Preloader/preloader';
 
 type MapStatePropsType = {
     isFetching: boolean
@@ -31,7 +32,7 @@ const RegisterContainer: React.FC<PropsType> = (props) => {
     }
 
     return (
-        <RegisterFormRedux onSubmit={registerUser} />
+            <RegisterFormRedux onSubmit={registerUser} />
     );
 }
 

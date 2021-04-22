@@ -94,7 +94,7 @@ export const Header: React.FC<MapStatePropsType & RouteComponentProps> = (props)
                                     <Link to={'/projects/messenger/login'}>Login</Link>
                                 </Button>
                             </div>
-                            <div style={{marginLeft: '20px'}}>
+                            <div style={{marginLeft: '10px'}}>
                                 <Button>
                                     <Link to={'/projects/messenger/register'}>Register</Link>
                                 </Button>

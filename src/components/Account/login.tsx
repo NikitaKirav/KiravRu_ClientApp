@@ -11,7 +11,7 @@ const Login: React.FC<InjectedFormProps<LoginFormValuesType>> = ({handleSubmit, 
     return (
     <form onSubmit={handleSubmit}>
         <div className="page-wrap">
-            <div className="container col-lg-6 home-article">
+            <div className="container col-lg-6">
                 <h1>Enter to application</h1>
                 <h4>Use a local account to log in.</h4>
                 {error && <div className="formSummaryError">

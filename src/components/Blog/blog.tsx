@@ -8,6 +8,7 @@ import qs from 'qs';
 import { connect } from 'react-redux';
 import {actions, getArticles} from '../../redux/articles-reducer';
 import { AppStateType } from '../../redux/redux-store';
+import Preloader from '../common/Preloader/preloader';
 
 
 const Blog = (props) => {
@@ -24,7 +25,7 @@ const Blog = (props) => {
             <Route exact path='/blog' render={ () => <ArticlesContainer /> }  />
             <Route path='/blog/:articleId' render={ () => <ArticleContainer /> } />
         </div>
-    )
+    );
 }
 
 const mapStateToProps = (state: AppStateType) => {

@@ -9,7 +9,7 @@ const Register: React.FC<InjectedFormProps<RegisterFormValuesType>> = ({handleSu
     return (
     <form onSubmit={handleSubmit}>
         <div className="page-wrap">
-            <div className="container col-lg-6 home-article">
+            <div className="container col-lg-6">
                 <h1>Registration New User</h1>
                 {error && <div className="formSummaryError">
                     {error}
