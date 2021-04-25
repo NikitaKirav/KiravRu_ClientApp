@@ -5,7 +5,6 @@ import { BaseThunkType, InferActionsTypes } from '../redux-store';
 import { securityAPI } from '../../api/project-messanger/security-api';
 import { Dispatch } from 'redux';
 import messenger from '../../Projects/Messenger/messenger';
-import { v1 } from 'uuid';
 
 
 let initialState = {

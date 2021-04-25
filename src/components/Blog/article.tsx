@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Difficulty from './difficulty';
 import { NavLink } from 'react-router-dom';
+// @ts-ignore
 import hljs from "highlight.js";
 import '../../../assets/style/vs.css';
 
