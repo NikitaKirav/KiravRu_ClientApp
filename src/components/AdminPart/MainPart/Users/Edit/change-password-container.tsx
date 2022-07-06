@@ -3,22 +3,23 @@ import { connect } from 'react-redux';
 import ChangePassword from './change-password';
 import {postUserChangePassword, getUserForChangePassword} from '../../../../../redux/user-adm-reducer';
 import {getUsers} from '../../../../../redux/users-adm-reducer';
-import useLocationState from '../../../../../packages/ui/hooks/location';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ChangePasswordContainer = (props) => {
 
-    let [{ query },, replaceState] = useLocationState();
+    const navigate = useNavigate();
     let [saved, setSaved] = useState(false);
+    const { userId } = useParams();
 
     useEffect(()=> {
-        props.getUserForChangePassword(props.match.params.userId)
+        props.getUserForChangePassword(userId)
     },[]);
 
     useEffect(() => {  
         if(saved) {     
             props.getUsers();
             setSaved(false);
-            return replaceState(`/adminBoard/users`); 
+            navigate(`/adminBoard/users`); 
         } 
     }, [props.user]);
 

@@ -11,6 +11,10 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
+let mode = 'development';
+if (process.env.NODE_ENV === 'production') { 
+    mode = 'production';
+}
 
 const optimization = () => {
    const config = {};
@@ -25,13 +29,16 @@ const optimization = () => {
 };
 
 module.exports = {
+    mode: mode,
     entry: {
         site: './src/index.tsx',
     },
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, bundleFolder),
-        publicPath: '/'
+        clean: true,
+        publicPath: '/',
+        assetModuleFilename: 'assets/images/[name][ext]'
     },
     devtool: isProd ? false : 'inline-source-map',
     optimization: optimization(),
@@ -74,28 +81,22 @@ module.exports = {
                 }
             },
             {
-                test: /\.(png|jpg|svg|giv)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: 'images/',
-                            useRelativePath: true
-                        }
-                    }
-                ]
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
             },
+            /*{
+                test: /\.(png|jpg|svg|gif)$/,
+                loader: 'file-loader',
+                options: {
+                    publicPath: '../',
+                    name: `assets/images/[name].[ext]`,
+                }
+            },*/
             {
                 test: /^(?!.*?\.module).*\.css$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: isDev,
-                            reloadAll: true
-                        },
-
+                        loader: isDev ? "style-loader" : MiniCssExtractPlugin.loader,
                     }, 'css-loader'
                 ]
             },
@@ -103,11 +104,7 @@ module.exports = {
                 test: /^(?!.*?\.module).*\.less$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: isDev,
-                            reloadAll: true
-                        },
+                        loader: isDev ? "style-loader" : MiniCssExtractPlugin.loader,
 
                     }, "css-loader",
                     'less-loader'
@@ -117,41 +114,40 @@ module.exports = {
                 test: /\.module\.css$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
+                        loader: isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+                    },
+                    {
+                        loader: 'css-loader',
                         options: {
-                            hmr: isDev,
-                            reloadAll: true,
                             modules: {},
                             esModule: true
                         },
-
-                    }, 'css-loader?modules'
+                    }
                 ]
             },
             {
                 test: /\.module\.less$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
+                        loader: isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+                    },
+                    {
+                        loader: 'css-loader',
                         options: {
-                            hmr: isDev,
-                            reloadAll: true,
                             modules: {},
                             esModule: true
                         },
-
-                    }, "css-loader?modules",
+                    },
                     'less-loader'
                 ]
             },
         ]
     },
     devServer: {
-        contentBase: path.resolve(__dirname, publicFolder),
+        static: {
+            directory: path.join(__dirname, publicFolder),
+        },
         port: 3000,
         historyApiFallback: true,
-        inline: true,
-        hot: true,
-        host: '0.0.0.0'
     }
 };

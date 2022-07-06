@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
-import s from './letsdrink.module.less';
+/** Absolute imports */
+import React, { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+
+/** Images */
 import letsdrinkImage_001 from '../../../assets/images/letsdrink_001.jpg';
 import letsdrinkImage_002 from '../../../assets/images/letsdrink_002.jpg';
 import letsdrinkImage_003 from '../../../assets/images/letsdrink_003.jpg';
@@ -7,18 +10,20 @@ import letsdrinkImage_004 from '../../../assets/images/letsdrink_004.jpg';
 import letsdrinkImage_005 from '../../../assets/images/letsdrink_005.jpg';
 import letsdrinkImage_006 from '../../../assets/images/letsdrink_006.jpg';
 import letsdrinkImage_007 from '../../../assets/images/letsdrink_007.jpg';
-import { NavLink } from 'react-router-dom';
 
+/** Styles */
+import s from './letsdrink.module.less';
 
 const LetsDrink = (props) => {
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    },[]);
+
     return (
         <div className={s.letsdrink}>
-            <nav aria-label="breadcrumb">
-                <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><NavLink to="/projects">Projects</NavLink> / Let's drink</li>
-                </ol>
-            </nav>
+            <div><NavLink to="/works">Works</NavLink> / Let's drink</div>
+            <div className={s.borderLineFat}></div>   
             <h1>Let's drink</h1>
             <span><time className={s.blockTime}>NOVEMBER 20, 2019</time></span>
             <div className={s.contentText}>

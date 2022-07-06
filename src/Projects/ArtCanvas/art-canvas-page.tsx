@@ -1,10 +1,18 @@
+/** Absolute imports */
 import React, { useEffect, useRef, useState } from 'react';
-import './art-canvas-page.less';
 import CanvasDraw from "react-canvas-draw";
 import { connect } from 'react-redux';
+
+/** Components */
+import Preloader from '../../components/common/Preloader/preloader';
+
+/** Styles */
+import './art-canvas-page.less';
+
+/** Store */
 import { uploadImage, loadImages } from '../../redux/project-artcanvas/project-artcanvas-reducer';
 import LoadImagesInCanvas from './js/load-images-in-canvas';
-import Preloader from '../../components/common/Preloader/preloader';
+
 
 const ArtCanvasPage = (props) => {
 

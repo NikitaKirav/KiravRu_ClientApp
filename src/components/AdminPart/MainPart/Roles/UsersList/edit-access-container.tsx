@@ -3,14 +3,16 @@ import EditAccess from './edit-access';
 import { connect } from 'react-redux';
 import {getUsers} from '../../../../../redux/users-adm-reducer';
 import {getUserAccess, putUpdateAccess} from '../../../../../redux/user-adm-reducer';
-import useLocationState from '../../../../../packages/ui/hooks/location';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const EditAccessContainer = (props) => {
 
-    let [{ query },, replaceState] = useLocationState();
+    const navigate = useNavigate();
+
+    const { userId } = useParams();
 
     useEffect(()=> {
-        props.getUserAccess(props.match.params.userId);
+        props.getUserAccess(userId);
     },[]);
 
     const onSaveAccess = (values) => {
@@ -20,7 +22,7 @@ const EditAccessContainer = (props) => {
         };
         props.putUpdateAccess(access);
         props.getUsers();
-        return replaceState(`/adminBoard/roles/userList`); 
+        navigate(`/adminBoard/roles/userList`); 
     }
 
     return (

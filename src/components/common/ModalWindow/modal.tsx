@@ -1,9 +1,15 @@
+/** Absolute imports */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
-import './modal.less';
+
+/** Components */
 import Portal from './portal';
+
+/** Styles */
+import './modal.less';
+
 
 const Modal = ({
     title, isOpen, onCancel, onSubmit, children

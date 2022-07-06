@@ -8,7 +8,7 @@ const TopMenuAdm = (props) => {
     return (
         <div className="menu">
             <div className="togglerMenu" onClick={props.onToggleMenu}><FontAwesomeIcon icon={faBars}></FontAwesomeIcon></div>
-            <NavLink exact to="/"><div className="homeMenu">Home</div></NavLink>
+            <NavLink end to="/"><div className="homeMenu">Home</div></NavLink>
         </div>
     );
 }

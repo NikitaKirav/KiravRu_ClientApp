@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useLocation, useHistory, useRouteMatch, RouteProps, match } from 'react-router-dom';
+import { useLocation, useNavigate, matchPath, RouteProps } from 'react-router-dom';
 import qs from 'qs';
 
 const parts = {
@@ -10,36 +10,17 @@ const parts = {
     port: window.location.port
 };
 
-type PartsType = {
-    origin: string
-    protocol: string
-    host: string
-    hostname: string
-    port: string
-}
-
-type StateType = {
-    parts: PartsType
-    location: Location
-    query: qs.ParsedQs
-    params: {} | match<{}> 
-    match: boolean
-}
-
-type UseLocationStateType = (
-    path?: RouteProps
-) => [
+type UseLocationStateType = () => [
     state: any,
-    push: (path: string, state?: unknown) => void,
-    replace: (path: string, state?: unknown) => void
+    push: (path: string, state?: unknown) => void
 ];
 
-const useLocationState: UseLocationStateType = ({ path } = {}) => {
+const useLocationState: UseLocationStateType = () => {
     const location = useLocation(),
         query = useMemo(() => qs.parse(location.search.replace(/^\?/, '')), [location.search]),
-        history = useHistory(),
+        history = useNavigate(),
         // @ts-ignore
-        match = useRouteMatch(path);
+        match = matchPath(location.pathname);
 
     return [
         {
@@ -49,8 +30,7 @@ const useLocationState: UseLocationStateType = ({ path } = {}) => {
             params: match?.params || {},
             match: !!match
         },
-        history.push,
-        history.replace
+        history
     ];
 }
 

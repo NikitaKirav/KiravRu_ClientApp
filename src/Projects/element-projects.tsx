@@ -1,7 +1,9 @@
+/** Absolute imports */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
+/** Styles */
 import s from './element-projects.module.less';
-import { PlaySquareOutlined, GithubOutlined } from '@ant-design/icons';
 
 type Description = {
     description: () => string | JSX.Element
@@ -18,6 +20,7 @@ type OwnProps = {
     date: string 
     imagePath: string
     info: Description
+    reloadDocument: boolean
 }
 
 const ElementProjects: React.FC<OwnProps> = (props) => {
@@ -30,7 +33,7 @@ const ElementProjects: React.FC<OwnProps> = (props) => {
                         <tr>
                             <td className={s.titleArticle2}>
                                 <h2>
-                                    <NavLink to={props.to} >
+                                    <NavLink to={props.to} reloadDocument={props.reloadDocument} >
                                         <div className={s.title2}>{props.name}</div>
                                     </NavLink>
                                 </h2>
@@ -38,7 +41,7 @@ const ElementProjects: React.FC<OwnProps> = (props) => {
                         </tr>
                     </tbody>
                 </table>
-                <NavLink to={props.to} ><img src={props.imagePath} className={s.projectImage} title={props.name} width="300px"/></NavLink>
+                <NavLink to={props.to} reloadDocument={props.reloadDocument} ><img src={props.imagePath} className={s.projectImage} title={props.name} width="300px"/></NavLink>
                 {/*<div className={s.links}>
                     <div className={s.preview}><PlaySquareOutlined /><span className={s.linkText}>Live Preview</span></div>
                     <div className={s.source}><GithubOutlined /><span className={s.linkText}>Source Private</span></div>
@@ -56,7 +59,7 @@ const ElementProjects: React.FC<OwnProps> = (props) => {
                         <tr>
                             <td className={s.titleArticle}>
                                 <h2>
-                                    <NavLink to={props.to} >
+                                    <NavLink to={props.to} reloadDocument={props.reloadDocument} >
                                         <div className={s.title}>{props.name}</div>
                                     </NavLink>
                                 </h2>
@@ -97,30 +100,3 @@ const ElementProjects: React.FC<OwnProps> = (props) => {
 }
 
 export default ElementProjects;
-
-/*
-        <article className={s.project}>
-            <div className={s.columnleft}>
-                <NavLink to={props.to} ><img src={props.imagePath} className={s.projectImage} title={props.name} width="300px"/></NavLink>
-            </div>
-            <div className={s.columnright}>
-                <table className={s.tableArticle}>
-                    <tbody>
-                        <tr>
-                            <td className={s.titleArticle}>
-                                <h2>
-                                    <NavLink to={props.to} >
-                                        <div className={s.title}>{props.name}</div>
-                                    </NavLink>
-                                </h2>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <time className={s.blockTime}>{props.date}</time>
-                <div className={s.articleText}>
-                    {props.description}
-                </div>
-            </div>
-        </article>
-        */

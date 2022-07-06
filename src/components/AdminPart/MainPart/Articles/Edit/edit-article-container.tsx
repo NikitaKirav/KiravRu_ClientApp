@@ -3,11 +3,11 @@ import EditArticle from './edit-article';
 import { connect } from 'react-redux';
 import { postArticleEdit, getArticleEdit } from '../../../../../redux/article-reducer';
 import { RoleType } from '../../../../../types/types';
-import { match } from 'react-router-dom';
 import { AppStateType } from '../../../../../redux/redux-store';
+import { useParams } from 'react-router-dom';
 
 type OwnPropsType = {
-    match: match<any>
+    match: any
 }
 
 type MapDispatchPropsType = {
@@ -51,8 +51,9 @@ type RolesRequestType = {
 
 const EditArticleContainer: React.FC<PropsType> = (props) => {
 
+    const { articleId } = useParams();
     useEffect(() => {
-        props.getArticleEdit(props.match.params.articleId);
+        props.getArticleEdit(parseInt(articleId));
     }, []);
 
     const onSaveArticle = (formData: (ArticleFormType<string> & RolesRequestType)) => {

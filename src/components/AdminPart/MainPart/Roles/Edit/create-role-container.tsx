@@ -3,19 +3,19 @@ import { connect } from 'react-redux';
 import CreateRole from './create-role';
 import {postCreateRole} from '../../../../../redux/role-adm-reducer'
 import {getRoles} from '../../../../../redux/users-adm-reducer';
-import useLocationState from '../../../../../packages/ui/hooks/location';
+import { useNavigate } from 'react-router-dom';
 
 
 const CreateRoleContainer = (props) => {
 
-    let [{ query },, replaceState] = useLocationState();
+    const navigate = useNavigate();
     let [saved, setSaved] = useState(false);
 
     useEffect(() => {  
         if(saved) {     
             props.getRoles();
             setSaved(false);
-            return replaceState(`/adminBoard/roles`); 
+            navigate(`/adminBoard/roles`); 
         } 
     }, [props.role]);
 

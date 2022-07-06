@@ -1,11 +1,20 @@
-import React, { useState, useEffect } from 'react';
+/** Absolute imports */
+import React from 'react';
 import CKEditor from "react-ckeditor-component";
 import { Field, WrappedFieldMetaProps, WrappedFieldProps } from 'redux-form';
+
+/** Ant design */
+//import { Input as InputAntD } from 'antd';
+
+/** Types */
 import { RoleType } from '../../../types/types';
+
+/** Utils */
 import { FieldValidatorType } from '../../../utils/validators/validators';
-//import CKEditorScript from "../../../../assets/ckeditor/ckeditor.js";
-import s from './forms-controls.module.less';
-import { Input as InputAntD } from 'antd';
+
+/** Styles */
+import classes from './forms-controls.module.less';
+
 
 type FormControlPropsType = {
     meta: WrappedFieldMetaProps
@@ -14,7 +23,7 @@ type FormControlPropsType = {
 const FormControl: React.FC<FormControlPropsType> = ({ meta: {touched, error}, children })  => {
     const hasError = touched && error;
     return (
-        <div className={s.formControl + " " + (hasError ? s.error : "")}>
+        <div className={classes.formControl + " " + (hasError ? classes.error : "")}>
             <div>
                 {children}
             </div>
@@ -24,11 +33,11 @@ const FormControl: React.FC<FormControlPropsType> = ({ meta: {touched, error}, c
 }
 
 export const Textarea: React.FC<WrappedFieldProps> = (props) => {
-    const { TextArea } = InputAntD;
+    //const { TextArea } = InputAntD;
     const {input, meta, ...restProps} = props;
     return (
             <FormControl {...props}>
-                <TextArea {...input} {...restProps}  />
+                <textarea {...input} {...restProps}  />
             </FormControl>
     );
 }
@@ -38,7 +47,7 @@ export const Input: React.FC<WrappedFieldProps> = (props) => {
 
     return (
         <FormControl {...props}>
-            <InputAntD {...input} {...props}  />
+            <input {...input} {...props} className={classes.input} />
         </FormControl>
 );
 }
@@ -65,13 +74,15 @@ export const CheckboxGroup: React.FC<WrappedFieldProps & CheckboxGroupOwnPropsTy
         let {options, input} = props;
 
         return options.map((option, index) => {
+            const checked = option.name === 'admin' ? true : input.value.indexOf(option.name) !== -1;
             return (
             <div className="checkbox" key={index}>
                 <label>
                     <input type="checkbox"
                            name={`${input.name}[${index}]`}
                            value={option.name}
-                           checked={input.value.indexOf(option.name) !== -1}
+                           disabled={option.name === 'admin'}
+                           checked={checked}
                            onChange={(event) => {
                                const newValue = [...input.value];
                                if (event.target.checked) {
@@ -82,7 +93,7 @@ export const CheckboxGroup: React.FC<WrappedFieldProps & CheckboxGroupOwnPropsTy
 
                                return input.onChange(newValue);
                            }}/>
-                    <label className={s.checkboxLabel}>{option.name}</label>
+                    <label className={classes.checkboxLabel}>{option.name}</label>
                 </label>
             </div>)
         });

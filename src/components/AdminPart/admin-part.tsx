@@ -9,19 +9,21 @@ import classNames from'classnames';
 import qs from 'qs';
 import useLocationState from '../../packages/ui/hooks/location';
 import './admin-part.css';
+import { useSearchParams } from 'react-router-dom';
 
 const AdminPart = () => {
 
     let [closeMenu, setCloseMenu] = useState(false);
     let [searchText, setSearchText] = useState('');
-    let [{ query }, pushState] = useLocationState();
+    //let [{ query }, pushState] = useLocationState();
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const onToggleMenu = useCallback(() => {
         setCloseMenu(prev => !prev);
     },[])
 
     const onSearching = (values) => {
-        pushState(`?${qs.stringify({...query, search: values.search})}`);
+        //pushState(`?${qs.stringify({...searchParams, search: values.search})}`);
         setSearchText(values.search);
     }
 

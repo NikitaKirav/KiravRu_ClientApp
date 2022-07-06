@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import { HomeDescription, BlogDescription, ProjectsDescription } from './text-description';
-import { Route } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
+interface DescriptionsType {
+  [key: string]: JSX.Element
+}
 
-export class Description extends Component {
-    render() {
-        return (
-            <div>                
-                <Route exact path='/' component={ HomeDescription } />
-                <Route path='/blog' component={ BlogDescription } />
-                <Route exact path='/projects' component={ProjectsDescription} />
-            </div>
-        );
-    }
+const descriptions: DescriptionsType = {
+  '/': <HomeDescription />,
+  '/notes': <BlogDescription />,
+  '/works': <ProjectsDescription />
+};
+
+export const Description = () => {
+
+  const {pathname} = useLocation();
+
+  return descriptions[pathname];
 }

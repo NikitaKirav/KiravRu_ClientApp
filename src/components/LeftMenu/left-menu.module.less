@@ -1,0 +1,232 @@
+@githab_path: "../../../assets/images/githab.png";
+@linkedin_path: "../../../assets/images/linkedin.png";
+
+.nav {
+    width: 320px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    left: -320px;
+    padding: 80px 0px 15px 0px;
+    -webkit-transition: left 0.3s;
+    -moz-transition: left 0.3s;
+    transition: left 0.3s;
+    background: #2d2d30;
+    z-index: 2000;
+
+    @media (max-width: 814px) {
+        padding-top: 57px;
+    }
+
+    @media (max-width: 320px) {
+        width: 100% !important;
+        min-width: 100%;
+    }
+}
+
+
+.active {
+    left: 0;
+    box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -moz-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -webkit-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    overflow-y: auto;
+}
+
+.activeLink {
+    color: #4e8fb8 !important;
+}
+
+.logout {
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 320px) {
+    .nav {
+      width: 100%;
+      box-shadow: none
+    }
+}
+
+/**
+ * формируем непосредственно само меню
+ * используем неупорядоченный список для пунктов меню
+ * прикрутим трансфомации и плавные переходы
+ */
+
+.nav > ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.nav > ul > li {
+    line-height: 2.5;
+    opacity: 0;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -webkit-transition: opacity .5s .1s, -webkit-transform .5s .1s;
+    -moz-transition: opacity .5s .1s, -moz-transform .5s .1s;
+    -ms-transition: opacity .5s .1s, -ms-transform .5s .1s;
+    transition: opacity .5s .1s, transform .5s .1s;
+}
+
+.active > ul > li {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+}
+
+
+/* определяем интервалы появления пунктов меню */
+
+.nav > ul > li:nth-child(2) {
+    -webkit-transition: opacity .5s .2s, -webkit-transform .5s .2s;
+    transition: opacity .5s .2s, transform .5s .2s;
+}
+
+.nav > ul > li:nth-child(3) {
+    -webkit-transition: opacity .5s .3s, -webkit-transform .5s .3s;
+    transition: opacity .5s .3s, transform .5s .3s;
+}
+
+.nav > ul > li:nth-child(4) {
+    -webkit-transition: opacity .5s .4s, -webkit-transform .5s .4s;
+    transition: opacity .5s .4s, transform .5s .4s;
+}
+
+.nav > ul > li:nth-child(5) {
+    -webkit-transition: opacity .5s .5s, -webkit-transform .5s .5s;
+    transition: opacity .5s .5s, transform .5s .5s;
+}
+
+.nav > ul > li:nth-child(6) {
+    -webkit-transition: opacity .5s .6s, -webkit-transform .5s .6s;
+    transition: opacity .5s .6s, transform .5s .6s;
+}
+
+.nav > ul > li:nth-child(7) {
+    -webkit-transition: opacity .5s .7s, -webkit-transform .5s .7s;
+    transition: opacity .5s .7s, transform .5s .7s;
+}
+
+
+/**
+ * оформление ссылок пунктов меню
+ */
+
+.nav > ul > li > a {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    font-family: "Swis721", 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.2em;
+    color: #dadada;
+    width: 100%;
+    text-decoration: none;
+    /* плавный переход */
+    -webkit-transition: color .5s ease, padding .5s ease;
+    -moz-transition: color .5s ease, padding .5s ease;
+    transition: color .5s ease, padding .5s ease;
+}
+
+
+/**
+ * состояние ссылок меню при наведении
+ */
+
+.nav > ul > li > a:hover,
+.nav > ul > li > a:focus {
+    color: white;
+    background-color: #6f6f7957;
+}
+
+
+.socialMedia {
+    position: absolute;
+    height: 250px;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    display: block;
+
+    @media (max-height: 680px) {
+        height: 180px;
+    }
+
+    @media (max-height: 580px) {
+        span,.socialMediaLogos {
+            display: none !important;
+        }
+    }
+
+    span {
+        opacity: 0.2;
+        letter-spacing: 5px;
+        font-size: 18px;
+        font-family: "Swis721";
+    }
+
+    .rights {
+        font-size: 18px;
+        width: 100%;
+        font-family: "Swis721";
+        color:rgba(255, 255, 255, .2);
+        position: absolute;
+        bottom: 20px;
+    }
+
+    .socialMediaLogos {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 25px;
+        cursor: pointer;
+
+        .githab {
+            background: url(@githab_path) no-repeat;
+            height: 45px;
+            width: 46px;
+            position: relative;
+            opacity: 0.2;
+
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+
+        .linkedin {
+            background: url(@linkedin_path) no-repeat;
+            height: 45px;
+            width: 46px;
+            position: relative;
+            opacity: 0.2;
+
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+
+        .logo:hover::after { 
+            content: attr(data-title); 
+            position: absolute;
+            left: 100%; top: 100%;
+            z-index: 6;
+            background: rgba(30, 30, 30, 0.8);
+            color:rgba(255, 255, 255, 0.7);
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            padding: 5px 10px;
+        }
+
+    }
+}

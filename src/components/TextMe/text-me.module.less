@@ -1,0 +1,141 @@
+@githab_path: "../../../assets/images/githab.png";
+@linkedin_path: "../../../assets/images/linkedin.png";
+
+.contentAboutMe {
+    max-width: 1150px;
+    padding: 20px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+
+    h3 {
+        font-weight: 400;
+    }
+
+    label {
+        opacity: 0.3;
+    }
+}
+
+.borderLineFat {
+    border-bottom: 2px solid #3e3e42;
+    margin: 20px 0;
+}
+
+.description {
+    opacity: 0.5;
+}
+
+.contentAboutMe {
+    background-color: #1E1E1E;
+    color: white;
+    padding: 24px;    
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.formBlock {
+    margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 1100px) {
+    .formBlock {
+        display: grid;
+        grid-template-columns: 3fr 20px 7fr;
+    }
+
+    .emailBlock {
+        margin-top: 30px
+    }
+}
+
+
+/* Style inputs with type="text", select elements and textareas */
+.email, .name, .message {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #4e4e50; /* Gray border */
+    background-color: #2d2d30;
+    color: white;
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+    font-size: 1rem;
+}
+
+/* Style the submit button with a specific background color etc */
+
+.submitButton {
+    float: right;
+    color: #fff;
+    background-color: #008d4c;
+    border-color: #008d4c;
+    letter-spacing: 3px;
+    font-family: "Swis721";
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+    &:hover {
+        background-color: #006134;
+        border-color: #006134;
+    }
+}
+
+.message {
+    height:130px;
+}
+
+.socialMediaLogos {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+    cursor: pointer;
+
+    .githab {
+        background: url(@githab_path) no-repeat;
+        height: 45px;
+        width: 46px;
+        position: relative;
+        opacity: 0.2;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    .linkedin {
+        background: url(@linkedin_path) no-repeat;
+        height: 45px;
+        width: 46px;
+        position: relative;
+        opacity: 0.2;
+        margin-left: 50px;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    .logo:hover::after { 
+        content: attr(data-title); 
+        position: absolute;
+        left: 100%; top: 100%;
+        z-index: 6;
+        background: rgba(30, 30, 30, 0.8);
+        color:rgba(255, 255, 255, 0.7);
+        font-family: Arial, sans-serif;
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+
+}

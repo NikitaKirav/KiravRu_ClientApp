@@ -1,0 +1,87 @@
+@import '../../../../style/palette.less';
+
+@media only screen and (min-width: 990px) {
+    .homeArticle {
+        margin: 20px 0 20px 0;
+
+        .blockTime {
+            margin: 0 0 15px 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 989px) {
+    .homeArticle {
+        margin: 10px 0 10px 0;
+
+        .blockTime {
+            margin: 0;
+        }
+    }   
+    .titleArticle {
+        font-size: 12px;
+    }
+    .blockTime {
+        font-size: 12px;
+    }
+}
+
+.description {
+    opacity: 0.5;
+}
+
+.borderLine { 
+    border-bottom: 1px solid #3e3e42;
+}
+
+.borderLineFat {
+    border-bottom: 2px solid #3e3e42;
+    margin: 20px 0;
+}
+
+.pageWrap {
+    max-width: 1150px;
+    padding: 20px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    margin-top: 100px;
+}
+
+.searchResult {
+    color: #16a085;
+}
+
+.articleText {
+    color: @text-color;
+}
+
+.tableArticle {
+    border: none;
+    background: none;
+    width: 100%;
+
+    .titleArticle {
+        width: auto;
+    }
+
+    .difficulty {
+        width: 58px;
+    }
+}
+
+.blockTime {
+    font-family: Menlo, Monaco, monospace;
+    display: block;
+    color: @date-color;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 200;
+
+    span {
+        text-transform: none;
+    }
+}
+
+
+

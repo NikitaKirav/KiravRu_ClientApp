@@ -6,17 +6,16 @@ import { connect } from 'react-redux';
 import Preloader from '../../../common/Preloader/preloader';
 import Pagination from '../../../common/Pagination/pagination';
 import { useLocation } from 'react-router';
-import useLocationState from '../../../../packages/ui/hooks/location';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 import Modal from '../../../common/ModalWindow/modal';
 
 const ArticlesAdm = (props) => {
 
-    let locationState = useLocationState();
+    const [searchParams, setSearchParams] = useSearchParams();
     let location = useLocation();
     useEffect(() => {
-        let pageIndex = parseInt(locationState[0].query['page']);
-        let search = locationState[0].query['search'] ?? '';
+        let pageIndex = parseInt(searchParams.get('page'));
+        let search = searchParams.get('search') ?? '';
         let currentPage = pageIndex || 1;
         props.getArticles(currentPage, props.pageSize, search);
     },[props.changeArticles, location]);
@@ -43,7 +42,7 @@ const ArticlesAdm = (props) => {
     if(!props.articles) {
         return <Preloader />;
     }
-
+console.log("Articles")
     return (
         <div className="listArticles">
             <div className="title">

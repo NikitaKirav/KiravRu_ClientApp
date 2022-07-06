@@ -3,22 +3,23 @@ import { connect } from 'react-redux';
 import EditUser from './edit-user';
 import {getUserEdit, postUserEdit} from '../../../../../redux/user-adm-reducer';
 import {getUsers} from '../../../../../redux/users-adm-reducer';
-import useLocationState from '../../../../../packages/ui/hooks/location';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const EditUserContainer = (props) => {
 
-    let [{ query },, replaceState] = useLocationState();
+    const navigate = useNavigate();
     let [saved, setSaved] = useState(false);
+    const { userId } = useParams();
 
     useEffect(() => {
-        props.getUserEdit(props.match.params.userId);
+        props.getUserEdit(userId);
     },[]);
 
     useEffect(() => {  
         if(saved) {     
             props.getUsers();
             setSaved(false);
-            return replaceState(`/adminBoard/users`); 
+            navigate(`/adminBoard/users`); 
         } 
     }, [props.user]);
 

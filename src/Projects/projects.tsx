@@ -1,7 +1,7 @@
 import React from 'react';
 import { Description } from '../components/Description/description';
 import ElementProjects from './element-projects';
-import './projects.less';
+import classes from './projects.module.less';
 import artCanvasImage from '../../assets/images/artCanvas.jpg';
 import fileBroImage  from '../../assets/images/fileBro.jpg';
 import messengerImage  from '../../assets/images/messenger.jpg';
@@ -11,22 +11,25 @@ import izmailovoImage  from '../../assets/images/izmailovo.jpg';
 const Projects = () => {
     return (
         <>
-        <div className="space"></div>
-        <Description />
-        <div className="projects">
-            <ElementProjects to='/projects/artcanvas' name='ArtCanvas' date='OCTOBER 23, 2020' imagePath={artCanvasImage}
+        {/*<Description />*/}        
+        <div className={classes.projects}>
+            <h1>Works</h1>
+            <div className={classes.description}>This is the place where you can see my projects and experiments in different IT areas. 
+                From time to time I upload the most interesting ones. So, stay tuned....</div>
+            <div className={classes.borderLineFat}></div>    
+            <ElementProjects to='/works/artcanvas' reloadDocument={false} name='ArtCanvas' date='OCTOBER 23, 2020' imagePath={artCanvasImage}
                             info={ArtCanvas} />
-            <div className="borderLine"></div>                
-            <ElementProjects to='/projects/izmailovo' name="Izmailovo client-server application" date='NOVEMBER 20, 2019' imagePath={izmailovoImage}
+            <div className={classes.borderLine}></div>                
+            <ElementProjects to='/works/izmailovo' reloadDocument={false} name="Hotel client-server application" date='NOVEMBER 20, 2019' imagePath={izmailovoImage}
                             info={Izmailovo} />
-            <div className="borderLine"></div>
-            <ElementProjects to='/projects/messenger' name='Messenger' date='OCTOBER 20, 2020' imagePath={messengerImage}
+            <div className={classes.borderLine}></div>
+            <ElementProjects to='/works/messenger' reloadDocument={true} name='Messenger' date='OCTOBER 20, 2020' imagePath={messengerImage}
                             info={Messenger} />
-            <div className="borderLine"></div>
-            <ElementProjects to='/projects/filebro' name='FileBro' date='OCTOBER 19, 2020' imagePath={fileBroImage}
+            <div className={classes.borderLine}></div>
+            <ElementProjects to='/works/filebro' reloadDocument={false} name='FileBro' date='OCTOBER 19, 2020' imagePath={fileBroImage}
                             info={FileBro} />
-            <div className="borderLine"></div>
-            <ElementProjects to='/projects/letsdrink' name="Let's drink" date='NOVEMBER 20, 2019' imagePath={letsdrinkImage}
+            <div className={classes.borderLine}></div>
+            <ElementProjects to='/works/letsdrink' reloadDocument={false} name="Let's drink" date='NOVEMBER 20, 2019' imagePath={letsdrinkImage}
                             info={Letsdrink} />
         </div>
         </>

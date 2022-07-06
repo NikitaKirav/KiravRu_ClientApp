@@ -1,8 +1,13 @@
+/** Absolute imports */
 import React, { useEffect, useRef } from "react";
-
-import s from './banner.module.less';
-import BannerEffectUrsa from './banner-effect-ursa';
 import { useLocation } from "react-router-dom";
+
+/** Components */
+import BannerEffectUrsa from './components/UrsaEffect/banner-effect-ursa';
+
+/** Styles */
+import classes from './banner.module.less';
+
 
 const Banner = () => {
 
@@ -36,11 +41,11 @@ const Banner = () => {
     }
 
     return (
-        <section className={`${s.component} ${s.baner}`}>
-            <section className={s.imageBackground}>
-            <div id={s.parallax} ref={parallaxRef}>
-                <div className={s.ava}><div id={s.avatar}></div></div>
-                <h1 className={s.title}>Hi, I'm Nikita</h1>              
+        <section className={`${classes.component} ${classes.baner}`}>
+            <section className={classes.imageBackground}>
+            <div id={classes.parallax} ref={parallaxRef}>
+                <div className={classes.ava}><div id={classes.avatar}></div></div>
+                <h1 className={classes.title}>Hi, I'm Nikita</h1>              
             </div>
             </section>
             {window.innerWidth > 1200 ? <BannerEffectUrsa height={468} paddingTop={57} /> :''}

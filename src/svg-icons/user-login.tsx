@@ -7,7 +7,17 @@ type PropsType = {
     classNameIcon?: string
 }
 
-export class IconUserLoggedIn extends Component<PropsType> {
+export class IconUserLoggedOut extends Component {
+    render() {
+      return (
+        <svg  id={s.enterLogin}  width="15px" height="19px" viewBox="0 0 15 19">
+          <path d="M0.813 10.002l1.169 0 0 -3.984c0,0.006 0,-0.006 0,-0.019 0,-2.765 2.242,-5.006 5.007,-5.006 2.764,0 5.006,2.241 5.005,5.006l0 4.003 1.193 0c0.447,0 0.813,0.366 0.813,0.814l0 7.371c0,0.447 -0.366,0.813 -0.813,0.813l-12.374 0c-0.447,0 -0.813,-0.366 -0.813,-0.813l0 -7.371c0,-0.448 0.366,-0.814 0.813,-0.814zm3.133 0l6.085 0 0 -4.003c0,-1.681 -1.362,-3.043 -3.042,-3.043 -1.681,0 -3.043,1.362 -3.043,3.043l0 4.003z"/>
+        </svg>
+        );
+    }
+}
+
+/*export class IconUserLoggedIn extends Component<PropsType> {
     render() {
       return (
             <svg id={s.users} className={this.props.classNameIcon} width="30" height="30" viewBox="0 0 45.532 45.532" onClick={this.props.onClick}>
@@ -19,9 +29,19 @@ export class IconUserLoggedIn extends Component<PropsType> {
             </svg>
         );
     }
-}
+}*/
 
-export class IconUserLoggedOut extends Component {
+export class IconUserLoggedIn extends Component<PropsType> {
+    render() {
+      return (
+        <svg  id={s.users} className={this.props.classNameIcon}  width="15px" height="19px" viewBox="0 0 15 19" onClick={this.props.onClick}>
+          <path fill={'#16a085'} d="M0.813 10.002l1.169 0 0 -3.984c0,0.006 0,-0.006 0,-0.019 0,-2.765 2.242,-5.006 5.007,-5.006 2.764,0 5.006,2.241 5.005,5.006l-0.141 0.207 -1.68 0 -0.142 -0.207c0,-1.681 -1.362,-3.043 -3.042,-3.043 -1.681,0 -3.043,1.362 -3.043,3.043l0 4.003 9.241 0c0.447,0 0.813,0.366 0.813,0.814l0 7.371c0,0.447 -0.366,0.813 -0.813,0.813l-12.374 0c-0.447,0 -0.813,-0.366 -0.813,-0.813l0 -7.371c0,-0.448 0.366,-0.814 0.813,-0.814z"/>
+        </svg>
+        );
+    }
+};
+
+/*export class IconUserLoggedOut extends Component {
     render() {
       return (
             <svg height="20pt" id={s.enterLogin} viewBox="0 -11 512 512" width="20pt">
@@ -37,5 +57,5 @@ export class IconUserLoggedOut extends Component {
             </svg>
         );
     }
-};
+};*/
 

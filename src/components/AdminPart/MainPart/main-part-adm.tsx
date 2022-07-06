@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Route, Routes } from 'react-router-dom';
 import './main-part-adm.less';
 import ArticlesAdm from './Articles/articles-adm';
 import EditArticleContainer from './Articles/Edit/edit-article-container';
@@ -19,17 +19,19 @@ const EditAccessContainer = React.lazy(() => import('./Roles/UsersList/edit-acce
 const MainPartAdm = (props) => {
     return (
         <div className="mainPart">
-            <Route exact path='/adminBoard/articles' render={() => <ArticlesAdm searchText={props.searchText} />} />
-            <Route path='/adminBoard/articles/:articleId' render={(props) => <EditArticleContainer match={props.match} />} />
-            <Route path='/adminBoard/categories/:categoryId' render={(props) => <LazyLoadComponent component={<EditCategoryContainer match={props.match} />} />} />
-            <Route exact path='/adminBoard/categories' render={() => <LazyLoadComponent component={<CategoriesAdm searchText={props.searchText} />} />} />
-            <Route exact path='/adminBoard/users' render={() => <LazyLoadComponent component={<Users searchText={props.searchText} />} />} />
-            <Route exact path='/adminBoard/users/:userId' render={(props) => <LazyLoadComponent component={<EditUserContainer match={props.match} />}/>} />
-            <Route path='/adminBoard/users/changePassword/:userId' render={(props) => <LazyLoadComponent component={<ChangePasswordContainer match={props.match} />}/>} />
-            <Route exact path='/adminBoard/roles' render={() => <LazyLoadComponent component={<Roles searchText={props.searchText} />}/>} />   
-            <Route exact path='/adminBoard/roles/create' render={() => <LazyLoadComponent component={<CreateRoleContainer  />}/>} />  
-            <Route exact path='/adminBoard/roles/userList' render={() => <LazyLoadComponent component={<UsersList searchText={props.searchText} />}/>} />  
-            <Route path='/adminBoard/roles/userList/:userId' render={(props) => <LazyLoadComponent component={<EditAccessContainer match={props.match} />}/>} />        
+            <Routes>
+                <Route path='/adminBoard/articles' element={<ArticlesAdm searchText={props.searchText} />} />
+                <Route path='/adminBoard/articles/:articleId' element={<EditArticleContainer match={props.match} />} />
+                <Route path='/adminBoard/categories/:categoryId' element={<LazyLoadComponent component={<EditCategoryContainer match={props.match} />} />} />
+                <Route path='/adminBoard/categories' element={<LazyLoadComponent component={<CategoriesAdm searchText={props.searchText} />} />} />
+                <Route path='/adminBoard/users' element={<LazyLoadComponent component={<Users searchText={props.searchText} />} />} />
+                <Route path='/adminBoard/users/:userId' element={<LazyLoadComponent component={<EditUserContainer match={props.match} />}/>} />
+                <Route path='/adminBoard/users/changePassword/:userId' element={<LazyLoadComponent component={<ChangePasswordContainer match={props.match} />}/>} />
+                <Route path='/adminBoard/roles' element={<LazyLoadComponent component={<Roles searchText={props.searchText} />}/>} />   
+                <Route path='/adminBoard/roles/create' element={<LazyLoadComponent component={<CreateRoleContainer  />}/>} />  
+                <Route path='/adminBoard/roles/userList' element={<LazyLoadComponent component={<UsersList searchText={props.searchText} />}/>} />  
+                <Route path='/adminBoard/roles/userList/:userId' element={<LazyLoadComponent component={<EditAccessContainer match={props.match} />}/>} /> 
+            </Routes>       
         </div>
     );
 }

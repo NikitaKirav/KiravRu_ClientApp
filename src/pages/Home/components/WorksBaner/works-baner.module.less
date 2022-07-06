@@ -1,0 +1,327 @@
+.baner {
+    background-color: #1b4f45;
+    height: 229px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @media (min-width: 619px) and (max-width: 1059px) {
+        height: 180px;     
+    }
+
+    @media (min-width: 451px) and (max-width: 618px) {
+        height: 120px;
+    }
+
+    @media (max-width: 450px) {
+        display: none;
+    }
+}
+
+.leftPart {
+    background-color: #252525;
+    height: 100%;
+    width: 10%;
+    position: relative;
+    //border-right: 2px solid #194038;
+    cursor: pointer;
+
+    .worksText {
+        width: 25px;
+        transform: rotate(270deg);
+        position: absolute;
+        top: 105px;
+        right: 50px;
+        font-family: 'SWIS721';
+        letter-spacing: 3px;
+        opacity: 0.5;
+
+        @media (min-width: 619px) and (max-width: 1059px) {
+            right: 30px;  
+            top: 80px;    
+        }
+
+        @media (max-width: 618px) {
+            right: 10px;  
+            top: 50px;
+        }
+    }
+
+    &:hover .pointerLeft {
+        opacity: 0.5;
+    }
+
+    .pointerLeft {
+        position: absolute;
+        top: calc(50% - 20px);
+        right: 20px;
+        opacity: 0.3;
+
+        @media (max-width: 1059px) {
+            right: 5px;       
+        }
+
+        @media (max-width: 618px) {
+            display: none;
+        }
+    }
+}
+
+.centralPart1 {
+    background-color: #131314;
+    height: 229px;
+    width: 28%;
+    padding: 15px;
+    //border-right: 2px solid #194038;
+    position: absolute;
+    left: 10%;
+    margin-top: -229px;
+    display: block;
+
+    @media (min-width: 1060px) and (max-width: 1800px) {
+        width: 42%;
+    }
+
+    @media (min-width: 815px) and (max-width: 1059px) {
+        width: 84%;
+        border-right: none;
+        height: 180px;
+        margin-top: -180px;  
+    }
+
+    @media (min-width: 619px) and (max-width: 814px) {
+        width: 80%;
+        border-right: none;
+        height: 180px;
+        margin-top: -180px;  
+    }
+
+    @media (min-width: 451px) and (max-width: 618px) {
+        width: 80%;
+        border-right: none;
+        height: 120px;
+        margin-top: -120px;
+    }
+
+    @media (max-width: 450px) {
+        display: none;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+        transition: all .3s ease-in-out; 
+        overflow: visible;
+        border: none;
+        z-index: 10;
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+
+        @media (min-width: 619px) and (max-width: 1059px) {
+            transform: scale(1.03);
+        }
+
+        @media (max-width: 618px) {
+            transform: none;
+        }
+    }
+
+    .about {
+        margin-top: 10px;
+        opacity: 0.5;
+    }
+
+    .date {
+        color: #4e8fb8;
+    }
+}
+
+h3 {
+    font-weight: 400 !important;
+    text-align: center;
+}
+
+.centralPart2 {
+    background-color: #252525;
+    height: 229px;
+    width: 28%;
+    padding: 15px;
+    //border-right: 2px solid #194038;
+    position: absolute;
+    left: 38%;
+    margin-top: -229px;
+
+    @media (min-width: 1060px) and (max-width: 1800px) {
+        left: 52%;
+        width: 42%;
+        border-right: none;
+    }
+
+    @media (max-width: 1059px) {
+        display: none;        
+    }
+
+    &:hover {
+        transform: scale(1.1);
+        transition: all .3s ease-in-out; 
+        overflow: visible;
+        border: none;
+        z-index: 10;
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+    }
+
+    .about {
+        margin-top: 10px;
+        opacity: 0.5;
+    }
+
+    .date {
+        color: #4e8fb8;
+    }
+    /*padding: 45px 15px;
+
+    .technologiesColons {
+        ul {
+            padding-inline-start: 20px;
+            font-size: 13px;  
+            color: #bbbbbb;
+            column-count: 2;
+            
+            li {
+              list-style-type: circle;
+              &::marker {
+                color: #4e8fb8;
+              }              
+            }    
+        }    
+    }
+    
+    .technologies {
+        .title {
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #bbbbbb;
+        }
+    }*/
+}
+
+.technologies {
+    display: block;
+    margin-top: 20px;
+    
+    .title {
+        font-weight: 400;
+        color: #bbbbbb;
+        margin-right: 10px;
+    }
+
+    @media (max-width: 618px) {
+        display: none;
+    }
+}
+
+.skill {
+    height: 25px;
+    padding: 0 10px;
+    background-color: #194038;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.skillsRow {
+    margin-bottom: 10px;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.centralPart3 {
+    background-color: #1b4f45;
+    height: 229px;
+    width: 28%;
+    padding: 15px;
+    position: absolute;
+    left: 66%;
+    margin-top: -229px;
+    display: block;
+
+    @media (max-width: 1800px) {
+        display: none;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+        transition: all .3s ease-in-out; 
+        overflow: visible;
+        border: none;
+        z-index: 10;
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+    }
+
+    .about {
+        margin-top: 10px;
+        opacity: 0.5;
+    }
+
+    .date {
+        color: #4e8fb8;
+    }
+    /*
+    .photoContainer {
+        background-color: #1b4f45;
+        height: 100%;
+        width: 100%;
+        padding: 5px;
+        display: flex;
+
+        .projectImage {
+            display: block;
+            max-height: 189px;
+            height: auto;
+            width: auto;
+        }
+
+        span {
+            text-decoration: underline;
+            cursor: pointer;
+            color: #4e8fb8;
+            font-size: 18px;
+            width: 100%;
+            text-align: center;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    }*/
+}
+
+.rightPart {
+    background-color: #131314;
+    height: 100%;
+    width: 6%;
+    position: relative;
+    //border-left: 2px solid #194038;
+    cursor: pointer;
+
+    @media (max-width: 814px) {
+        width: 10%;      
+    }
+
+    &:hover .pointerRight {
+        opacity: 0.5;
+    }
+
+    .pointerRight {
+        position: absolute;
+        top: calc(50% - 20px);
+        left: 20px;    
+        opacity: 0.3;   
+    
+        @media (max-width: 1059px) {
+            left: 5px;       
+        }
+    }
+}

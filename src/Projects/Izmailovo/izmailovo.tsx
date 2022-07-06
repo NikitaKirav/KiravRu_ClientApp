@@ -1,21 +1,26 @@
-import React from 'react';
-import s from './izmailovo.module.less';
+/** Absolute imports */
+import React, { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+
+/** Images */
 import izmailovoImage_001 from '../../../assets/images/izmailovo_001.jpg';
 import izmailovoImage_002 from '../../../assets/images/izmailovo_002.jpg';
 import izmailovoImage_003 from '../../../assets/images/izmailovo_003.jpg';
-import { NavLink } from 'react-router-dom';
 
+/** Styles */
+import s from './izmailovo.module.less';
 
 const Izmailovo: React.FC = () => {
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    },[]);
+
     return (
         <div className={s.izmailovo}>
-            <nav aria-label="breadcrumb">
-                <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><NavLink to="/projects">Projects</NavLink> / Izmailovo client-server application</li>
-                </ol>
-            </nav>
-            <h1>Izmailovo client-server application</h1>
+            <div className="breadcrumb-item"><NavLink to="/works">Works</NavLink> / Hotel client-server application</div>
+            <div className={s.borderLineFat}></div>
+            <h1>Hotel client-server application</h1>
             <span><time className={s.blockTime}>NOVEMBER 20, 2019</time></span>
             <div className={s.contentText}>
                 <p>This application was created for the biggest hotel of Russia. 

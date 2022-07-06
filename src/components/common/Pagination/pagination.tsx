@@ -1,7 +1,9 @@
+/** Absolute imports */
 import React from 'react';
-import useLocationState from '../../../packages/ui/hooks/location';
 import qs from 'qs';
-import s from './pagination.module.less';
+
+/** Styles */
+import classes from './pagination.module.less';
 
 type PropsType = {
     totalCount: number
@@ -11,7 +13,6 @@ type PropsType = {
 }
 
 let Pagination: React.FC<PropsType> = ({totalCount, pageSize, currentPage, onPageChanged}) => {
-    const [{ query }, pushState] = useLocationState();
     let pagesCount = Math.ceil( totalCount / pageSize );
     let pages = [];
 
@@ -23,20 +24,20 @@ let Pagination: React.FC<PropsType> = ({totalCount, pageSize, currentPage, onPag
     .filter(i => i && i >= left && i < right);  
 
     const onClickPage = (pageIndex: number) => {
-        pushState(`?${qs.stringify({ ...query, page: pageIndex })}`);
+        //pushState(`?${qs.stringify({ ...query, page: pageIndex })}`);
         onPageChanged(pageIndex);
     }
 
-    return <div className={s.pages}>
-        <ul className={s.pagination}>
-                {currentPage != 1 ? <li className={s.pageItem} onClick={() => {onClickPage(currentPage-1)}}>
+    return <div className={classes.pages}>
+        <ul className={classes.pagination}>
+                {currentPage != 1 ? <li className={classes.pageItem} onClick={() => {onClickPage(currentPage-1)}}>
                     «</li> : ''}
                 {pages.map(p => {
-                    return <li key={p} className={ currentPage === p ? `${s.pageItem} ${s.selectedPage}` : s.pageItem } onClick={() => { onPageChanged(p)}}>
+                    return <li key={p} className={ currentPage === p ? `${classes.pageItem} ${classes.selectedPage}` : classes.pageItem } onClick={() => { onPageChanged(p)}}>
                                       {p}
                             </li> 
                 })}
-                {currentPage != pagesCount ? <li className={s.pageItem} onClick={() => {onPageChanged(currentPage+1)}}>
+                {currentPage != pagesCount ? <li className={classes.pageItem} onClick={() => {onPageChanged(currentPage+1)}}>
                     »</li> : ''}
         </ul>
     </div>

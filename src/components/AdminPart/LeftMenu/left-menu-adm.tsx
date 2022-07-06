@@ -5,7 +5,6 @@ import { faHome,  faPencilAlt, faListOl, faCogs, faUsers, faKey, faThumbsUp, faL
 import { NavLink } from 'react-router-dom';
 import SearchAdmin from './SearchBlock/search-adm';
 import qs from 'qs';
-import useLocationState from '../../../packages/ui/hooks/location';
 import { connect } from 'react-redux';
 import { actions } from '../../../redux/search-reducer';
 
@@ -18,10 +17,8 @@ type OwnPropsType = {
 
 const LeftMenuAdm: React.FC<MapDispatchPropsType & OwnPropsType> = (props) => {
 
-    let [{ query }, pushState] = useLocationState();
-
     const onSearching = (values) => {
-        pushState(`?${qs.stringify({...query, page: 1, search: values.search})}`);
+        //pushState(`?${qs.stringify({...query, page: 1, search: values.search})}`);
         props.setSearchText(values.search);
     }
 
@@ -33,7 +30,7 @@ const LeftMenuAdm: React.FC<MapDispatchPropsType & OwnPropsType> = (props) => {
                 {props.closeMenu ? <FontAwesomeIcon icon={faThumbsUp}/> : `HEADER`}
                 </li>
                 <li>
-                    <NavLink exact to="/adminBoard" activeClassName={s.activeMenu}>
+                    <NavLink end to="/adminBoard" className={({isActive}) => isActive ? s.activeMenu : ''}>
                         <div className={s.liLeftMenu}>
                             <FontAwesomeIcon icon={faHome} />
                             {props.closeMenu ? '' : <span>Main_Page</span>}
@@ -41,7 +38,7 @@ const LeftMenuAdm: React.FC<MapDispatchPropsType & OwnPropsType> = (props) => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/adminBoard/articles' activeClassName={s.activeMenu}>
+                    <NavLink to='/adminBoard/articles' className={({isActive}) => isActive ? s.activeMenu : ''}>
                         <div className={s.liLeftMenu}>                        
                                 <FontAwesomeIcon icon={faPencilAlt} />
                                 {props.closeMenu ? '' : <span>{`Articles_&_Notes`}</span>}                        
@@ -49,7 +46,7 @@ const LeftMenuAdm: React.FC<MapDispatchPropsType & OwnPropsType> = (props) => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/adminBoard/categories' activeClassName={s.activeMenu}>
+                    <NavLink to='/adminBoard/categories' className={({isActive}) => isActive ? s.activeMenu : ''}>
                         <div className={s.liLeftMenu}>
                             <FontAwesomeIcon icon={faListOl} />
                             {props.closeMenu ? '' : <span>Categories</span>}
@@ -66,7 +63,7 @@ const LeftMenuAdm: React.FC<MapDispatchPropsType & OwnPropsType> = (props) => {
                 {props.closeMenu ? <FontAwesomeIcon icon={faLock}/> : `ACCESS`}
                 </li>
                 <li>
-                    <NavLink to='/adminBoard/users' activeClassName={s.activeMenu}>
+                    <NavLink to='/adminBoard/users' className={({isActive}) => isActive ? s.activeMenu : ''}>
                         <div className={s.liLeftMenu}>
                             <FontAwesomeIcon icon={faUsers} />
                             {props.closeMenu ? '' : <span>Users</span>}
@@ -74,7 +71,7 @@ const LeftMenuAdm: React.FC<MapDispatchPropsType & OwnPropsType> = (props) => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/adminBoard/roles' activeClassName={s.activeMenu}>
+                    <NavLink to='/adminBoard/roles' className={({isActive}) => isActive ? s.activeMenu : ''}>
                         <div className={s.liLeftMenu}>
                             <FontAwesomeIcon icon={faKey} />
                             {props.closeMenu ? '' : <span>Roles</span>}

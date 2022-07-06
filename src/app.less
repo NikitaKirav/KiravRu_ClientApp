@@ -1,3 +1,19 @@
+@font-face {
+    font-family: "Swis721";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Swis721 Cn BT"),
+         url("/assets/fonts/swis721cnbtrusbyme_roman.otf") format("opentype")
+}
+
+@font-face {
+    font-family: "Corbel Light";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Corbel Light"),
+         url("/assets/fonts/Corbel Light.ttf") format("truetype")
+}
+
 @media only screen and (min-width: 990px) {
     .breadcrumb {
         margin: 0 0 1rem 0;
@@ -28,4 +44,10 @@
 
 .breadcrumb-item+.breadcrumb-item {
     padding-left: .5rem;
+}
+
+[id='nav-toggle']:checked ~ main > article {
+    -webkit-transform: translateX(320px);
+    -moz-transform: translateX(320px);
+    transform: translateX(320px);
 }

@@ -1,27 +1,38 @@
-﻿import React, { useEffect } from 'react';
-import { BrowserRouter, Route, Switch, useLocation, withRouter } from 'react-router-dom';
-
-import './app.less';
-import s from './app.module.less';
-import TopMenu from './components/TopMenu/top-menu';
-import Home from './components/Home/home';
-import { connect } from 'react-redux';
-import { initializeApp } from './redux/app-main-reducer';
-import Preloader from './components/common/Preloader/preloader';
-
-import LoginContainer from './components/Account/login-container';
-import RegisterContainer from './components/Account/register-container';
-import Footer from './components/Footer/footer';
-import { AppStateType } from './redux/redux-store';
+﻿/** Absolute imports */
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import classNames from 'classnames';
 import { compose } from 'redux';
 import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
+
+/** Components */
+import Preloader from './components/common/Preloader/preloader';
+import TopMenu from './components/TopMenu/top-menu';
+import LeftMenu from './components/LeftMenu/left-menu';
+import Footer from './components/Footer/footer';
+
+/** Pages */
+import LoginContainer from './pages/Account/Login/login-container';
+import RegisterContainer from './pages/Account/Register/register-container';
+import Home from './pages/Home/home';
+import { ContactsPage } from './pages/Contacts/contacts-page';
+
+/** Store */
+import { initializeApp } from './redux/app-main-reducer';
+import { AppStateType } from './redux/redux-store';
 import store from './redux/redux-store';
 
+/** Styles */
+import './app.less';
+import s from './app.module.less';
+
+
+/** Lazy load */
 const AdminPart = React.lazy(() => import('./components/AdminPart/admin-part'));
 const FileBrowseComponent = React.lazy(() => import('./components/AdminPart/FileBrowse/file-browse-component'));
-const Messenger = React.lazy(() => import('./Projects/Messenger/messenger'));
 const ArtCanvasPage = React.lazy(() => import('./Projects/ArtCanvas/art-canvas-page'));
-const Blog = React.lazy(() => import('./components/Blog/blog'));
+const Blog = React.lazy(() => import('./pages/Notes/notes'));
 const Projects = React.lazy(() => import('./Projects/projects'));
 const FileBro = React.lazy(() => import('./Projects/FileBro/file-bro'));
 const LetsDrink = React.lazy(() => import('./Projects/LetsDrink/letsdrink'));
@@ -35,10 +46,18 @@ type DispatchPropsType = {
 const App: React.FC<MapPropsType & DispatchPropsType> = (props) => {
 
 	const location = useLocation();
+	const [navToggle, setNavToggle] = useState(false);
 
 	useEffect(() => {
 		props.initializeApp();
 	},[]);  
+
+	useEffect(() => {
+		if(navToggle)
+			document.body.style.overflow = "hidden";
+		else
+			document.body.style.overflow = "auto";
+	},[navToggle]);
 	
 	if (!props.initialized) {
 		return <Preloader />
@@ -46,7 +65,7 @@ const App: React.FC<MapPropsType & DispatchPropsType> = (props) => {
 
 	const pathnameAdmin = /^\/adminBoard/;
 	const pathnameImage = /^\/image\/filebrowse/;
-	const pathnameMessenger = /^\/projects\/messenger/;
+
 	// If User enters to Admin part
 	if(pathnameAdmin.test(location.pathname)){
 		return (
@@ -56,31 +75,37 @@ const App: React.FC<MapPropsType & DispatchPropsType> = (props) => {
 		return (
 			<LazyLoadComponent component={<FileBrowseComponent />}/>
 		);
-	} else if(pathnameMessenger.test(location.pathname)) {
-		return (
-			<LazyLoadComponent component={<Messenger />}/>
-		);
+	}
+
+	const onClickNavToggle = () => {
+		setNavToggle(prev => !prev);
 	}
 
 	return (
-		<div className={s.page}>
-			<TopMenu />			
+		<>
+		<LeftMenu navToggle={navToggle} onClickNavToggle={onClickNavToggle}  />
+		<div className={classNames(s.maskContent, navToggle ? s.maskActive : '')} onClick={onClickNavToggle}></div>
+
+		<div className={classNames(s.page, navToggle ? s.leftMenuActive : '')}>
+			<TopMenu navToggle={navToggle} />
 			<div className={s.bodyPage}>
-				<Switch>
-					<Route exact path='/' component={ Home } />
-					<Route path='/blog' render={ () => <LazyLoadComponent component={<Blog  />}/> } />
-					<Route path='/projects/artcanvas' render={ () => <LazyLoadComponent component={<ArtCanvasPage  />}/> } />
-					<Route path='/projects/filebro' render={ () => <LazyLoadComponent component={<FileBro  />}/> } />
-					<Route path='/projects/letsdrink' render={ () => <LazyLoadComponent component={<LetsDrink  />}/> } />
-					<Route path='/projects/izmailovo' render={ () => <LazyLoadComponent component={<Izmailovo  />}/> } />
-					<Route path='/projects' render={ () => <LazyLoadComponent component={<Projects  />}/> } />				
-					<Route path='/login' component={ LoginContainer } />
-					<Route path='/register' component={ RegisterContainer } />
-					<Route path='*' render={ () => <div>404 NOT FOUND</div> } />
-				</Switch>	
+				<Routes>
+					<Route path='/' element={ <Home /> } />
+					<Route path='/notes/*' element={ <LazyLoadComponent component={<Blog  />}/> } />
+					<Route path='/works/artcanvas' element={ <LazyLoadComponent component={<ArtCanvasPage  />}/> } />
+					<Route path='/works/filebro' element={ <LazyLoadComponent component={<FileBro  />}/> } />
+					<Route path='/works/letsdrink' element={ <LazyLoadComponent component={<LetsDrink  />}/> } />
+					<Route path='/works/izmailovo' element={ <LazyLoadComponent component={<Izmailovo  />}/> } />
+					<Route path='/works' element={ <LazyLoadComponent component={<Projects  />}/> } />				
+					<Route path='/login' element={ <LoginContainer /> } />
+					<Route path='/register' element={ <RegisterContainer /> } />
+					<Route path='/contacts' element={ <ContactsPage /> } />
+					<Route path='*' element={ () => <div>404 NOT FOUND</div> } />
+				</Routes>	
 			</div>
-			<Footer />	
-		</div>			
+			<Footer />
+		</div>	
+		</>			
 	);
 }
 
@@ -88,7 +113,7 @@ const mapStateToProps = (state: AppStateType) => ({
 	initialized: state.appMain.initialized
 });
 
-const AppContainer = compose<React.ComponentType>(withRouter, connect(mapStateToProps,{initializeApp}))(App);
+const AppContainer = compose<React.ComponentType>(connect(mapStateToProps,{initializeApp}))(App);
 
 const KiravRuApp: React.FC = () => {
 	return (

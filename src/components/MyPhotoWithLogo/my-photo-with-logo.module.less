@@ -1,0 +1,568 @@
+@my_photo1_path: "../../../assets/images/photo2v2-min.png";
+@my_photo2_path: "../../../assets/images/photo1v3-min.png";
+@my_photo1_small_path: "../../../assets/images/photo2v1-small-min.png";
+@my_photo2_small_path: "../../../assets/images/photo1v1-small-min.png";
+@my_photo1_medium_path: "../../../assets/images/photo2v1-medium-min.png";
+@my_photo2_medium_path: "../../../assets/images/photo1v1-medium-min.png";
+@my_photo1_637_542_path: "../../../assets/images/photo2v1-micro_637-542-min.png";
+@my_photo1_542_461_path: "../../../assets/images/photo2v1-micro_542-461-min.png";
+@my_photo1_409_348_path: "../../../assets/images/photo2v1-micro_409-348-min.png";
+@my_photo1_290_247_path: "../../../assets/images/photo2v1-micro_290-247-min.png";
+
+@logo1_path: "../../../assets/images/logo1-v2-min.png";
+@logoKirav_path: "../../../assets/images/logoKirav-v2-min.png";
+@logoNikita_path: "../../../assets/images/logoNikita-v2-min.png";
+@logoKirav_58_219_path: "../../../assets/images/logoKirav-micro-58-219.png";
+@logoKirav_50_189_path: "../../../assets/images/logoKirav-micro-50-189.png";
+@logoKirav_38_144_path: "../../../assets/images/logoKirav-micro-38-144.png";
+@logoKirav_26_99_path: "../../../assets/images/logoKirav-micro-26-99.png";
+@logoNikita_58_268_path: "../../../assets/images/logoNikita-micro-58-268.png";
+@logoNikita_50_231_path: "../../../assets/images/logoNikita-micro-50-231.png";
+@logoNikita_38_176_path: "../../../assets/images/logoNikita-micro-38-176.png";
+@logoNikita_26_120_path: "../../../assets/images/logoNikita-micro-26-120.png";
+@logoKirav_medium_path: "../../../assets/images/logoKirav-medium-v1-min.png";
+@logoNikita_medium_path: "../../../assets/images/logoNikita-medium-v1-min.png";
+
+.conteiner {
+    background: linear-gradient(90deg, #0a0a0b, #434343);;
+    width: 100%;
+    height: 1000px;
+    position: relative;
+    display: block;
+
+    @media (min-width: 1361px) and (max-width: 1800px) {
+        height: 720px;
+    }
+
+    @media (min-width: 1060px) and (max-width: 1360px) {
+        height: 690px;
+    }
+
+    @media (min-width: 956px) and (max-width: 1059px) {
+        height: 638px;
+    }
+
+    @media (min-width: 815px) and (max-width: 955px) {
+        height: 542px;
+    }
+
+    @media (min-width: 619px) and (max-width: 814px) {
+        height: 409px;
+    }
+
+    @media (max-width: 618px) {
+        height: 289px;
+    }
+}
+
+.myPhotoImg {
+    display: none;
+    @media (max-width: 1059px) {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-right: auto;
+        margin-left: auto;
+        left: 0;
+        right: 0px;
+        bottom: 0;
+    }
+}
+
+.titleIamNikita {
+    display: none;
+    @media (max-width: 379px) {
+        font-size: 2rem;
+        display: block;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0px;
+        z-index: 6;
+    }
+}
+
+.myPhoto1 {
+    height: 1000px;
+    width: 1180px;
+    background: url(@my_photo1_path) no-repeat center bottom;
+    z-index: 2;
+    position: absolute;
+    right: 43%; 
+    @media (min-width: 2000px) {
+        right: 50%; 
+    }
+
+    @media (min-width: 956px) and (max-width: 1059px) {
+        background: url(@my_photo1_637_542_path) no-repeat center bottom;
+        height: 542px;
+        width: 637px;
+        margin-right: auto;
+        margin-left: auto;
+        left: 0;
+        right: 100px;
+        bottom: 0;
+    }
+
+    @media (min-width: 815px) and (max-width: 955px) {
+        background: url(@my_photo1_542_461_path) no-repeat center bottom;
+        height: 461px;
+        width: 542px;
+        margin-right: auto;
+        margin-left: auto;
+        left: 0;
+        right: 80px;
+        bottom: 0;
+    }
+
+    @media (min-width: 619px) and (max-width: 814px) {
+        background: url(@my_photo1_409_348_path) no-repeat center bottom;
+        height: 348px;
+        width: 409px;
+        margin-right: auto;
+        margin-left: auto;
+        left: 0;
+        right: 80px;
+        bottom: 0;
+    }
+
+    @media (max-width: 618px) {
+        background: url(@my_photo1_290_247_path) no-repeat center bottom;
+        height: 247px;
+        width: 290px;
+        margin-right: auto;
+        margin-left: auto;
+        left: 0;
+        right: 80px;
+        bottom: 0;
+    }
+
+    @media (max-width: 360px) {
+        left: -20px;
+    }
+
+    @media (max-width: 300px) {
+        left: -40px;
+    }
+
+    @media (min-width: 1060px) and (max-width: 1360px) {
+        background: url(@my_photo1_small_path) no-repeat center bottom;
+        height: 613px;
+        width: 723px;
+        margin-right: auto;
+        margin-left: auto;
+        left: 0;
+        right: 80px;
+        bottom: 0;
+    }
+
+    @media (min-width: 1361px) and (max-width: 1800px) {
+        background: url(@my_photo1_medium_path) no-repeat center bottom;
+        height: 720px;
+        width: 850px;
+        margin-right: auto;
+        margin-left: auto;
+        left: 0;
+        right: 120px;
+        bottom: 0;
+    }
+}
+
+
+.myPhoto2 {
+    height: 1000px;
+    width: 1175px;
+    background: url(@my_photo2_path) no-repeat center bottom;
+    z-index: 2;
+    position: absolute;
+    margin-left: 155px;
+    right: 43%;
+    @media (min-width: 2000px) {
+        right: 50%; 
+    }
+
+    @media (max-width: 1059px) {
+        display: none;
+    }   
+
+    @media (min-width: 1060px) and (max-width: 1360px) {
+        background: url(@my_photo2_small_path) no-repeat center bottom;
+        height: 613px;
+        width: 723px;
+        margin-right: auto;
+        margin-left: auto;
+        left: 0;
+        right: 80px;
+        bottom: 0;
+    }
+
+    @media (min-width: 1361px) and (max-width: 1800px) {
+        background: url(@my_photo2_medium_path) no-repeat center bottom;
+        height: 720px;
+        width: 850px;
+        margin-right: auto;
+        margin-left: auto;
+        left: 0;
+        right: 120px;
+        bottom: 0;
+    }
+}
+
+@media (min-width: 1060px) {
+    .show {
+        animation: col2 0.5s forwards;
+    }
+
+    .hide {
+        animation: col 0.5s forwards;
+    }
+
+    .left {
+        animation: moveLeft 0.5s forwards;
+    }
+
+    .right {
+        animation: moveRight 0.5s forwards;
+    }
+}
+
+@keyframes moveLeft { 
+    0% {transform: translateX(30px);} 
+    100% {transform: translateX(0px);} 
+}
+
+@keyframes moveRight { 
+    0% {transform: translateX(0px);} 
+    100% {transform: translateX(30px);} 
+}
+
+@keyframes col { 
+    0% {opacity: 0;} 
+    100% {opacity: 1;} 
+}
+
+@keyframes col2 { 
+    0% {opacity: 1;} 
+    100% {opacity: 0;} 
+}
+
+.logoAboutFrontend {
+    font-family: 'Corbel Light';    
+    font-weight: 400;
+    z-index: 1;
+    position: absolute;
+    display: none;
+
+    @media (min-width: 956px) and (max-width: 1059px) {
+        display: block;
+        font-size: 22px;
+        top: calc(342px);
+        right: calc(63% + 60px);
+        letter-spacing: 2px;
+        opacity: 0.8;
+    }
+
+    @media (min-width: 815px) and (max-width: 955px) {
+        display: block;
+        font-size: 20px;
+        top: calc(292px);
+        right: calc(63% + 58px);
+        letter-spacing: 2px;
+        opacity: 0.8;
+    }
+
+    @media (min-width: 619px) and (max-width: 814px) {
+        display: block;
+        font-size: 15px;
+        top: calc(220px);
+        right: calc(63% + 40px);
+        letter-spacing: 2px;
+        opacity: 0.8;
+    }
+
+    @media (min-width: 1060px) and (max-width: 1360px) {
+        display: block;
+        font-size: 25px;
+        top: calc(371px);
+        right: calc(42% + 290px);
+        letter-spacing: 2px;
+        opacity: 0.8;
+    }
+
+    @media (min-width: 1361px) and (max-width: 1800px) {
+        display: block;
+        font-size: 35px;
+        top: calc(383px);
+        right: calc(50% + 270px);
+        letter-spacing: 3px;
+        opacity: 0.8;
+    }
+}
+
+.logoAboutBackend {
+    font-family: 'Corbel Light';
+    line-height: 58px;
+    font-weight: 400;
+    z-index: 1;
+    position: absolute;
+    display: none;
+
+    @media (min-width: 956px) and (max-width: 1059px) {
+        display: block;
+        font-size: 22px;
+        top: calc(330px);
+        left: calc(70%);
+        letter-spacing: 2px;
+        opacity: 0.8;
+    }
+
+    @media (min-width: 815px) and (max-width: 955px) {
+        display: block;
+        font-size: 20px;
+        top: calc(280px);
+        left: calc(70%);
+        letter-spacing: 2px;
+        opacity: 0.8;
+    }
+
+    @media (min-width: 619px) and (max-width: 814px) {
+        display: block;
+        font-size: 15px;
+        top: calc(205px);
+        left: calc(68%);
+        letter-spacing: 2px;
+        opacity: 0.8;
+    }
+
+    @media (min-width: 1060px) and (max-width: 1360px) {
+        display: block;
+        font-size: 25px;
+        top: calc(360px);
+        left: calc(48% + 258px);
+        letter-spacing: 2px;
+        opacity: 0.8;
+    }
+
+    @media (min-width: 1361px) and (max-width: 1800px) {
+        display: block;
+        font-size: 35px;
+        top: calc(376px);
+        left: calc(55% + 184px);
+        letter-spacing: 3px;
+        opacity: 0.8;
+    }
+}
+
+.logoNikita {
+    z-index: 1;
+    position: absolute;
+    display: none;
+
+    @media (min-width: 956px) and (max-width: 1059px) {
+        display: block;
+        width: 268px;
+        height: 58px;
+        background: url(@logoNikita_58_268_path) no-repeat center bottom;
+        top: 45%;
+        right: 63%;
+    }
+
+    @media (min-width: 815px) and (max-width: 955px) {
+        display: block;
+        width: 231px;
+        height: 50px;
+        background: url(@logoNikita_50_231_path) no-repeat center bottom;
+        top: 45%;
+        right: 63%;
+    }
+
+    @media (min-width: 619px) and (max-width: 814px) {
+        display: block;
+        width: 176px;
+        height: 38px;
+        background: url(@logoNikita_38_176_path) no-repeat center bottom;
+        top: 45%;
+        right: 63%;
+    }
+
+    @media (min-width: 443px) and (max-width: 618px) {
+        display: block;
+        width: 120px;
+        height: 26px;
+        background: url(@logoNikita_26_120_path) no-repeat center bottom;
+        top: 45%;
+        right: 63%;
+    }
+
+    @media (min-width: 380px) and (max-width: 442px) {
+        display: block;
+        width: 120px;
+        height: 26px;
+        background: url(@logoNikita_26_120_path) no-repeat center bottom;
+        top: 45%;
+        right: 63%;
+    }
+
+    @media (min-width: 1060px) and (max-width: 1360px) {
+        display: block;
+        width: 781px;
+        height: 169px;
+        background: url(@logoNikita_path) no-repeat center bottom;
+        top: 30%;
+        right: 42%;
+    }
+
+    @media (min-width: 1361px) and (max-width: 1800px) {
+        display: block;
+        width: 781px;
+        height: 169px;
+        background: url(@logoNikita_medium_path) no-repeat center bottom;
+        top: 30%;
+        right: 50%;
+    }
+}
+
+.logoKirav {
+    z-index: 1;
+    position: absolute;
+    display: none;
+
+    @media (min-width: 956px) and (max-width: 1059px) {
+        display: block;
+        width: 219px;
+        height: 58px;
+        background: url(@logoKirav_58_219_path) no-repeat center bottom;
+        top: 45%;
+        left: 70%;
+    }
+
+    @media (min-width: 815px) and (max-width: 955px) {
+        display: block;
+        width: 189px;
+        height: 50px;
+        background: url(@logoKirav_50_189_path) no-repeat center bottom;
+        top: 45%;
+        left: 70%;
+    }
+
+    @media (min-width: 619px) and (max-width: 814px) {
+        display: block;
+        width: 144px;
+        height: 38px;
+        background: url(@logoKirav_38_144_path) no-repeat center bottom;
+        top: 45%;
+        left: 68%;
+    }
+
+    @media (min-width: 443px) and (max-width: 618px) {
+        display: block;
+        width: 99px;
+        height: 26px;
+        background: url(@logoKirav_26_99_path) no-repeat center bottom;
+        top: 45%;
+        left: 66%;
+    }
+
+    @media (min-width: 380px) and (max-width: 442px) {
+        display: block;
+        width: 99px;
+        height: 26px;
+        background: url(@logoKirav_26_99_path) no-repeat center bottom;
+        top: 45%;   
+        left: 70%;
+    }
+
+    @media (min-width: 1060px) and (max-width: 1360px) {
+        display: block;
+        width: 781px;
+        height: 169px;
+        background: url(@logoKirav_path) no-repeat center bottom;
+        top: 30%;
+        left: 48%;
+    }
+
+    @media (min-width: 1361px) and (max-width: 1800px) {
+        display: block;
+        width: 781px;
+        height: 169px;
+        background: url(@logoKirav_medium_path) no-repeat center bottom;
+        top: 30%;
+        left: 55%;
+    }
+}
+
+.logo {
+    width: 911px;
+    height: 546px;
+    background: url(@logo1_path) no-repeat center bottom;
+    z-index: 1;
+    position: absolute;
+    top: 0%;
+    left: 46%;
+    display: block;
+
+    @media (max-width: 1059px) {
+        display: none;
+    }   
+
+    @media (min-width: 2000px) {
+        left: 49%; 
+    }
+
+    @media (min-width: 990px) and (max-width: 1800px) {
+        display: none;
+    }
+}
+
+.logoAbout {
+    font-family: 'Corbel Light';
+    font-size: 45px;
+    line-height: 58px;
+    font-weight: 400;
+    z-index: 1;
+    position: absolute;
+    top: calc(20% + 376px);
+    left: calc(46% + 266px);
+    letter-spacing: 5px;
+    display: block;
+
+    @media (max-width: 1059px) {
+        display: none;
+    }   
+
+    @media (min-width: 2000px) {
+        left: calc(49% + 266px); 
+    }
+
+    @media (min-width: 990px) and (max-width: 1800px) {
+        display: none;
+    }
+}
+
+.logoReadMore {
+    font-family: 'Corbel Light';
+    font-size: 28px;
+    line-height: 58px;
+    font-weight: 400;
+    z-index: 1;
+    position: absolute;
+    top: calc(20% + 505px);
+    left: calc(46% + 270px);
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    display: block;
+
+    @media (max-width: 1059px) {
+        display: none;
+    }   
+
+    @media (min-width: 2000px) {
+        left: calc(49% + 270px); 
+    }
+
+    @media (min-width: 990px) and (max-width: 1800px) {
+        display: none;
+    }
+}

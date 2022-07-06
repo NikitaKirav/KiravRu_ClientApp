@@ -8,10 +8,10 @@ import { Field, InjectedFormProps, reduxForm } from 'redux-form';
 import { Input, CheckboxGroup, CKEditorField, Checkbox } from '../../../../common/FormsControls/forms-controls';
 import 'react-dropdown/style.css';
 import classNames from 'classnames';
-import useLocationState from '../../../../../packages/ui/hooks/location';
 import { AppStateType } from '../../../../../redux/redux-store';
 import { ArticleType, CategoryType, RolesType, RoleType } from '../../../../../types/types';
 import { ArticleFormType } from './edit-article-container';
+import { useNavigate } from 'react-router-dom';
 
 type MapStatePropsType = {
     article: ArticleType
@@ -27,7 +27,7 @@ type PropsType = MapStatePropsType & MapDispatchPropsType;
 
 const EditArticle: React.FC<InjectedFormProps<ArticleFormType<string>> & PropsType> = (props) => {
 
-    let [{ query },, replaceState] = useLocationState();
+    let navigate = useNavigate();
 
     useEffect(() => {
         if(props.article) {            
@@ -57,7 +57,7 @@ const EditArticle: React.FC<InjectedFormProps<ArticleFormType<string>> & PropsTy
 
     const saveAndExit = (props) => {
         props.handleSubmit();
-        replaceState("/adminBoard/articles");
+        navigate("/adminBoard/articles");
 
         //props.setChangeArticles();
         
