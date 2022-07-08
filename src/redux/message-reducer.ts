@@ -2,6 +2,7 @@ import { messageAPI } from "../api/message-api";
 import { BaseThunkType, InferActionsTypes } from "./redux-store";
 
 let initialState = {
+    isLoading: false,
     sentMessage: false,
     error: null as string | null
 };
@@ -22,6 +23,12 @@ const messageReducer = (state = initialState, action: ActionsType): InitialState
                 error: action.error,
             }
         }
+        case 'message/SET_ISLOADING': {
+            return {
+                ...state,
+                isLoading: action.isLoading
+            }
+        }
         default: 
             return state;
     }
@@ -35,19 +42,24 @@ export const actions = {
     },
     getError: (error: string) => {
         return { type: 'message/SET_ERROR', error: error } as const;
+    },
+    setIsLoading: (isLoading: boolean) => {
+        return { type: 'message/SET_ISLOADING', isLoading } as const;
     }
 }
 
 type ThunkType = BaseThunkType<ActionsType>;
 
-export const sendMessageToServer = (email: string, message: string): ThunkType => async (dispatch) => {
-    let data = await messageAPI.send(email, message);
+export const sendMessageToServer = (name: string, email: string, message: string): ThunkType => async (dispatch) => {
+    dispatch(actions.setIsLoading(true)); 
+    let data = await messageAPI.send(name, email, message);
     if(data.error) {
         dispatch(actions.getError(data.error));
     } else {
         dispatch(actions.getError(null));
     }
     dispatch(actions.sendMessage());  
+    dispatch(actions.setIsLoading(false)); 
 }
 
 

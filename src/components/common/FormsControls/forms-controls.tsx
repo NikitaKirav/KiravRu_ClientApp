@@ -1,4 +1,5 @@
 /** Absolute imports */
+import classNames from 'classnames';
 import React from 'react';
 import CKEditor from "react-ckeditor-component";
 import { Field, WrappedFieldMetaProps, WrappedFieldProps } from 'redux-form';
@@ -42,12 +43,16 @@ export const Textarea: React.FC<WrappedFieldProps> = (props) => {
     );
 }
 
-export const Input: React.FC<WrappedFieldProps> = (props) => {
-    const {input, meta, ...restProps} = props;
+interface ClassNameType {
+    className: any;
+}
+
+export const Input: React.FC<WrappedFieldProps & ClassNameType> = (props) => {
+    const {input, meta, className, ...restProps} = props;
 
     return (
         <FormControl {...props}>
-            <input {...input} {...props} className={classes.input} />
+            <input {...input} {...props} className={classNames(classes.input, className)} />
         </FormControl>
 );
 }

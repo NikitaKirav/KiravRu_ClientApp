@@ -9,7 +9,7 @@ import { sendMessageToServer } from '../../redux/message-reducer';
 const TextMeContainer = (props) => {
 
     const sendMessage = (values) => {
-        props.sendMessageToServer(values.email, values.message);
+        props.sendMessageToServer(values.name, values.email, values.message);
     }
 
     return (

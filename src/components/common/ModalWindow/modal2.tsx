@@ -30,7 +30,7 @@ const Modal2 = ({
                             {children}
                         </div>
                         <div className="modalFooter">
-                            <button className="btn btnSuccess" onClick={onCancel}>Ok</button>
+                            <button className="submitButton" onClick={onCancel}>OK</button>
                         </div>
                     </div>
 

@@ -16,9 +16,9 @@ import s from './text-me.module.less';
 
 const TextMe = (props) => {
 
-    let [isOpen, setIsOpen] = useState(false);
-    let [isSend, setSend] = useState(false);
-    let [sendResult, setSendResult] = useState("Email sent successfully!");
+    const [isOpen, setIsOpen] = useState(false);
+    const [isSend, setSend] = useState(false);
+    const [sendResult, setSendResult] = useState("Email sent successfully!");
 
     useEffect(() => {
         if (isSend) {
@@ -58,8 +58,7 @@ const TextMe = (props) => {
                         <div className={classNames(s.linkedin, s.logo)} data-title="LINKEDIN"></div>
                     </a>
                 </div>
-            <h3>Send me an email</h3>
-                {isSend ? <Preloader /> : ""}
+            <h3>Send me an email</h3>                
                 <form onSubmit={props.handleSubmit}>
                     <div className={s.formBlock}>
                         <div className={s.rightColumn}>
@@ -79,9 +78,10 @@ const TextMe = (props) => {
                         </div>
                     </div>
                     <div>  
-                        <input className={s.submitButton} type="submit" value="SUBMIT" onClick={onSend} />
+                        <input className={s.submitButton} type="submit" value="SUBMIT" onClick={onSend} disabled={props.isLoading} />
                     </div>
                 </form>
+                {isSend && <Preloader />}
         </div>
         <Modal2 title="Send message" isOpen={isOpen} onCancel={handleCancel}>
             <p>{sendResult}</p>
@@ -94,7 +94,8 @@ let TextMeFormRedux = reduxForm({form: "TextMeForm"})(TextMe);
 
 const mapStateToProps = (state) => ({
     sentMessage: state.message.sentMessage,
-    errors: state.message.error
+    errors: state.message.error,
+    isLoading: state.message.isLoading
 });
 
 export default connect(mapStateToProps, null)(TextMeFormRedux);
