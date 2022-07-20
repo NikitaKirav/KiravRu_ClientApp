@@ -64,8 +64,8 @@ const BannerEffectUrsa: React.FC<MapStatePropsType> = (props) => {
     }
 
     const onMouseMove = (e: MouseEvent) => {
-        const mouseX = parseInt((100 * e.clientX / window.innerWidth).toFixed(2));
-        const mouseY = parseInt((100 * e.clientY / props.height).toFixed(2));
+        const mouseX = parseFloat((100 * e.clientX / window.innerWidth).toFixed(2));
+        const mouseY = parseFloat((100 * e.clientY / props.height).toFixed(2));
 
         [].forEach.call(links, (link: HTMLElement, index: number) => {
             const text = texts[index];

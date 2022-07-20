@@ -15,7 +15,7 @@ import s from './articles.module.less';
 
 type PropsType = {
     blog: ArticlesStateType
-    onPageChanged: (pageIndex: number) => void
+    onPageChanged: (pageIndex: number) => void 
 }
 
 const Articles: React.FC<PropsType> = (props) => {

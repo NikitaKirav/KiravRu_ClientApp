@@ -7,7 +7,7 @@ import BannerEffectUrsa from './components/UrsaEffect/banner-effect-ursa';
 
 /** Styles */
 import classes from './banner.module.less';
-
+import classNames from "classnames";
 
 const Banner = () => {
 
@@ -45,7 +45,8 @@ const Banner = () => {
             <section className={classes.imageBackground}>
             <div id={classes.parallax} ref={parallaxRef}>
                 <div className={classes.ava}><div id={classes.avatar}></div></div>
-                <h1 className={classes.title}>Hi, I'm Nikita</h1>              
+                <h2 className={classNames(classes.title, classes.animTypewriter1)}>Hi, I'm Nikita</h2>
+                <h2 className={classNames(classes.title, classes.animTypewriter2)}>I'm a programmer</h2>              
             </div>
             </section>
             {window.innerWidth > 1200 ? <BannerEffectUrsa height={468} paddingTop={57} /> :''}

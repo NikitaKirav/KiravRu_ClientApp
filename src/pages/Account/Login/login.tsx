@@ -32,7 +32,7 @@ const Login: React.FC<InjectedFormProps<LoginFormValuesType>> = ({handleSubmit, 
                 </div>
                 <div className={classes.shift}></div>
                 <button className={classNames(classes.btn, classes.btnPrimary)}>SUBMIT</button>
-                <NavLink className={classes.register} to="/register">Registration on the site</NavLink>
+                <NavLink className={classes.register} to="/register">Registration</NavLink>
             </div>
         </div>
     </form>

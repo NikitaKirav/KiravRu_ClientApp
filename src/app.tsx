@@ -37,6 +37,8 @@ const Projects = React.lazy(() => import('./Projects/projects'));
 const FileBro = React.lazy(() => import('./Projects/FileBro/file-bro'));
 const LetsDrink = React.lazy(() => import('./Projects/LetsDrink/letsdrink'));
 const Izmailovo = React.lazy(() => import('./Projects/Izmailovo/izmailovo'));
+const TypeStory = React.lazy(() => import('./Projects/TypeStory/type-story'));
+const ParallaxBanner = React.lazy(() => import('./Projects/ParallaxBanner/parallax-banner'));
 
 type MapPropsType = ReturnType<typeof mapStateToProps>;
 type DispatchPropsType = {
@@ -96,6 +98,8 @@ const App: React.FC<MapPropsType & DispatchPropsType> = (props) => {
 					<Route path='/works/filebro' element={ <LazyLoadComponent component={<FileBro  />}/> } />
 					<Route path='/works/letsdrink' element={ <LazyLoadComponent component={<LetsDrink  />}/> } />
 					<Route path='/works/izmailovo' element={ <LazyLoadComponent component={<Izmailovo  />}/> } />
+					<Route path='/works/typestory' element={ <LazyLoadComponent component={<TypeStory  />}/> } />
+					<Route path='/works/parallax_banner' element={ <LazyLoadComponent component={<ParallaxBanner />}/> } />
 					<Route path='/works' element={ <LazyLoadComponent component={<Projects  />}/> } />				
 					<Route path='/login' element={ <LoginContainer /> } />
 					<Route path='/register' element={ <RegisterContainer /> } />

@@ -79,8 +79,8 @@ const AboutMe = () => {
                             <div className={s.skill}>Microsoft IIS</div> <div className={s.skill}>Apache</div><div className={s.skill}>NGINX</div>
                         </div>
                         <div className={s.skillsRow}>
-                            <div className={s.titleSkill}><h4 className={s.labelH4}>{`DevOps Automation & Version Control Tools:`}</h4></div>
-                            <div className={s.skill}>Git</div> <div className={s.skill}>Jenkins</div> <div className={s.skill}>Deployment Automation Jobs</div>
+                            <div className={s.titleSkill}><h4 className={s.labelH4}>{`DevOps Automation & Other Tools:`}</h4></div>
+                            <div className={s.skill}>Git</div> <div className={s.skill}>Docker</div> <div className={s.skill}>Jenkins</div> <div className={s.skill}>Deployment Automation Jobs</div>
                         </div>   
                         <div className={s.skillsRow}>
                             <div className={s.titleSkill}><h4 className={s.labelH4}>{`2D,3D Modeling Software:`}</h4></div>

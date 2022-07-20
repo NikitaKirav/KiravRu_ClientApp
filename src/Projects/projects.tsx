@@ -4,9 +4,11 @@ import ElementProjects from './element-projects';
 import classes from './projects.module.less';
 import artCanvasImage from '../../assets/images/artCanvas.jpg';
 import fileBroImage  from '../../assets/images/fileBro.jpg';
-import messengerImage  from '../../assets/images/messenger.jpg';
+import messengerImage  from '../../assets/images/messenger_v2.jpg';
 import letsdrinkImage  from '../../assets/images/letsdrink.jpg';
 import izmailovoImage  from '../../assets/images/izmailovo.jpg';
+import typestoryImage  from '../../assets/images/typestory-min.jpg';
+import parallaxBanner  from '../../assets/images/parallaxBanner-min.jpg';
 
 const Projects = () => {
     return (
@@ -16,7 +18,13 @@ const Projects = () => {
             <h1>Works</h1>
             <div className={classes.description}>This is the place where you can see my projects and experiments in different IT areas. 
                 From time to time I upload the most interesting ones. So, stay tuned....</div>
-            <div className={classes.borderLineFat}></div>    
+            <div className={classes.borderLineFat}></div>
+            <ElementProjects to='/works/typestory' reloadDocument={false} name='TypeStory' date='DECEMBER 20, 2021' imagePath={typestoryImage}
+                            info={TypeStory} />
+            <div className={classes.borderLine}></div>     
+            <ElementProjects to='/works/parallax_banner' reloadDocument={false} name='Parallax Banner' date='SEPTEMBER 28, 2020' imagePath={parallaxBanner}
+                            info={ParallaxBanner} />
+            <div className={classes.borderLine}></div>     
             <ElementProjects to='/works/artcanvas' reloadDocument={false} name='ArtCanvas' date='OCTOBER 23, 2020' imagePath={artCanvasImage}
                             info={ArtCanvas} />
             <div className={classes.borderLine}></div>                
@@ -34,6 +42,116 @@ const Projects = () => {
         </div>
         </>
     );
+}
+
+const ParallaxBanner = {
+    description: () => {
+        return (
+            <>
+            <p>Banner with a parallax effect.</p>
+            </>
+        );
+    },
+    myRole: () => {
+        return (
+            <>
+                <p>Design, drawing elements and preparing them for web publication, programming of all motion effects of the banner.</p>
+            </>
+        );
+    },
+    projectDifficulties: () => {
+        return (
+            <>
+                <p>The main difficulty of the project was to bring the vague idea to life.</p>
+            </>
+        );
+    },
+    mySolution: () => {
+        return (
+            <>
+                <p>Dozens of sketches were made. Then each element of the banner was drawn separately and then I put everything together using HTML, CSS and Javascript.</p>
+            </>
+        );
+    },
+    notableFeatures: () => {
+        return (
+            <>
+            <ul>
+                <li>Parallax effect</li>
+                <li>Ursa effect</li>
+                <li>Typing text effect</li>
+            </ul>
+            </>
+        );
+    },
+    technologiesUsed: () => {
+        return (
+            <>
+            <ul>
+                <li>JavaScript</li>
+                <li>Less</li>
+                <li>Photoshop</li>
+                <li>CorelDraw</li>
+            </ul>
+            </>
+        );
+    }
+}
+
+const TypeStory = {
+    description: () => {
+        return (
+            <>
+            <p>Application for typing tasks and their solutions. It helps to structure your thoughts.</p>
+            </>
+        );
+    },
+    myRole: () => {
+        return (
+            <>
+                <p>Develop an application according to the customer's design. Publishing the application on Firebase hosting with the client's domain name.</p>
+            </>
+        );
+    },
+    projectDifficulties: () => {
+        return (
+            <>
+                <p>Application must works without Registration. Users should have an opportunity for exploration of the application and then if they like it, 
+                    register there and all information must get to Firebase database. Besides the application must work with unstable internet connection.</p>
+            </>
+        );
+    },
+    mySolution: () => {
+        return (
+            <>
+                <p>It was implemented in Local Storage. Thus, the user can use the application without registering, logging out of the session or having no 
+                    Internet connection. After registering or logging in, the app syncs with the Cloud Firestore (Firebase) database.</p>
+            </>
+        );
+    },
+    notableFeatures: () => {
+        return (
+            <>
+            <ul>
+                <li>It works without registration, login and unstable internet connection</li>
+                <li>Saves all changes to localStorage and syncs to server, when it's possible</li>
+            </ul>
+            </>
+        );
+    },
+    technologiesUsed: () => {
+        return (
+            <>
+            <ul>
+                <li>React</li>
+                <li>Redux</li>
+                <li>Sagas</li>
+                <li>GitLab</li>
+                <li>Firebase Cloud Firestore</li>
+            </ul>
+            </>
+        );
+    }
 }
 
 const ArtCanvas = {
