@@ -82,7 +82,6 @@ export const setChangeArticles = (): BaseThunkType<ActionsType, void> => (dispat
 }
 
 export const getArticles = (pageIndex: number, pageSize: number, s: string, sort: string): ThunkType => async (dispatch) => {
-    console.log("getArticles")
     checkLifetimeToken();
     let articles = await blogAPI.getArticles(pageIndex, pageSize, s, sort);
     dispatch(actions.setArticles(articles.items, articles.totalCount, articles.errors));

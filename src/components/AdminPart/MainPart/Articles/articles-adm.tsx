@@ -42,7 +42,7 @@ const ArticlesAdm = (props) => {
     if(!props.articles) {
         return <Preloader />;
     }
-console.log("Articles")
+
     return (
         <div className="listArticles">
             <div className="title">

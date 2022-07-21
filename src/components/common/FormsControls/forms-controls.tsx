@@ -77,9 +77,7 @@ export const CheckboxGroup: React.FC<WrappedFieldProps & CheckboxGroupOwnPropsTy
 
     const checkboxGroup = () => {
         let {options, input} = props;
-
         return options.map((option, index) => {
-            const checked = option.name === 'admin' ? true : input.value.indexOf(option.name) !== -1;
             return (
             <div className="checkbox" key={index}>
                 <label>
@@ -87,7 +85,7 @@ export const CheckboxGroup: React.FC<WrappedFieldProps & CheckboxGroupOwnPropsTy
                            name={`${input.name}[${index}]`}
                            value={option.name}
                            disabled={option.name === 'admin'}
-                           checked={checked}
+                           checked={input.value.indexOf(option.name) !== -1}
                            onChange={(event) => {
                                const newValue = [...input.value];
                                if (event.target.checked) {

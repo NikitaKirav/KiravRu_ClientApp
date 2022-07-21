@@ -43,7 +43,7 @@ const EditArticle: React.FC<InjectedFormProps<ArticleFormType<string>> & PropsTy
                 IsFavorite: props.article.isFavorite,
                 Visible: props.article.visible,
                 CategoryId: props.article.categoryId === 0 ? '1' : String(props.article.categoryId),
-                Roles: props.listRoles.userRoles,
+                Roles: [...props.listRoles.userRoles, 'admin'],
                 Text: props.article.text,
             });   
         }
