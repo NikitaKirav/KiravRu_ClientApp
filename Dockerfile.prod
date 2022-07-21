@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY package.json /app
 
+RUN npm install --location=global npm@8.15.0
 RUN npm install
 
 COPY . /app
