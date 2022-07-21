@@ -9,6 +9,9 @@
 # production
 /production
 
+obj/
+Obj/
+
 # misc
 .DS_Store
 .env.local
