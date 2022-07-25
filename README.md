@@ -3,14 +3,14 @@ This is a frontend part of the site [kirav.ru](https://kirav.ru/).
 
 ![screenshot of Kirav.ru](https://kirav.ru/images/articles/images_for_github/kiravru/20220723070133screen_kirav_ru-min.jpg)
 
-Project use the following technologies:
+Project uses the following technologies:
 - [x] Frontend: React + Redux, Thunk, TypeScript, Webpack
 - [ ] Backend: ASP.NET Core 3.1, Entity Framework
 - [ ] Database: PostgreeSQL
 
 - [x] - current repository
 
-Also you can find Dockerfile.prod in the project. Use it in your case, it saves you a lot of time.
+Also you can find Dockerfile.prod in the project. You may use it if you like, it saves a lot of time.
 This project was prepared with another big project [KiravRu_WebApi](https://github.com/NikitaKirav/KiravRu_WebApi). There you can find a file docker-compose.yml, nginx.conf and also some useful bash scripts (for Deployment Automation and getting free ssl for your site).
 
 ## Available Scripts

@@ -42,14 +42,14 @@ const TypeStory = (props) => {
             <div className={s.contentText}>
                 <p><span className={s.textGreen}>Source:</span> <a href='https://typestory.xyz/' target="_blank">typestory.xyz</a></p>
                 
-                <p>Application in <span className={s.textRed}>Neomorphism style</span> for typing tasks and their solutions. It helps to structure your thoughts.</p>
+                <p><span className={s.textRed}>Neomorphism style</span> application for typing tasks and their solutions. It helps to structure your thoughts.</p>
                 <p>The design of the project was developed by the customer and presented in <span className={s.textRed}>Figma.</span></p>
                 <h2>My work included:</h2>
                 <p>{`1) Develop an application according to the customer's design.`}</p>
-                <p>Application must works without Registration. Users should have an opportunity for exploration of the application and then if they like it, 
-                    register there and all information must get to Firebase database. Besides the application must work with unstable internet connection.</p>
-                <p>{`2) It was implemented in Local Storage. Thus, the user can use the application without registering, logging out of the session or having no 
-                    Internet connection. After registering or logging in, the app syncs with the`}<span className={s.textRed}>{` Cloud Firestore (Firebase)`}</span>{` database.`}</p>
+                <p>Application must work without Registration. Users should have an opportunity to explore the app and then if they like it, 
+                    register there and then all information must be sent to Firebase database. Besides the application must work with unstable internet connection.</p>
+                <p>{`2) It was implemented in Local Storage. Thus, the user can use the application without registering, logging out of the session or having no-Internet 
+                connection. After registering or logging in, the app syncs with the`}<span className={s.textRed}>{` Cloud Firestore (Firebase)`}</span>{` database.`}</p>
                 <p>{`3) Publishing the application on Firebase hosting with the client's domain name.`}</p>
 
                 <p><span className={s.textGreen}>{`Technologies Used:`}</span> {`React (Redux + Sagas), GitLab, Firebase Cloud Firestore`}</p>

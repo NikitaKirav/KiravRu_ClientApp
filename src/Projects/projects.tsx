@@ -55,7 +55,7 @@ const ParallaxBanner = {
     myRole: () => {
         return (
             <>
-                <p>Design, drawing elements and preparing them for web publication, programming of all motion effects of the banner.</p>
+                <p>Design, drawing elements and preparing them for web publication, programming of all motion effects.</p>
             </>
         );
     },
@@ -116,8 +116,8 @@ const TypeStory = {
     projectDifficulties: () => {
         return (
             <>
-                <p>Application must works without Registration. Users should have an opportunity for exploration of the application and then if they like it, 
-                    register there and all information must get to Firebase database. Besides the application must work with unstable internet connection.</p>
+                <p>Application must work without Registration. Users should have an opportunity to explore the app and then if they like it, 
+                    register there and then all information must be sent to Firebase database. Besides the application must work with unstable internet connection.</p>
             </>
         );
     },
@@ -133,7 +133,7 @@ const TypeStory = {
         return (
             <>
             <ul>
-                <li>It works without registration, login and unstable internet connection</li>
+                <li>It works without registration, loging-in and unstable internet connection</li>
                 <li>Saves all changes to localStorage and syncs to server, when it's possible</li>
             </ul>
             </>
