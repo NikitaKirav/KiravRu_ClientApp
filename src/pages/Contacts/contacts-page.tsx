@@ -7,7 +7,7 @@ import TextMeContainer from '../../components/TextMe/text-me-container';
 /** Styles */
 import classes from './contacts-page.module.less';
 
-export const ContactsPage = () => {
+const ContactsPage = () => {
     
     return (
         <div className={classes.contactsPage}>
@@ -15,3 +15,5 @@ export const ContactsPage = () => {
         </div>
     );
 }
+
+export default ContactsPage;

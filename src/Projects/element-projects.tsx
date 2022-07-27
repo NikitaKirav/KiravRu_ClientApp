@@ -18,7 +18,7 @@ type OwnProps = {
     to: string 
     name: string 
     date: string 
-    imagePath: string
+    imagePath: { jpg: string, webp: string }
     info: Description
     reloadDocument: boolean
 }
@@ -41,7 +41,13 @@ const ElementProjects: React.FC<OwnProps> = (props) => {
                         </tr>
                     </tbody>
                 </table>
-                <NavLink to={props.to} reloadDocument={props.reloadDocument} ><img src={props.imagePath} className={s.projectImage} title={props.name} width="300px"/></NavLink>
+                <NavLink to={props.to} reloadDocument={props.reloadDocument} >
+                    <picture>
+                        <source srcSet={props.imagePath.webp} type="image/webp" />
+                        <source srcSet={props.imagePath.jpg} type="image/jpg" />
+                        <img src={props.imagePath.jpg} className={s.projectImage} title={props.name} width="300px"/>
+                    </picture>
+                </NavLink>
                 {/*<div className={s.links}>
                     <div className={s.preview}><PlaySquareOutlined /><span className={s.linkText}>Live Preview</span></div>
                     <div className={s.source}><GithubOutlined /><span className={s.linkText}>Source Private</span></div>

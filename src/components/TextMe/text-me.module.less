@@ -1,5 +1,7 @@
 @githab_path: "../../../assets/images/githab.png";
+@githab_webp_path: "../../../assets/images/githab.webp";
 @linkedin_path: "../../../assets/images/linkedin.png";
+@linkedin_webp_path: "../../../assets/images/linkedin.webp";
 
 .contentAboutMe {
     max-width: 1150px;
@@ -100,6 +102,22 @@
     height:130px;
 }
 
+:global(.no-webp) .githab {
+    background: url(@githab_path) no-repeat;
+}
+
+:global(.no-webp) .linkedin {
+    background: url(@linkedin_path) no-repeat;
+}
+
+:global(.webp) .githab {
+    background: url(@githab_webp_path) no-repeat;
+}
+
+:global(.webp) .linkedin {
+    background: url(@linkedin_webp_path) no-repeat;
+}
+
 .socialMediaLogos {
     display: flex;
     justify-content: flex-start;
@@ -107,7 +125,6 @@
     cursor: pointer;
 
     .githab {
-        background: url(@githab_path) no-repeat;
         height: 45px;
         width: 46px;
         position: relative;
@@ -119,7 +136,6 @@
     }
 
     .linkedin {
-        background: url(@linkedin_path) no-repeat;
         height: 45px;
         width: 46px;
         position: relative;

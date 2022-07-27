@@ -58,6 +58,16 @@ module.exports = {
               { from: './assets/ckeditor/', to: './ckeditor/' }
             ],
           }),
+        new CopyPlugin({
+            patterns: [
+              { from: './assets/js/', to: './' }
+            ],
+          }),
+        new CopyPlugin({
+            patterns: [
+              { from: './assets/css/', to: './' }
+            ],
+          }),
         new ESLintPlugin()
     ],
     resolve: {
@@ -81,7 +91,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
                 type: 'asset/resource',
             },
             /*{

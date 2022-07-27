@@ -10,6 +10,13 @@ import letsdrinkImage_004 from '../../../assets/images/letsdrink_004.jpg';
 import letsdrinkImage_005 from '../../../assets/images/letsdrink_005.jpg';
 import letsdrinkImage_006 from '../../../assets/images/letsdrink_006.jpg';
 import letsdrinkImage_007 from '../../../assets/images/letsdrink_007.jpg';
+import letsdrinkImage_001_webp from '../../../assets/images/letsdrink_001.webp';
+import letsdrinkImage_002_webp from '../../../assets/images/letsdrink_002.webp';
+import letsdrinkImage_003_webp from '../../../assets/images/letsdrink_003.webp';
+import letsdrinkImage_004_webp from '../../../assets/images/letsdrink_004.webp';
+import letsdrinkImage_005_webp from '../../../assets/images/letsdrink_005.webp';
+import letsdrinkImage_006_webp from '../../../assets/images/letsdrink_006.webp';
+import letsdrinkImage_007_webp from '../../../assets/images/letsdrink_007.webp';
 
 /** Styles */
 import s from './letsdrink.module.less';
@@ -37,13 +44,41 @@ const LetsDrink = (props) => {
                     It was a very interesting online shop because it was automatically updated depending on changes in provider's sites. 
                     Every three hours such points as an availability of goods and their prices were updated.
                     My work included: design project, landing, SEO optimization, set up plugins and also developing new plugins by using PHP and JavaScript. </p>
-                <img src={letsdrinkImage_001} className={s.letsdrinkImg} title="letsDrinkScreenShot" />  
-                <img src={letsdrinkImage_002} className={s.letsdrinkImg} title="letsDrinkScreenShot" />  
-                <img src={letsdrinkImage_003} className={s.letsdrinkImg} title="letsDrinkScreenShot" />       
-                <img src={letsdrinkImage_004} className={s.letsdrinkImg} title="letsDrinkScreenShot" />     
-                <img src={letsdrinkImage_005} className={s.letsdrinkImg} title="letsDrinkScreenShot" />    
-                <img src={letsdrinkImage_006} className={s.letsdrinkImg} title="letsDrinkScreenShot" /> 
-                <img src={letsdrinkImage_007} className={s.letsdrinkImg} title="letsDrinkScreenShot" />          
+                    <picture>
+                        <source srcSet={letsdrinkImage_001_webp} type="image/webp" />
+                        <source srcSet={letsdrinkImage_001} type="image/jpg" />
+                        <img src={letsdrinkImage_001} className={s.letsdrinkImg} title="letsDrinkScreenShot" /> 
+                    </picture>
+                    <picture>
+                        <source srcSet={letsdrinkImage_002_webp} type="image/webp" />
+                        <source srcSet={letsdrinkImage_002} type="image/jpg" />
+                        <img src={letsdrinkImage_002} className={s.letsdrinkImg} title="letsDrinkScreenShot" /> 
+                    </picture>
+                    <picture>
+                        <source srcSet={letsdrinkImage_003_webp} type="image/webp" />
+                        <source srcSet={letsdrinkImage_003} type="image/jpg" />
+                        <img src={letsdrinkImage_003} className={s.letsdrinkImg} title="letsDrinkScreenShot" /> 
+                    </picture>
+                    <picture>
+                        <source srcSet={letsdrinkImage_004_webp} type="image/webp" />
+                        <source srcSet={letsdrinkImage_004} type="image/jpg" />
+                        <img src={letsdrinkImage_004} className={s.letsdrinkImg} title="letsDrinkScreenShot" /> 
+                    </picture>
+                    <picture>
+                        <source srcSet={letsdrinkImage_005_webp} type="image/webp" />
+                        <source srcSet={letsdrinkImage_005} type="image/jpg" />
+                        <img src={letsdrinkImage_005} className={s.letsdrinkImg} title="letsDrinkScreenShot" /> 
+                    </picture>
+                    <picture>
+                        <source srcSet={letsdrinkImage_006_webp} type="image/webp" />
+                        <source srcSet={letsdrinkImage_006} type="image/jpg" />
+                        <img src={letsdrinkImage_006} className={s.letsdrinkImg} title="letsDrinkScreenShot" /> 
+                    </picture>
+                    <picture>
+                        <source srcSet={letsdrinkImage_007_webp} type="image/webp" />
+                        <source srcSet={letsdrinkImage_007} type="image/jpg" />
+                        <img src={letsdrinkImage_007} className={s.letsdrinkImg} title="letsDrinkScreenShot" /> 
+                    </picture>
             </div>
         </div>
     );

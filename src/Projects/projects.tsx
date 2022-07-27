@@ -1,5 +1,4 @@
 import React from 'react';
-import { Description } from '../components/Description/description';
 import ElementProjects from './element-projects';
 import classes from './projects.module.less';
 import artCanvasImage from '../../assets/images/artCanvas.jpg';
@@ -9,6 +8,13 @@ import letsdrinkImage  from '../../assets/images/letsdrink.jpg';
 import izmailovoImage  from '../../assets/images/izmailovo.jpg';
 import typestoryImage  from '../../assets/images/typestory-min.jpg';
 import parallaxBanner  from '../../assets/images/parallaxBanner-min.jpg';
+import artCanvasImage_webp from '../../assets/images/artCanvas.webp';
+import fileBroImage_webp  from '../../assets/images/fileBro.webp';
+import messengerImage_webp  from '../../assets/images/messenger_v2.webp';
+import letsdrinkImage_webp  from '../../assets/images/letsdrink.webp';
+import izmailovoImage_webp  from '../../assets/images/izmailovo.webp';
+import typestoryImage_webp  from '../../assets/images/typestory-min.webp';
+import parallaxBanner_webp  from '../../assets/images/parallaxBanner-min.webp';
 
 const Projects = () => {
     return (
@@ -19,25 +25,25 @@ const Projects = () => {
             <div className={classes.description}>This is the place where you can see my projects and experiments in different IT areas. 
                 From time to time I upload the most interesting ones. So, stay tuned....</div>
             <div className={classes.borderLineFat}></div>
-            <ElementProjects to='/works/typestory' reloadDocument={false} name='TypeStory' date='DECEMBER 20, 2021' imagePath={typestoryImage}
+            <ElementProjects to='/works/typestory' reloadDocument={false} name='TypeStory' date='DECEMBER 20, 2021' imagePath={{jpg: typestoryImage, webp: typestoryImage_webp}}
                             info={TypeStory} />
             <div className={classes.borderLine}></div>     
-            <ElementProjects to='/works/parallax_banner' reloadDocument={false} name='Parallax Banner' date='SEPTEMBER 28, 2020' imagePath={parallaxBanner}
+            <ElementProjects to='/works/parallax_banner' reloadDocument={false} name='Parallax Banner' date='SEPTEMBER 28, 2020' imagePath={{jpg: parallaxBanner, webp: parallaxBanner_webp}}
                             info={ParallaxBanner} />
             <div className={classes.borderLine}></div>     
-            <ElementProjects to='/works/artcanvas' reloadDocument={false} name='ArtCanvas' date='OCTOBER 23, 2020' imagePath={artCanvasImage}
+            <ElementProjects to='/works/artcanvas' reloadDocument={false} name='ArtCanvas' date='OCTOBER 23, 2020' imagePath={{jpg: artCanvasImage, webp: artCanvasImage_webp}}
                             info={ArtCanvas} />
             <div className={classes.borderLine}></div>                
-            <ElementProjects to='/works/izmailovo' reloadDocument={false} name="Hotel client-server application" date='NOVEMBER 20, 2019' imagePath={izmailovoImage}
+            <ElementProjects to='/works/izmailovo' reloadDocument={false} name="Hotel client-server application" date='NOVEMBER 20, 2019' imagePath={{jpg: izmailovoImage, webp: izmailovoImage_webp}}
                             info={Izmailovo} />
             <div className={classes.borderLine}></div>
-            <ElementProjects to='/works/messenger' reloadDocument={true} name='Messenger' date='OCTOBER 20, 2020' imagePath={messengerImage}
+            <ElementProjects to='/works/messenger' reloadDocument={true} name='Messenger' date='OCTOBER 20, 2020' imagePath={{jpg: messengerImage, webp: messengerImage_webp}}
                             info={Messenger} />
             <div className={classes.borderLine}></div>
-            <ElementProjects to='/works/filebro' reloadDocument={false} name='FileBro' date='OCTOBER 19, 2020' imagePath={fileBroImage}
+            <ElementProjects to='/works/filebro' reloadDocument={false} name='FileBro' date='OCTOBER 19, 2020' imagePath={{jpg: fileBroImage, webp: fileBroImage_webp}}
                             info={FileBro} />
             <div className={classes.borderLine}></div>
-            <ElementProjects to='/works/letsdrink' reloadDocument={false} name="Let's drink" date='NOVEMBER 20, 2019' imagePath={letsdrinkImage}
+            <ElementProjects to='/works/letsdrink' reloadDocument={false} name="Let's drink" date='NOVEMBER 20, 2019' imagePath={{jpg: letsdrinkImage, webp: letsdrinkImage_webp}}
                             info={Letsdrink} />
         </div>
         </>

@@ -4,6 +4,7 @@
 @background_homePage_path: "../../../../../assets/images/background-homePage.jpg";
 
 @ava_path: "../../../../../assets/images/ava.png";
+@ava_webp_path: "../../../../../assets/images/ava.webp";
 
 #parallax {
     h1 {
@@ -23,8 +24,15 @@
     overflow: hidden;
 }
 
-#avatar {
+:global(.no-webp) #avatar {
     background: url(@ava_path) no-repeat center bottom;
+}
+
+:global(.webp) #avatar {
+    background: url(@ava_webp_path) no-repeat center bottom;
+}
+
+#avatar {
     height: 143px;
     width: 160px;
     position: relative;

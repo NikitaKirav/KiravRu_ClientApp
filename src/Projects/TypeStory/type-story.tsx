@@ -9,7 +9,10 @@ import typeStoryImage1 from '../../../assets/images/typestory001-min.jpg';
 import typeStoryImage2 from '../../../assets/images/typestory002-min.jpg';
 import typeStoryImage3 from '../../../assets/images/typestory003-min.jpg';
 import typeStoryImage4 from '../../../assets/images/typestory004-min.jpg';
-import githubOutlined from '../../../assets/images/githab-v3.png';
+import typeStoryImage1_webp from '../../../assets/images/typestory001-min.webp';
+import typeStoryImage2_webp from '../../../assets/images/typestory002-min.webp';
+import typeStoryImage3_webp from '../../../assets/images/typestory003-min.webp';
+import typeStoryImage4_webp from '../../../assets/images/typestory004-min.webp';
 
 /** Styles */
 import s from './type-story.module.less';
@@ -32,6 +35,7 @@ const TypeStory = (props) => {
     },[]);
 
     const slideImages = [typeStoryImage1, typeStoryImage2, typeStoryImage3, typeStoryImage4];
+    const slideImages_webp = [typeStoryImage1_webp, typeStoryImage2_webp, typeStoryImage3_webp, typeStoryImage4_webp];
 
     return (
         <div className={s.typeStory}>
@@ -57,7 +61,11 @@ const TypeStory = (props) => {
                     <Fade {...properties}>
                     {slideImages.map((slideImage, index)=> (
                         <div key={index} className={s.typeStoryImg}>
-                            <img style={{ objectFit: "cover", width: "100%" }} alt="Slide Image" src={slideImage} />
+                            <picture>
+                                <source srcSet={slideImages_webp[index]} type="image/webp" />
+                                <source srcSet={slideImage} type="image/jpg" />
+                                <img style={{ objectFit: "cover", width: "100%" }} alt="Slide Image" src={slideImage} /> 
+                            </picture>
                         </div>
                     ))} 
                     </Fade>

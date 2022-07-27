@@ -3,7 +3,8 @@
     font-style: normal;
     font-weight: 400;
     src: local("Swis721 Cn BT"),
-         url("/assets/fonts/swis721cnbtrusbyme_roman.otf") format("opentype")
+         url("/assets/fonts/swis721cnbtrusbyme_roman.woff2") format("woff2"),
+         url("/assets/fonts/swis721cnbtrusbyme_roman.woff") format("woff")
 }
 
 @font-face {
@@ -11,7 +12,8 @@
     font-style: normal;
     font-weight: 400;
     src: local("Corbel Light"),
-         url("/assets/fonts/Corbel Light.ttf") format("truetype")
+         url("/assets/fonts/Corbel Light.woff2") format("woff2"),
+         url("/assets/fonts/Corbel Light.woff") format("woff")
 }
 
 @media only screen and (min-width: 990px) {
@@ -50,4 +52,33 @@
     -webkit-transform: translateX(320px);
     -moz-transform: translateX(320px);
     transform: translateX(320px);
+}
+
+article p {
+    margin: 0 0 1em 0;
+}
+
+@media only screen and (max-width: 989px) {
+    h1 {
+        font-size: 20px;
+    }
+    h4 {
+        font-size: 16px !important;
+        font-weight: 400 !important;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+
+.h2, h2 {
+    font-size: 2rem;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
 }

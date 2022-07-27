@@ -6,6 +6,9 @@ import { NavLink } from 'react-router-dom';
 import izmailovoImage_001 from '../../../assets/images/izmailovo_001.jpg';
 import izmailovoImage_002 from '../../../assets/images/izmailovo_002.jpg';
 import izmailovoImage_003 from '../../../assets/images/izmailovo_003.jpg';
+import izmailovoImage_001_webp from '../../../assets/images/izmailovo_001.webp';
+import izmailovoImage_002_webp from '../../../assets/images/izmailovo_002.webp';
+import izmailovoImage_003_webp from '../../../assets/images/izmailovo_003.webp';
 
 /** Styles */
 import s from './izmailovo.module.less';
@@ -40,9 +43,21 @@ const Izmailovo: React.FC = () => {
                     <p>The App had different plug-ins such as Administration (gives Users different access to the application), 
                         shareholder register (controls payments to shareholders), minds (distributes shifts for maids) and e.t.c.
                     </p>
-                <img src={izmailovoImage_001} className={s.izmailovoImg} title="izmailovoScreenShot" />
-                <img src={izmailovoImage_002} className={s.izmailovoImg} title="izmailovoScreenShot" />
-                <img src={izmailovoImage_003} className={s.izmailovoImg} title="izmailovoScreenShot" />
+                <picture>
+                    <source srcSet={izmailovoImage_001_webp} type="image/webp" />
+                    <source srcSet={izmailovoImage_001} type="image/jpg" />
+                    <img src={izmailovoImage_001} className={s.izmailovoImg} title="izmailovoScreenShot" /> 
+                </picture>
+                <picture>
+                    <source srcSet={izmailovoImage_002_webp} type="image/webp" />
+                    <source srcSet={izmailovoImage_002} type="image/jpg" />
+                    <img src={izmailovoImage_002} className={s.izmailovoImg} title="izmailovoScreenShot" /> 
+                </picture>
+                <picture>
+                    <source srcSet={izmailovoImage_003_webp} type="image/webp" />
+                    <source srcSet={izmailovoImage_003} type="image/jpg" />
+                    <img src={izmailovoImage_003} className={s.izmailovoImg} title="izmailovoScreenShot" /> 
+                </picture>
             </div>
         </div>
     );

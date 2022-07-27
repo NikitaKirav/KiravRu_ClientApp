@@ -13,10 +13,10 @@ import LeftMenu from './components/LeftMenu/left-menu';
 import Footer from './components/Footer/footer';
 
 /** Pages */
-import LoginContainer from './pages/Account/Login/login-container';
-import RegisterContainer from './pages/Account/Register/register-container';
-import Home from './pages/Home/home';
-import { ContactsPage } from './pages/Contacts/contacts-page';
+//import LoginContainer from './pages/Account/Login/login-container';
+//import RegisterContainer from './pages/Account/Register/register-container';
+//import Home from './pages/Home/home';
+//import { ContactsPage } from './pages/Contacts/contacts-page';
 
 /** Store */
 import { initializeApp } from './redux/app-main-reducer';
@@ -39,6 +39,10 @@ const LetsDrink = React.lazy(() => import('./Projects/LetsDrink/letsdrink'));
 const Izmailovo = React.lazy(() => import('./Projects/Izmailovo/izmailovo'));
 const TypeStory = React.lazy(() => import('./Projects/TypeStory/type-story'));
 const ParallaxBanner = React.lazy(() => import('./Projects/ParallaxBanner/parallax-banner'));
+const LoginContainer = React.lazy(() => import('./pages/Account/Login/login-container'));
+const RegisterContainer = React.lazy(() => import('./pages/Account/Register/register-container'));
+const ContactsPage = React.lazy(() => import('./pages/Contacts/contacts-page'));
+const Home = React.lazy(() => import('./pages/Home/home'));
 
 type MapPropsType = ReturnType<typeof mapStateToProps>;
 type DispatchPropsType = {
@@ -61,9 +65,9 @@ const App: React.FC<MapPropsType & DispatchPropsType> = (props) => {
 			document.body.style.overflow = "auto";
 	},[navToggle]);
 	
-	if (!props.initialized) {
-		return <Preloader />
-	}	
+	//if (!props.initialized) {
+		//return <Preloader />
+	//}	
 
 	const pathnameAdmin = /^\/adminBoard/;
 	const pathnameImage = /^\/image\/filebrowse/;
@@ -92,7 +96,7 @@ const App: React.FC<MapPropsType & DispatchPropsType> = (props) => {
 			<TopMenu navToggle={navToggle} />
 			<div className={s.bodyPage}>
 				<Routes>
-					<Route path='/' element={ <Home /> } />
+					<Route path='/' element={ <LazyLoadComponent component={<Home />}/> } />
 					<Route path='/notes/*' element={ <LazyLoadComponent component={<Blog  />}/> } />
 					<Route path='/works/artcanvas' element={ <LazyLoadComponent component={<ArtCanvasPage  />}/> } />
 					<Route path='/works/filebro' element={ <LazyLoadComponent component={<FileBro  />}/> } />
@@ -101,9 +105,9 @@ const App: React.FC<MapPropsType & DispatchPropsType> = (props) => {
 					<Route path='/works/typestory' element={ <LazyLoadComponent component={<TypeStory  />}/> } />
 					<Route path='/works/parallax_banner' element={ <LazyLoadComponent component={<ParallaxBanner />}/> } />
 					<Route path='/works' element={ <LazyLoadComponent component={<Projects  />}/> } />				
-					<Route path='/login' element={ <LoginContainer /> } />
-					<Route path='/register' element={ <RegisterContainer /> } />
-					<Route path='/contacts' element={ <ContactsPage /> } />
+					<Route path='/login' element={ <LazyLoadComponent component={<LoginContainer />}/> } />
+					<Route path='/register' element={ <LazyLoadComponent component={<RegisterContainer />}/> } />
+					<Route path='/contacts' element={ <LazyLoadComponent component={<ContactsPage />}/> } />
 					<Route path='*' element={ () => <div>404 NOT FOUND</div> } />
 				</Routes>	
 			</div>

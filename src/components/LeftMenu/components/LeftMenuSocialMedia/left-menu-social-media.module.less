@@ -1,9 +1,26 @@
 @githab_path: "../../../../../assets/images/githab-v3.png";
 @linkedin_path: "../../../../../assets/images/linkedin-v3.png";
+@githab_webp_path: "../../../../../assets/images/githab-v3.webp";
+@linkedin_webp_path: "../../../../../assets/images/linkedin-v3.webp";
+
+:global(.no-webp) .githab {
+    background: url(@githab_path) no-repeat;
+}
+
+:global(.no-webp) .linkedin {
+    background: url(@linkedin_path) no-repeat;
+}
+
+:global(.webp) .githab {
+    background: url(@githab_webp_path) no-repeat;
+}
+
+:global(.webp) .linkedin {
+    background: url(@linkedin_webp_path) no-repeat;
+}
 
 /* Icons Githab and LinkedIn */
 .githab {
-    background: url(@githab_path) no-repeat;
     height: 29px;
     width: 30px;
     position: relative;
@@ -46,7 +63,6 @@
 
 
 .linkedin {
-    background: url(@linkedin_path) no-repeat;
     height: 29px;
     width: 30px;
     position: relative;
