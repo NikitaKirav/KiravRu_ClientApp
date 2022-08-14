@@ -69,7 +69,7 @@ export const getArticleEdit = (articleId: number): ThunkType => async (dispatch)
     let isToken = checkLifetimeToken();
     if (isToken) {
         try {
-            let {article, categories, roles} = await blogAPI.getArticleEdit(articleId);
+            let {article, categories, roles} = await blogAPI.getArticleForEditing(articleId);
             dispatch(actions.setArticleEdit(article, categories, roles));
         } catch(err) { console.error(err); } 
     }

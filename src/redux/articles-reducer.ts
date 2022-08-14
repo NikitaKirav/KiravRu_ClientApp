@@ -91,7 +91,7 @@ export const getArticles = (pageIndex: number, pageSize: number, s: string, sort
 export const getArticleDelete = (articleId: number): ThunkType => async (dispatch) => {
     let isToken = checkLifetimeToken();
     if (isToken) {
-        await blogAPI.getArticleDelete(articleId)
+        await blogAPI.articleDelete(articleId)
         dispatch(actions.changeArticles());
     }
 }

@@ -39,7 +39,7 @@ type ThunkType = BaseThunkType<ActionsType>;
 export const getCategoryEdit = (categoryId: number): ThunkType => async (dispatch) => {
     let isToken = checkLifetimeToken();
     if (isToken) {
-        let data = await blogAPI.getCategoryEdit(categoryId);
+        let data = await blogAPI.getCategoryForEditing(categoryId);
         dispatch(actions.setCategory(data.category, data.categories));
     }
 }

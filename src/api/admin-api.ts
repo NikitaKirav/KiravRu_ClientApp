@@ -2,29 +2,29 @@ import { instance } from "./kirav-api";
 
 export const adminAPI = {
     getUsers(search = '') {
-        return instance.get(`users/getUsers?search=${search}`);
+        return instance.get(`users/`);
     },
 
     getUser(userId) {
-        return instance.get(`users/getUser?id=${userId}`).then(response => {
+        return instance.get(`users/${userId}`).then(response => {
             return response.data;
         });
     },
 
     postUser(user) {
         if(user.Id === null) {
-            return instance.post(`users/create`, { Email: user.Email, UserName: user.UserName, Password: user.Password }).then(response => {
+            return instance.post(`users/`, { Email: user.Email, UserName: user.UserName, Password: user.Password }).then(response => {
                 return response.data;
             });
         } else {            
-            return instance.post(`users/edit`, { Id: user.Id, Email: user.Email, UserName: user.UserName }).then(response => {
+            return instance.put(`users/`, { Id: user.Id, Email: user.Email, UserName: user.UserName }).then(response => {
                 return response.data;
             });
         }
     },
 
     getChangePassword(userId) {
-        return instance.get(`users/changePassword?id=${userId}`).then(response => {
+        return instance.get(`users/changePassword/${userId}`).then(response => {
             return response.data;
         });
     },
@@ -35,32 +35,32 @@ export const adminAPI = {
         });
     },
 
-    getUserDelete(userId) {
-        return instance.get(`users/delete?id=${userId}`);
+    userDelete(userId) {
+        return instance.delete(`users/${userId}`);
     },
 
     getRoles(search = '') {
-        return instance.get(`roles/getRoles?search=${search}`);
+        return instance.get(`roles/`);
     },
 
-    getRoleDelete(roleId) {
-        return instance.get(`roles/deleteRole?id=${roleId}`);
+    roleDelete(roleId) {
+        return instance.delete(`roles/${roleId}`);
     },
 
     postCreateRole(role) {
-        return instance.post(`roles/createRole`, { name: role.Name }).then(response => {
+        return instance.post(`roles/`, { name: role.Name }).then(response => {
             return response.data;
         });
     },
 
     getUserAccess(userId) {
-        return instance.get(`roles/editRole?userId=${userId}`).then(response => {
+        return instance.get(`roles/${userId}`).then(response => {
             return response.data;
         });
     },
 
     putUpdateAccess(access) {
-        return instance.put(`roles/updateAccess`, { Roles: access.Roles, UserId: access.UserId }).then(response => {
+        return instance.put(`roles/`, { Roles: access.Roles, UserId: access.UserId }).then(response => {
             return response.data;
         });
     }

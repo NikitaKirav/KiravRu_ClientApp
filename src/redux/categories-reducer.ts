@@ -55,7 +55,7 @@ export const getCategories = (search = ''): ThunkType => async (dispatch) => {
 export const deleteCategory = (categoryId: number): ThunkType => async (dispatch) => {
     let isToken = checkLifetimeToken();
     if (isToken) {
-        await blogAPI.getCategoryDelete(categoryId);
+        await blogAPI.categoryDelete(categoryId);
         dispatch(actions.changeArticles());
     }
 } 

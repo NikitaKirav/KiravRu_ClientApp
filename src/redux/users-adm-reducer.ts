@@ -82,7 +82,7 @@ export const getRoles = (search = ''): ThunkType => async (dispatch) => {
 export const deleteUser = (userId: number): ThunkType => async (dispatch) => {
     let isToken = checkLifetimeToken();
     if (isToken) {
-        await adminAPI.getUserDelete(userId);
+        await adminAPI.userDelete(userId);
         dispatch(actions.changeUsers());
     }
 } 
@@ -90,7 +90,7 @@ export const deleteUser = (userId: number): ThunkType => async (dispatch) => {
 export const deleteRole = (roleId: number): ThunkType => async (dispatch) => {
     let isToken = checkLifetimeToken();
     if (isToken) {
-        await adminAPI.getRoleDelete(roleId);
+        await adminAPI.roleDelete(roleId);
         dispatch(actions.changeRoles());
     }
 }
