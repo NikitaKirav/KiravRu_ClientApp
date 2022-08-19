@@ -26,6 +26,7 @@ import store from './redux/redux-store';
 /** Styles */
 import './app.less';
 import s from './app.module.less';
+import NotFound from './pages/NotFound/not-found';
 
 
 /** Lazy load */
@@ -95,7 +96,7 @@ const App: React.FC<MapPropsType & DispatchPropsType> = (props) => {
 		<div className={classNames(s.page, navToggle ? s.leftMenuActive : '')}>
 			<TopMenu navToggle={navToggle} />
 			<div className={s.bodyPage}>
-				<Routes>
+				<Routes>					
 					<Route path='/' element={ <LazyLoadComponent component={<Home />}/> } />
 					<Route path='/notes/*' element={ <LazyLoadComponent component={<Blog  />}/> } />
 					<Route path='/works/artcanvas' element={ <LazyLoadComponent component={<ArtCanvasPage  />}/> } />
@@ -108,7 +109,7 @@ const App: React.FC<MapPropsType & DispatchPropsType> = (props) => {
 					<Route path='/login' element={ <LazyLoadComponent component={<LoginContainer />}/> } />
 					<Route path='/register' element={ <LazyLoadComponent component={<RegisterContainer />}/> } />
 					<Route path='/contacts' element={ <LazyLoadComponent component={<ContactsPage />}/> } />
-					<Route path='*' element={ () => <div>404 NOT FOUND</div> } />
+					<Route path='*' element={ <NotFound /> } />					
 				</Routes>	
 			</div>
 			<Footer />
